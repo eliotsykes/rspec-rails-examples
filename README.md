@@ -17,6 +17,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
   - [Mailer Specs & Docs](#mailer-specs--docs)
   - [Controller Specs & Docs](#controller-specs--docs)
   - [Routing Specs & Docs](#routing-specs--docs)
+- [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
 
@@ -85,3 +86,11 @@ See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/v/3-1/docs) for instal
 ## Routing Specs & Docs
 - [spec/routing/subscriptions_routing_spec.rb](spec/routing/subscriptions_routing_spec.rb)
 - [Routing specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/routing-specs)
+
+---
+
+# Contributors
+
+- Eliot Sykes https://eliotsykes.com/
+- Your name here, contributions are welcome and easy! Just fork the GitHub repo, make your changes, then submit your pull request!
+
