@@ -2,7 +2,8 @@ require 'rails_helper'
 
 
 feature "Subscribe to newsletter", :type => :feature do
-
+  include EmailSpec::Helpers
+  
   scenario "subscribes confirmed user to newsletter" do
 
     # Go to the subscription page
@@ -19,15 +20,17 @@ feature "Subscribe to newsletter", :type => :feature do
       "Please check your inbox and click the confirmation link to complete your subscription."
     )
 
-    # Use email_spec helpers to:
-    # 1. Open the correct email, then
-    # 2. Visit the confirm link in that email
-    open_email "buddy@example.tld", with_subject: "Please confirm"
-    visit_in_email "Confirm your subscription"
+    expect do
+      # Use email_spec helpers to:
+      # 1. Open the correct email, then
+      # 2. Visit the confirm link in that email
+      open_email "buddy@example.tld", with_subject: "Please confirm"
+      visit_in_email "Confirm your subscription"
 
-    expect(current_path).to eq subscribe_confirmed_path
-    expect(page).to have_content "Your subscription has been confirmed, thank you!"
+      expect(current_path).to eq confirm_subscription_path(Subscription.last)
+      expect(page).to have_content "Your subscription has been confirmed, thank you!"
 
+    end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
   end
 
 end
