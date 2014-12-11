@@ -5,6 +5,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'shoulda/matchers'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'email_spec'
