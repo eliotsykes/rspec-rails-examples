@@ -1,31 +1,60 @@
 require 'rails_helper'
 
 RSpec.describe Subscription, :type => :model do
+
+  context "db" do
+    context "indexes" do
+      it { should have_db_index(:email).unique(true) }
+      it { should have_db_index(:confirmation_token).unique(true) }
+    end
+
+    context "columns" do
+      it { should have_db_column(:email).of_type(:string).with_options(limit: 100, null: false) }
+      it { should have_db_column(:confirmation_token).of_type(:string).with_options(limit: 100, null: false) }
+      it { should have_db_column(:confirmed).of_type(:boolean).with_options(default: 'f', null: false) }
+    end
+  end
   
-  xcontext "attributes" do
-    
+  context "attributes" do
+
     it "has email" do
+      expect(Subscription.new(email: "x@y.z")).to have_attributes(email: "x@y.z")
     end
 
     it "has confirmed" do
-      # defaults to false
+      expect(Subscription.new(confirmed: true)).to have_attributes(confirmed: true)
     end
 
     it "has confirmation_token" do
+      expect(Subscription.new(confirmation_token: "what-a-token")).to have_attributes(confirmation_token: "what-a-token")
     end
 
   end
 
-  xcontext "validations" do
+  context "validation" do
     
-    it "validates email is unique" do
+    before do
+      @subscription = Subscription.new(confirmation_token: "token", email: "a@b.c")
     end
 
-    it "validates confirmation_token is unique" do
+    it "requires unique email" do
+      expect(@subscription).to validate_uniqueness_of(:email)
+    end
+
+    it "requires email" do
+      expect(@subscription).to validate_presence_of(:email)
+    end
+
+    it "requires confirmation_token" do
+      expect(@subscription).to validate_presence_of(:confirmation_token)
+    end
+
+    it "requires unique confirmation_token" do
+      expect(@subscription).to validate_uniqueness_of(:confirmation_token)
     end
   end
 
-  context "#to_param" do
+  describe "#to_param" do
     
     it "uses confirmation_token as the default identifier for routes" do
       subscription = Subscription.new(confirmation_token: "hello-im-a-token-123")
@@ -34,7 +63,7 @@ RSpec.describe Subscription, :type => :model do
 
   end
 
-  context "#create_and_request_confirmation!(email)" do
+  describe ".create_and_request_confirmation!(email)" do
     
     it "creates an unconfirmed subscription" do
       email = "subscriber@somedomain.tld"
@@ -56,27 +85,56 @@ RSpec.describe Subscription, :type => :model do
 
     it "emails a confirmation request" do
       expect(SubscriptionMailer)
-        .to receive(:confirmation_request)
+        .to receive(:send_confirmation_request!)
         .with(Subscription)
-        .and_return( double(deliver_now: true) )
       
       email = "subscriber@somedomain.tld"
       
       Subscription.create_and_request_confirmation!(email)
     end
 
-    xit "doesn't create subscription if emailing fails" do
+    it "doesn't create subscription if emailing fails" do
+
+      expect(SubscriptionMailer)
+        .to receive(:send_confirmation_request!)
+        .and_raise("Bad news, delivery failed!")
+
+      email = "subscriber@somedomain.tld"
+      expect do
+        Subscription.create_and_request_confirmation!(email)
+      end.to raise_error "Bad news, delivery failed!"
+
+      expect(Subscription.exists?).to eq(false)
     end
 
-    xit "raises an error if the subscription isn't created" do
+    it "raises an error if the subscription can't be created" do
+      blank_email = ""
+      expect do
+        Subscription.create_and_request_confirmation!(blank_email)
+      end.to raise_error ActiveRecord::RecordInvalid
     end
 
-    xit "raises an error if the emailing fails" do
+    it "doesn't send an email if the subscription can't be created" do
+      blank_email = ""
+      expect do
+        expect { Subscription.create_and_request_confirmation!(blank_email) }.to raise_error
+      end.not_to change { ActionMailer::Base.deliveries.size }
+    end
+
+    it "raises an error if the emailing fails" do
+      expect(SubscriptionMailer)
+        .to receive(:send_confirmation_request!)
+        .and_raise("Bad news, delivery failed!")
+
+      email = "subscriber@somedomain.tld"
+      expect do
+        Subscription.create_and_request_confirmation!(email)
+      end.to raise_error "Bad news, delivery failed!"
     end
 
   end
 
-  context ".confirm!(confirmation_token)" do
+  describe ".confirm!(confirmation_token)" do
     
     it "confirms the subscription matching the confirmation_token" do
       token = Subscription.generate_confirmation_token
@@ -90,10 +148,22 @@ RSpec.describe Subscription, :type => :model do
       expect(subscription.reload.confirmed?).to eq(true)
     end
 
-    xit "gracefully handles confirming an already confirmed subscription" do
+    it "gracefully handles confirming an already confirmed subscription" do
+      subscription = Subscription.create!(
+        email: "a@a.a", 
+        confirmation_token: "xyz"
+      )
+      expect(subscription.confirmed?).to eq(false)
+
+      2.times { Subscription.confirm!("xyz") }
+
+      expect(subscription.reload.confirmed?).to eq(true)
     end
 
-    xit "raises error if confirmation_token is unknown" do
+    it "raises ActiveRecord::RecordNotFound if confirmation_token is unknown" do
+      expect do
+        Subscription.confirm!("unknown-token")
+      end.to raise_error ActiveRecord::RecordNotFound
     end
 
   end

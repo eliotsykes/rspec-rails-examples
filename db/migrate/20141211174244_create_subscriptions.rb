@@ -1,9 +1,9 @@
 class CreateSubscriptions < ActiveRecord::Migration
   def change
     create_table :subscriptions do |t|
-      t.string :email, limit: 100
-      t.string :confirmation_token, limit: 100
-      t.boolean :confirmed, default: false
+      t.string :email, limit: 100, null: false
+      t.string :confirmation_token, limit: 100, null: false
+      t.boolean :confirmed, default: false, null: false
 
       t.timestamps null: false
     end

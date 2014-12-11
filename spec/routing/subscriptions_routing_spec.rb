@@ -6,7 +6,7 @@ RSpec.describe "routes for Subscriptions", :type => :routing do
 
     it "should use the confirmation token as the identifier" do
 
-      subscription = Subscription.create!(confirmation_token: "im-a-token-98765")
+      subscription = Subscription.new(confirmation_token: "im-a-token-98765")
 
       expect(:get => confirm_subscription_path(subscription))
       .to route_to(

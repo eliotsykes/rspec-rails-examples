@@ -45,7 +45,11 @@ RSpec.describe SubscriptionsController, :type => :controller do
       expect(subscription.reload.confirmed?).to eq(true)
     end
 
-    xit "responds with 404 Not Found for unknown confirmation token" do
+    it "responds with 404 Not Found for unknown confirmation token" do
+      params = { confirmation_token: "an-unknown-token" }
+      expect do
+        get :confirm, params
+      end.to raise_error ActiveRecord::RecordNotFound
     end
 
   end

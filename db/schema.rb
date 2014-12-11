@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20141211174244) do
 
   create_table "subscriptions", force: true do |t|
-    t.string   "email",              limit: 100
-    t.string   "confirmation_token", limit: 100
-    t.boolean  "confirmed",                      default: false
+    t.string   "email",              limit: 100,                 null: false
+    t.string   "confirmation_token", limit: 100,                 null: false
+    t.boolean  "confirmed",                      default: false, null: false
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
   end
