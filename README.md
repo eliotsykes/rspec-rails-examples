@@ -3,20 +3,20 @@ RSpec Rails Examples
 
 Rails app with examples of how to test with RSpec and other testing gems.
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
-- Capybara Examples
-- Shoulda-Matchers Examples
-- Email-Spec Examples
-- RSpec-Expectations Docs
-- RSpec-Mocks Specs & Docs
-- RSpec-Rails
-  - Matchers
-  - Generators
-  - Feature Specs & Docs
-  - Mailer Specs & Docs
-  - Controller Specs & Docs
-  - Routing Specs & Docs
+- [Capybara Examples](#capybara-examples)
+- [Shoulda-Matchers Examples](#shoulda-matchers-examples)
+- [Email-Spec Examples](#email-spec-examples)
+- [RSpec-Expectations Docs](#rspec-expectations-docs)
+- [RSpec-Mocks Specs & Docs](#rspec-mocks-specs--docs)
+- [RSpec-Rails](#rspec-rails)
+  - [Matchers](#matchers)
+  - [Generators](#generators)
+  - [Feature Specs & Docs](#feature-specs--docs)
+  - [Mailer Specs & Docs](#mailer-specs--docs)
+  - [Controller Specs & Docs](#controller-specs--docs)
+  - [Routing Specs & Docs](#routing-specs--docs)
 
 <!-- /MarkdownTOC -->
 
