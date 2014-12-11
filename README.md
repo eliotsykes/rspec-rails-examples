@@ -26,7 +26,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 [Capybara](https://github.com/jnicklas/capybara) helps you write feature specs that interact with your app's UI as a user does with a browser.
 
 Capybara configuration how-to and examples:
-- [spec/support/shoulda-matchers.rb](spec/support/capybara.rb)
+- [spec/support/capybara.rb](spec/support/capybara.rb)
 - [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
 
 
