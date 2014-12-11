@@ -45,7 +45,7 @@ The "Subscribe to newsletter" feature was developed with help from [email_spec](
 
 email_spec configuration how-to and examples:
 - [spec/support/email_spec.rb](spec/support/email_spec.rb)
-- [spec/features/subscribe_to_newsletter_spec.rb](spec/mailers/subscription_mailer_spec.rb)
+- [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
 - [spec/mailers/subscription_mailer_spec.rb](spec/mailers/subscription_mailer_spec.rb)
 
 
