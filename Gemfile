@@ -44,6 +44,10 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.1'
   gem 'capybara'
+end
+
+group :test do
   gem 'email_spec'
+  gem 'shoulda-matchers', require: false
 end
 
