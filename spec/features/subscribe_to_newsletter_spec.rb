@@ -2,7 +2,6 @@ require 'rails_helper'
 
 
 feature "Subscribe to newsletter", :type => :feature do
-  include EmailSpec::Helpers
   
   scenario "subscribes confirmed user to newsletter" do
 
