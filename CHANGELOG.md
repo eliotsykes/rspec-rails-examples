@@ -1,6 +1,7 @@
 # 11/Dec/2014
 
-- "Subscribe to newsletter" feature and examples for [email_spec](https://github.com/bmabey/email-spec) added:
-  - `spec/features/subscribe_to_newsletter_spec.rb`
-  - `spec/mailers/subscription_mailer_spec.rb`
-
+- "Subscribe to newsletter" feature
+- email_spec examples and setup
+- shoulda-matchers setup and use
+- Capybara setup and example use
+- RSpec-rails setup and examples
