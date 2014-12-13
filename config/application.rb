@@ -30,5 +30,10 @@ module RspecRailsExamples
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    generators do |app|
+      ::Rails::Generators.hidden_namespaces.reject! { |namespace| namespace.start_with?("rspec") }
+    end
+
   end
 end
