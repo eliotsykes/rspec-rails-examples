@@ -7,6 +7,7 @@ feature "Subscribe to newsletter", :type => :feature do
 
     # Go to the subscription page
     visit new_subscription_path
+    expect(page).to have_title "Subscribe to our newsletter"
 
     # Enter your email and submit the form
     fill_in "Email", with: "buddy@example.tld"
@@ -15,6 +16,7 @@ feature "Subscribe to newsletter", :type => :feature do
     # Assert you're on the subscription pending page and asked
     # to check your inbox for the confirmation email.
     expect(current_path).to eq pending_subscriptions_path
+    expect(page).to have_title "Check your inbox"
     expect(page).to have_content(
       "Please check your inbox and click the confirmation link to complete your subscription."
     )
@@ -27,6 +29,7 @@ feature "Subscribe to newsletter", :type => :feature do
       visit_in_email "Confirm your subscription"
 
       expect(current_path).to eq confirm_subscription_path(Subscription.last)
+      expect(page).to have_title "Subscription confirmed!"
       expect(page).to have_content "Your subscription has been confirmed, thank you!"
 
     end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)

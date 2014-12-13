@@ -16,6 +16,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
   - [Feature Specs & Docs](#feature-specs--docs)
   - [Mailer Specs & Docs](#mailer-specs--docs)
   - [Controller Specs & Docs](#controller-specs--docs)
+  - [Helper Specs & Docs](#helper-specs--docs)
   - [Routing Specs & Docs](#routing-specs--docs)
 - [Contributors](#contributors)
 
@@ -83,9 +84,14 @@ See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/v/3-1/docs) for instal
 - [Controller specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/controller-specs)
 - [Controller specs cheatsheet](https://gist.github.com/eliotsykes/5b71277b0813fbc0df56)
 
+## Helper Specs & Docs
+- [spec/helpers/application_helper_spec.rb](spec/helpers/application_helper_spec.rb)
+- [Helper specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/helper-specs/helper-spec)
+
 ## Routing Specs & Docs
 - [spec/routing/subscriptions_routing_spec.rb](spec/routing/subscriptions_routing_spec.rb)
 - [Routing specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/routing-specs)
+
 
 ---
 
