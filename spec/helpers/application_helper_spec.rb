@@ -9,6 +9,10 @@ RSpec.describe ApplicationHelper, :type => :helper do
       expect(helper.page_title).to eq("About Page Title")
     end
 
+    it "has sensible default" do
+      expect(helper.page_title).to eq("RSpec Rails Examples")
+    end
+
   end
 
 end
