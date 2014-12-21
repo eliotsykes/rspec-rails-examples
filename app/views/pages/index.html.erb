@@ -1,2 +1,5 @@
 <% self.page_title = "Welcome to RSpec Rails Examples" %>
 <h1><%= page_title %></h1>
+<% if user_signed_in? %>
+  <p>Hello, <%= current_user.email %></p>
+<% end %>

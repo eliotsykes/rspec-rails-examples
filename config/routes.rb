@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "pages#index"
+  devise_for :users, only: [:registrations, :sessions, :confirmations, :unlocks, :passwords]
 
   resources :subscriptions, only: [:new, :create] do
     get :pending, on: :collection
