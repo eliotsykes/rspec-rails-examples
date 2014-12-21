@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: "pages#index"
+
   resources :subscriptions, only: [:new, :create] do
     get :pending, on: :collection
   end
