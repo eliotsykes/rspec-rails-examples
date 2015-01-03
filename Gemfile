@@ -20,5 +20,6 @@ end
 group :test do
   gem 'email_spec'
   gem 'shoulda-matchers', require: false
+  gem 'database_cleaner'
 end
 

@@ -1,3 +1,6 @@
+# 3/Jan/2015
+- DatabaseCleaner setup
+
 # 13/Dec/2014
 - Helper spec example added for testing the page title helpers
 

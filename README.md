@@ -5,6 +5,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
+- [Database Cleaner Examples](#database-cleaner-examples)
 - [Capybara Examples](#capybara-examples)
 - [Shoulda-Matchers Examples](#shoulda-matchers-examples)
 - [Email-Spec Examples](#email-spec-examples)
@@ -22,6 +23,13 @@ Rails app with examples of how to test with RSpec and other testing gems.
 
 <!-- /MarkdownTOC -->
 
+
+# Database Cleaner Examples
+
+[Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner) is a set of strategies for cleaning your database in Ruby, to ensure a consistent environment for each test run.
+
+Database Cleaner configuration how-to and examples:
+- [spec/support/database_cleaner.rb](spec/support/database_cleaner.rb)
 
 # Capybara Examples
 
