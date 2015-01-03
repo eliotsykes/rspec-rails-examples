@@ -75,12 +75,26 @@ feature "User registers", :type => :feature do
       expect_error_messages "Email has already been taken"
     end
 
-    xscenario "invalid email" do
+    scenario "invalid email" do
 
+      fill_in "Email", with: "invalid-email-for-testing"
+      fill_in "Password", with: "test-password"
+      fill_in "Password confirmation", with: "test-password"
+      click_button "Sign up"
+
+      expect_error_messages "Email is invalid"
     end
 
-    xscenario "too short password" do
+    scenario "too short password" do
+      
+      min_password_length = 8
+      too_short_password = "p" * (min_password_length - 1)
+      fill_in "Email", with: "someone@example.tld"
+      fill_in "Password", with: too_short_password
+      fill_in "Password confirmation", with: too_short_password
+      click_button "Sign up"
 
+      expect_error_messages "Password is too short (minimum is 8 characters)"
     end
 
   end
