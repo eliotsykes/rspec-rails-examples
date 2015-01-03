@@ -38,9 +38,11 @@ feature "User registers", :type => :feature do
 
   context "with invalid details" do
 
-    scenario "blank fields" do
-
+    before do
       visit new_user_registration_path
+    end
+
+    scenario "blank fields" do
 
       expect_fields_to_be_blank
 
@@ -53,8 +55,17 @@ feature "User registers", :type => :feature do
       end
     end
 
-    xscenario "incorrect password confirmation" do
+    scenario "incorrect password confirmation" do
 
+      fill_in "Email", with: "tester@example.tld"
+      fill_in "Password", with: "test-password"
+      fill_in "Password confirmation", with: "not-test-password"
+      click_button "Sign up"
+
+      within "#error_explanation" do
+        expect(page).to have_content "1 error prohibited this user from being saved"
+        expect(page).to have_selector "li", text: "Password confirmation doesn't match Password"
+      end
     end
 
     xscenario "already registered email" do
