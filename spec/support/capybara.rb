@@ -16,3 +16,4 @@ require 'capybara/rspec'
 # Suggested docs
 # --------------
 # http://www.rubydoc.info/github/jnicklas/capybara/master
+# Cheatsheet: https://gist.github.com/zhengjia/428105

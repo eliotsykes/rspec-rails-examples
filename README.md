@@ -55,6 +55,8 @@ Capybara configuration how-to and examples:
 - [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
 - [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 - [spec/features/user_registers_spec.rb](spec/features/user_registers_spec.rb)
+- [Capybara cheatsheet](https://gist.github.com/zhengjia/428105)
+
 
 # Shoulda-Matchers Examples
 
