@@ -63,8 +63,16 @@ feature "User registers", :type => :feature do
       expect_error_messages "Password confirmation doesn't match Password"
     end
 
-    xscenario "already registered email" do
+    scenario "already registered email" do
 
+      create(:user, email: "dave@example.tld")
+
+      fill_in "Email", with: "dave@example.tld"
+      fill_in "Password", with: "test-password"
+      fill_in "Password confirmation", with: "test-password"
+      click_button "Sign up"
+
+      expect_error_messages "Email has already been taken"
     end
 
     xscenario "invalid email" do
