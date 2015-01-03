@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 feature "User logs in and logs out", :type => :feature do
-  
+
   scenario "with correct details" do
-    
+
     user = create(:user, email: "someone@example.tld", password: "somepassword")
 
     visit "/"
@@ -11,9 +11,7 @@ feature "User logs in and logs out", :type => :feature do
     click_link "Log in"
     expect(current_path).to eq(new_user_session_path)
 
-    fill_in "Email", with: "someone@example.tld"
-    fill_in "Password", with: "somepassword"
-    click_button "Log in"
+    login "someone@example.tld", "somepassword"
 
     expect(current_path).to eq "/"
     expect(page).to have_content "Signed in successfully"
@@ -23,27 +21,47 @@ feature "User logs in and logs out", :type => :feature do
 
     expect(current_path).to eq "/"
     expect(page).to have_content "Signed out successfully"
-    expect(page).not_to have_content "someone@example.tld"    
+    expect(page).not_to have_content "someone@example.tld"
 
   end
 
   scenario "unconfirmed user cannot login" do
-  
+
     user = create(:user, skip_confirmation: false, email: "e@example.tld", password: "test-password")
 
     visit new_user_session_path
 
-    fill_in "Email", with: "e@example.tld"
-    fill_in "Password", with: "test-password"
-    click_button "Log in"
+    login "e@example.tld", "test-password"
 
     expect(current_path).to eq(new_user_session_path)
     expect(page).not_to have_content "Signed in successfully"
     expect(page).to have_content "You have to confirm your email address before continuing"
   end
 
-  xscenario "locks account after x failed attempts" do
+  scenario "locks account after 3 failed attempts" do
+
+    email = "someone@example.tld"
+    user = create(:user, email: email, password: "somepassword")
+
+    visit new_user_session_path
+
+    login email, "1st-try-wrong-password"
+    expect(page).to have_content "Invalid email or password"
     
+    login email, "2nd-try-wrong-password" 
+    expect(page).to have_content "You have one more attempt before your account is locked"
+
+    login email, "3rd-try-wrong-password"
+    expect(page).to have_content "Your account is locked."
+
+  end
+
+  private
+
+  def login(email, password)
+    fill_in "Email", with: email
+    fill_in "Password", with: password
+    click_button "Log in"
   end
 
 end
