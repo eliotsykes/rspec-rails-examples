@@ -6,6 +6,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
 - [Database Cleaner Examples](#database-cleaner-examples)
+- [Factory Girl Examples](#factory-girl-examples)
 - [Capybara Examples](#capybara-examples)
 - [Shoulda-Matchers Examples](#shoulda-matchers-examples)
 - [Email-Spec Examples](#email-spec-examples)
@@ -30,6 +31,17 @@ Rails app with examples of how to test with RSpec and other testing gems.
 
 Database Cleaner configuration how-to and examples:
 - [spec/support/database_cleaner.rb](spec/support/database_cleaner.rb)
+
+
+# Factory Girl Examples
+
+[Factory Girl](https://github.com/thoughtbot/factory_girl) is a library to help setup test data. [factory_girl_rails](https://github.com/thoughtbot/factory_girl_rails) integrates Factory Girl with Rails.
+
+Factory Girl configuration how-to and examples:
+- [spec/support/factory_girl.rb](spec/support/factory_girl.rb)
+- [spec/support/factories](spec/support/factories)
+- Search specs for "create(:" to find examples of how to use Factory Girl.
+
 
 # Capybara Examples
 
