@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "User logs in and logs out", :type => :feature do
   
-  scenario "successfully" do
+  scenario "with correct details" do
     
     user = create(:user, email: "someone@example.tld", password: "somepassword")
 
@@ -25,6 +25,14 @@ feature "User logs in and logs out", :type => :feature do
     expect(page).to have_content "Signed out successfully."
     expect(page).not_to have_content "someone@example.tld"    
 
+  end
+
+  xscenario "fails for unconfirmed user" do
+    
+  end
+
+  xscenario "locks account after x failed attempts" do
+    
   end
 
 end

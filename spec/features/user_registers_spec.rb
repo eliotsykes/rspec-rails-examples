@@ -4,7 +4,10 @@ feature "User registers", :type => :feature do
 
   scenario "with valid details" do
 
-    visit new_user_registration_path
+    visit "/"
+
+    click_link "Sign up"
+    expect(current_path).to eq(new_user_registration_path)
 
     fill_in "Email", with: "tester@example.tld"
     fill_in "Password", with: "test-password"
@@ -33,12 +36,49 @@ feature "User registers", :type => :feature do
   end
 
 
-  xscenario "with invalid details" do
-    # Blank inputs
-    # Locks after x failed attempts
-    # Incorrect password confirmation
-    # Bad email and too short password?
-    # Non-confirmed user cannot sign-in (belongs in "with valid details" context)
+  context "with invalid details" do
+
+    scenario "blank fields" do
+
+      visit new_user_registration_path
+
+      expect_fields_to_be_blank
+
+      click_button "Sign up"
+
+      within "#error_explanation" do
+        expect(page).to have_content "2 errors prohibited this user from being saved"
+        expect(page).to have_selector "li", text: "Email can't be blank"
+        expect(page).to have_selector "li", text: "Password can't be blank"
+      end
+    end
+
+    xscenario "incorrect password confirmation" do
+
+    end
+
+    xscenario "already registered email" do
+
+    end
+
+    xscenario "invalid email" do
+
+    end
+
+    xscenario "too short password" do
+
+    end
+
+  end
+
+  private
+
+  def expect_fields_to_be_blank
+    expect(page).to have_field("Email", with: "", type: "email")
+    # These password fields don't have value attributes in the generated HTML,
+    # so with: syntax doesn't work.
+    expect(find_field("Password", type: "password").value).to be_nil
+    expect(find_field("Password confirmation", type: "password").value).to be_nil
   end
 
 end
