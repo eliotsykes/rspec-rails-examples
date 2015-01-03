@@ -2,6 +2,7 @@
 <h1><%= page_title %></h1>
 <% if user_signed_in? %>
   <p>Hello, <%= current_user.email %></p>
+  <nav><%= button_to "Log out", destroy_user_session_path, method: :delete %></nav>
 <% else %>
-  <%= link_to "Log in", new_user_session_path %>
+  <nav><%= link_to "Log in", new_user_session_path %></nav>
 <% end %>

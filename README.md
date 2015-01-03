@@ -30,7 +30,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 
 [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner) is a set of strategies for cleaning your database in Ruby, to ensure a consistent environment for each test run.
 
-Database Cleaner configuration how-to and examples:
+Database Cleaner configuration how-to:
 - [spec/support/database_cleaner.rb](spec/support/database_cleaner.rb)
 
 
@@ -41,7 +41,8 @@ Database Cleaner configuration how-to and examples:
 Factory Girl configuration how-to and examples:
 - [spec/support/factory_girl.rb](spec/support/factory_girl.rb)
 - [spec/support/factories](spec/support/factories)
-- Search specs for "create(:" to find examples of how to use Factory Girl.
+- [spec/support/factories/users.rb](spec/support/factories/users.rb)
+- [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 
 
 # Capybara Examples

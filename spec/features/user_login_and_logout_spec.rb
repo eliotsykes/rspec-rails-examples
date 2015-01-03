@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "User logs in and logs out", :type => :feature do
   
-  scenario do
+  scenario "successfully" do
     
     user = create(:user, email: "someone@example.tld", password: "somepassword")
 
@@ -22,11 +22,9 @@ feature "User logs in and logs out", :type => :feature do
     click_button "Log out"
 
     expect(current_path).to eq "/"
-    expect(page).to have_content "Logged out successfully."
+    expect(page).to have_content "Signed out successfully."
     expect(page).not_to have_content "someone@example.tld"    
 
   end
-
-
 
 end
