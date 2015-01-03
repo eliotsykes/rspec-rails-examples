@@ -40,8 +40,8 @@ Database Cleaner configuration how-to:
 
 Factory Girl configuration how-to and examples:
 - [spec/support/factory_girl.rb](spec/support/factory_girl.rb)
-- [spec/support/factories](spec/support/factories)
-- [spec/support/factories/users.rb](spec/support/factories/users.rb)
+- [spec/factories](spec/factories)
+- [spec/factories/users.rb](spec/factories/users.rb)
 - [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 
 
@@ -53,6 +53,7 @@ Capybara configuration how-to and examples:
 - [spec/support/capybara.rb](spec/support/capybara.rb)
 - [spec/features/home_page_spec.rb](spec/features/home_page_spec.rb)
 - [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
+- [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 - [spec/features/user_registers_spec.rb](spec/features/user_registers_spec.rb)
 
 # Shoulda-Matchers Examples
@@ -79,6 +80,7 @@ email_spec configuration how-to and examples:
 
 Specs testing registration, sign-in, and other user authentication features provided by Devise:
 
+- [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 - [spec/features/user_registers_spec.rb](spec/features/user_registers_spec.rb)
 
 
