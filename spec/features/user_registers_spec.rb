@@ -48,11 +48,9 @@ feature "User registers", :type => :feature do
 
       click_button "Sign up"
 
-      within "#error_explanation" do
-        expect(page).to have_content "2 errors prohibited this user from being saved"
-        expect(page).to have_selector "li", text: "Email can't be blank"
-        expect(page).to have_selector "li", text: "Password can't be blank"
-      end
+      expect_error_messages "Email can't be blank",
+        "Password can't be blank"
+
     end
 
     scenario "incorrect password confirmation" do
@@ -62,10 +60,7 @@ feature "User registers", :type => :feature do
       fill_in "Password confirmation", with: "not-test-password"
       click_button "Sign up"
 
-      within "#error_explanation" do
-        expect(page).to have_content "1 error prohibited this user from being saved"
-        expect(page).to have_selector "li", text: "Password confirmation doesn't match Password"
-      end
+      expect_error_messages "Password confirmation doesn't match Password"
     end
 
     xscenario "already registered email" do
@@ -83,6 +78,19 @@ feature "User registers", :type => :feature do
   end
 
   private
+
+  def expect_error_messages(*messages)
+    within "#error_explanation" do
+      error_count = messages.size
+      expect(page).to have_content "#{error_count} #{'error'.pluralize(error_count)} prohibited this user from being saved"
+      within "ul" do
+        expect(page).to have_css "li", count: error_count
+        messages.each do |expected_msg|
+          expect(page).to have_selector "li", text: expected_msg
+        end
+      end
+    end
+  end
 
   def expect_fields_to_be_blank
     expect(page).to have_field("Email", with: "", type: "email")
