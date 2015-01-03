@@ -56,7 +56,7 @@ Capybara configuration how-to and examples:
 - [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 - [spec/features/user_registers_spec.rb](spec/features/user_registers_spec.rb)
 - [Capybara cheatsheet](https://gist.github.com/zhengjia/428105)
-
+- [Capybara matchers](http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers)
 
 # Shoulda-Matchers Examples
 

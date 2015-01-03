@@ -17,3 +17,4 @@ require 'capybara/rspec'
 # --------------
 # http://www.rubydoc.info/github/jnicklas/capybara/master
 # Cheatsheet: https://gist.github.com/zhengjia/428105
+# Capybara matchers: http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers
