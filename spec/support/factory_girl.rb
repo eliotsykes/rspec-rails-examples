@@ -9,6 +9,17 @@
 # 2. Create a file like this one you're reading in spec/support/factory_girl.rb:
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    begin
+      DatabaseCleaner.start
+      # Test factories in spec/factories are working.
+      FactoryGirl.lint
+    ensure
+      DatabaseCleaner.clean
+    end
+  end
+
 end
 # 3. Start making use of Factory Girl. See factories in the spec/factories/ directory
 #    and how they're used in the specs (search for "create(:").

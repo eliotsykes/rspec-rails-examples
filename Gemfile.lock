@@ -69,6 +69,11 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.2.2)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -186,6 +191,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   email_spec
+  factory_girl_rails (~> 4.5)
   jquery-rails
   pry
   rails (= 4.2.0.rc2)
