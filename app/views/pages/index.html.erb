@@ -2,4 +2,6 @@
 <h1><%= page_title %></h1>
 <% if user_signed_in? %>
   <p>Hello, <%= current_user.email %></p>
+<% else %>
+  <%= link_to "Log in", new_user_session_path %>
 <% end %>
