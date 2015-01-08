@@ -54,6 +54,23 @@ RSpec.describe Subscription, :type => :model do
     end
   end
 
+  context "scopes" do
+    
+    describe ".confirmation_overdue" do
+      
+      xit "returns unconfirmed subscriptions of age more than 3 days" do
+      end
+
+      xit "does not return unconfirmed subscriptions of age 3 days or younger" do
+      end
+
+      xit "does not return confirmed subscriptions" do
+      end
+
+    end
+
+  end
+
   describe "#to_param" do
     
     it "uses confirmation_token as the default identifier for routes" do

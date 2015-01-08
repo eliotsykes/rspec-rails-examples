@@ -1,3 +1,8 @@
+# 8/Jan/2015
+- Factory Girl's create_list & sequence examples
+- RSpec example for testing Rake tasks
+- RSpec examples for `expect { ... }.to change { ... }.by/from(int)`
+
 # 3/Jan/2015
 - Factory Girl added and documented
 - DatabaseCleaner setup
