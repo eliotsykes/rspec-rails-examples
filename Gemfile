@@ -15,8 +15,10 @@ group :development, :test do
   gem 'spring' # Spring background-runs app in dev for speed
   gem 'rspec-rails', '~> 3.1'
   gem 'capybara'
-  gem 'pry'
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'pry'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
 end
 
 group :test do

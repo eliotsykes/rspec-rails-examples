@@ -86,6 +86,7 @@ GEM
       activesupport (>= 4.1.0)
     hike (1.2.3)
     i18n (0.7.0.beta1)
+    interception (0.5)
     jquery-rails (4.0.0)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0.beta, < 5.0)
@@ -109,6 +110,12 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rescue (1.4.1)
+      interception (>= 0.5)
+      pry
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.6.0.beta2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -208,6 +215,8 @@ DEPENDENCIES
   factory_girl_rails (~> 4.5)
   jquery-rails
   pry
+  pry-rescue
+  pry-stack_explorer
   rails (= 4.2.0.rc2)
   rspec-rails (~> 3.1)
   sass-rails (~> 4.0)
