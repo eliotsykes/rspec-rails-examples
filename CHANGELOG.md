@@ -1,7 +1,9 @@
-# 8/Jan/2015
+# 19/Jan/2015
+- pry-rescue installed and noted in README
 - Factory Girl's create_list & sequence examples
 - RSpec example for testing Rake tasks
-- RSpec examples for `expect { ... }.to change { ... }.by/from(int)`
+- RSpec examples for `expect { ... }.to change { ... }.from(int).to(int)`
+- Using Rails' testing TimeHelpers (e.g. `travel_to`) in RSpec
 
 # 3/Jan/2015
 - Factory Girl added and documented

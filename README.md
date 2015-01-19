@@ -5,6 +5,9 @@ Rails app with examples of how to test with RSpec and other testing gems.
 
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
+- [Testing Rake Tasks with RSpec](#testing-rake-tasks-with-rspec)
+- [Pry-rescue debugging](#pry-rescue-debugging)
+- [Time Travel Examples](#time-travel-examples)
 - [Database Cleaner Examples](#database-cleaner-examples)
 - [Factory Girl Examples](#factory-girl-examples)
 - [Capybara Examples](#capybara-examples)
@@ -25,6 +28,25 @@ Rails app with examples of how to test with RSpec and other testing gems.
 
 <!-- /MarkdownTOC -->
 
+# Testing Rake Tasks with RSpec
+
+RSpec testing Rake task example:
+- [spec/support/tasks/subscription_tasks_spec.rb](spec/support/tasks/subscription_tasks_spec.rb)
+
+# Pry-rescue debugging
+pry-rescue can be used to debug failing specs, by opening pry's debugger whenever a test failure is encountered. For setup and usage see [pry-rescue's README](https://github.com/ConradIrwin/pry-rescue).
+
+
+# Time Travel Examples
+[`ActiveSupport::Testing::TimeHelpers`](http://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html) provides helpers for manipulating and freezing the current time reported within tests. These methods are often enough to replace the time-related testing methods that the `timecop` gem is used for.
+
+`TimeHelpers` configuration how-to and examples:
+- [spec/support/time_helpers.rb](spec/support/time_helpers.rb)
+- [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
+- [spec/support/tasks/subscription_tasks_spec.rb](spec/support/tasks/subscription_tasks_spec.rb)
+- [`travel_to`](http://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html#method-i-travel_to) example: [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
+- [`ActiveSupport::Testing::TimeHelpers` API documentation](http://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html)
+
 
 # Database Cleaner Examples
 
@@ -42,6 +64,8 @@ Factory Girl configuration how-to and examples:
 - [spec/support/factory_girl.rb](spec/support/factory_girl.rb)
 - [spec/factories](spec/factories)
 - [spec/factories/users.rb](spec/factories/users.rb)
+- [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
+- [spec/support/tasks/subscription_tasks_spec.rb](spec/support/tasks/subscription_tasks_spec.rb)
 - [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 
 

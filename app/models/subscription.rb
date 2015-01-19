@@ -3,6 +3,8 @@ class Subscription < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true
   validates :confirmation_token, uniqueness: true, presence: true
 
+  scope :confirmation_overdue, -> { where("created_at < ?", 3.days.ago).where(confirmed: false) }
+
   def self.create_and_request_confirmation!(email)
     Subscription.transaction do
       subscription = Subscription.create!(

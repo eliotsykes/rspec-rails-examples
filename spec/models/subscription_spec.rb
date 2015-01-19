@@ -57,14 +57,27 @@ RSpec.describe Subscription, :type => :model do
   context "scopes" do
     
     describe ".confirmation_overdue" do
+
+      before do
+        # Freeze time as confirmation_overdue scope is time-sensitive
+        travel_to Time.now
+      end
+
+      after { travel_back }
       
-      xit "returns unconfirmed subscriptions of age more than 3 days" do
+      it "returns unconfirmed subscriptions of age more than 3 days" do
+        overdue = create(:subscription, confirmed: false, created_at: (3.days + 1.second).ago)
+        expect(Subscription.confirmation_overdue).to match_array [overdue]
       end
 
-      xit "does not return unconfirmed subscriptions of age 3 days or younger" do
+      it "does not return unconfirmed subscriptions of age 3 days or younger" do
+        create(:subscription, confirmed: false, created_at: 3.days.ago)
+        expect(Subscription.confirmation_overdue).to be_empty
       end
 
-      xit "does not return confirmed subscriptions" do
+      it "does not return confirmed subscriptions" do
+        create(:subscription, confirmed: true, created_at: 1.year.ago)
+        expect(Subscription.confirmation_overdue).to be_empty
       end
 
     end
