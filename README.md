@@ -31,7 +31,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 # Testing Rake Tasks with RSpec
 
 RSpec testing Rake task example:
-- [spec/support/tasks/subscription_tasks_spec.rb](spec/support/tasks/subscription_tasks_spec.rb)
+- [spec/tasks/subscription_tasks_spec.rb](spec/tasks/subscription_tasks_spec.rb)
 
 # Pry-rescue debugging
 pry-rescue can be used to debug failing specs, by opening pry's debugger whenever a test failure is encountered. For setup and usage see [pry-rescue's README](https://github.com/ConradIrwin/pry-rescue).
@@ -43,7 +43,7 @@ pry-rescue can be used to debug failing specs, by opening pry's debugger wheneve
 `TimeHelpers` configuration how-to and examples:
 - [spec/support/time_helpers.rb](spec/support/time_helpers.rb)
 - [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
-- [spec/support/tasks/subscription_tasks_spec.rb](spec/support/tasks/subscription_tasks_spec.rb)
+- [spec/tasks/subscription_tasks_spec.rb](spec/tasks/subscription_tasks_spec.rb)
 - [`travel_to`](http://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html#method-i-travel_to) example: [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
 - [`ActiveSupport::Testing::TimeHelpers` API documentation](http://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html)
 
@@ -65,7 +65,7 @@ Factory Girl configuration how-to and examples:
 - [spec/factories](spec/factories)
 - [spec/factories/users.rb](spec/factories/users.rb)
 - [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
-- [spec/support/tasks/subscription_tasks_spec.rb](spec/support/tasks/subscription_tasks_spec.rb)
+- [spec/tasks/subscription_tasks_spec.rb](spec/tasks/subscription_tasks_spec.rb)
 - [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 
 
