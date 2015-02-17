@@ -2,17 +2,21 @@ require 'rails_helper'
 
 feature "User logs in and logs out", :type => :feature do
 
-  scenario "with correct details" do
+  # `js: true` spec metadata means this will run using the `:selenium`
+  # browser driver configured in spec/support/capybara.rb
+  scenario "with correct details", js: true do
 
     user = create(:user, email: "someone@example.tld", password: "somepassword")
 
     visit "/"
 
     click_link "Log in"
+    expect(page).to have_css("h2", text: "Log in")
     expect(current_path).to eq(new_user_session_path)
 
     login "someone@example.tld", "somepassword"
 
+    expect(page).to have_css("h1", text: "Welcome to RSpec Rails Examples")
     expect(current_path).to eq "/"
     expect(page).to have_content "Signed in successfully"
     expect(page).to have_content "Hello, someone@example.tld"

@@ -14,7 +14,14 @@ group :development, :test do
   gem 'web-console', '~> 2.0' # Access IRB on error pages or by <%= console %> in views
   gem 'spring' # Spring background-runs app in dev for speed
   gem 'rspec-rails', '~> 3.1'
+  
   gem 'capybara'
+  
+  # selenium-webdriver & chromedriver-helper used by
+  # JavaScript-dependent feature specs (`js: true`):
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  
   gem 'factory_girl_rails', '~> 4.5'
   gem 'pry'
   gem 'pry-rescue'
