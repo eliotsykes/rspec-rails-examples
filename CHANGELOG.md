@@ -1,3 +1,7 @@
+# 17/Feb/2015
+- Raise error if config.use_transactional_fixtures is true and explain db connections issue
+- Configure JS-dependent spec browser driver to be Selenium, Chrome.
+
 # 19/Jan/2015
 - pry-rescue installed and noted in README
 - Factory Girl's create_list & sequence examples
