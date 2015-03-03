@@ -1,0 +1,9 @@
+<% if @headlines.blank? %>
+  <p>Sorry, no headlines. Better luck next time.</p>
+<% else %>
+  <ul>
+    <% @headlines.each do |headline| %>
+      <li><%= headline %></li>
+    <% end %>
+  <ul>
+<% end %>

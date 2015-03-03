@@ -1,0 +1,7 @@
+<% if @headlines.blank? %>
+Sorry, no headlines. Better luck next time.
+<% else %>
+<% @headlines.each do |headline| %>
+- <%= headline %>
+<% end %>
+<% end %>
