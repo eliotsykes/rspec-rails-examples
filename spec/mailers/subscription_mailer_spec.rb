@@ -13,7 +13,7 @@ RSpec.describe SubscriptionMailer, :type => :mailer do
 
     it "calls the error-sensitive deliver_now!" do
       delivery = double
-      expect(delivery).to receive(:deliver_now!)
+      expect(delivery).to receive(:deliver_now!).with(no_args)
 
       expect(SubscriptionMailer)
         .to receive(:confirmation_request)
@@ -49,7 +49,7 @@ RSpec.describe SubscriptionMailer, :type => :mailer do
     context "plain text body" do
       it "includes the confirm URL" do
         mail = SubscriptionMailer.send_confirmation_request!(@subscription)
-        expect(mail).to have_body_text(confirm_subscription_url(@subscription))
+        expect(mail.text_part).to have_body_text(confirm_subscription_url(@subscription))
       end
     end
   end
