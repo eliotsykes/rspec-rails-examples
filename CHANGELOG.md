@@ -1,3 +1,7 @@
+# 3/Mar/2015
+- Introduced Job spec example involving web scraping and emailing
+- Upgraded to Rails 4.2.0 (from 4.2.0-rc2)
+
 # 17/Feb/2015
 - Raise error if config.use_transactional_fixtures is true and explain db connections issue
 - Configure JS-dependent spec browser driver to be Selenium, Chrome.

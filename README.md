@@ -8,6 +8,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 - [Testing Rake Tasks with RSpec](#testing-rake-tasks-with-rspec)
 - [Pry-rescue debugging](#pry-rescue-debugging)
 - [Time Travel Examples](#time-travel-examples)
+- [ActiveJob Examples](#activejob-examples)
 - [Database Cleaner Examples](#database-cleaner-examples)
 - [Factory Girl Examples](#factory-girl-examples)
 - [Capybara Examples](#capybara-examples)
@@ -38,6 +39,7 @@ pry-rescue can be used to debug failing specs, by opening pry's debugger wheneve
 
 
 # Time Travel Examples
+
 [`ActiveSupport::Testing::TimeHelpers`](http://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html) provides helpers for manipulating and freezing the current time reported within tests. These methods are often enough to replace the time-related testing methods that the `timecop` gem is used for.
 
 `TimeHelpers` configuration how-to and examples:
@@ -46,6 +48,16 @@ pry-rescue can be used to debug failing specs, by opening pry's debugger wheneve
 - [spec/tasks/subscription_tasks_spec.rb](spec/tasks/subscription_tasks_spec.rb)
 - [`travel_to`](http://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html#method-i-travel_to) example: [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
 - [`ActiveSupport::Testing::TimeHelpers` API documentation](http://api.rubyonrails.org/classes/ActiveSupport/Testing/TimeHelpers.html)
+
+
+# ActiveJob Examples
+
+[`ActiveJob::TestHelper`](http://api.rubyonrails.org/classes/ActiveJob/TestHelper.html) provides help to test ActiveJob jobs.
+
+`ActiveJob::TestHelper` configuration how-to and examples:
+- [spec/support/job_helpers.rb](spec/support/job_helpers.rb)
+- [spec/jobs/headline_scraper_job_spec.rb](spec/jobs/headline_scraper_job_spec.rb)
+- [`ActiveJob::TestHelper` API documentation](http://api.rubyonrails.org/classes/ActiveJob/TestHelper.html)
 
 
 # Database Cleaner Examples
@@ -97,9 +109,13 @@ The "Subscribe to newsletter" feature was developed with help from [email_spec](
 
 email_spec configuration how-to and examples:
 - [spec/support/email_spec.rb](spec/support/email_spec.rb)
+- [spec/jobs/headline_scraper_job_spec.rb](spec/jobs/headline_scraper_job_spec.rb)
+- [spec/mailers/news_mailer_spec.rb](spec/mailers/subscription_mailer_spec.rb)
 - [spec/mailers/subscription_mailer_spec.rb](spec/mailers/subscription_mailer_spec.rb)
 - [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
 - [spec/features/user_registers_spec.rb](spec/features/user_registers_spec.rb)
+- [`EmailSpec::Helpers` API documentation](http://www.rubydoc.info/gems/email_spec/EmailSpec/Helpers)
+- [`EmailSpec::Matchers` API documentation](http://www.rubydoc.info/gems/email_spec/EmailSpec/Matchers)
 
 
 # Devise Examples
