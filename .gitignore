@@ -1,5 +1,5 @@
- .bundle/
- .ruby-version
- db/
- log/
- tmp/
+ /.bundle
+ /.ruby-version
+ /db/*
+ /log/*.log
+ /tmp
