@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'byebug' # Call 'byebug' in code to stop execution and get a debugger console

@@ -229,6 +229,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails (~> 4.5)
   jquery-rails
+  nokogiri
   pry
   pry-rescue
   pry-stack_explorer
