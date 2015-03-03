@@ -24,3 +24,4 @@ end
 # https://github.com/bmabey/email-spec#rspec
 # https://github.com/bmabey/email-spec#rspec-matchers
 # http://www.rubydoc.info/gems/email_spec/EmailSpec/Helpers
+# http://www.rubydoc.info/gems/email_spec/EmailSpec/Matchers
