@@ -1,5 +1,0 @@
- /.bundle
- /.ruby-version
- /db/*
- /log/*.log
- /tmp
