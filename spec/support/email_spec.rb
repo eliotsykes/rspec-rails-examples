@@ -11,8 +11,8 @@ require 'email_spec'
 
 RSpec.configure do |config|
 
-  config.include EmailSpec::Helpers, [type: :mailer, type: :feature]
-  config.include EmailSpec::Matchers, [type: :mailer, type: :feature]
+  config.include EmailSpec::Helpers, [type: :mailer, type: :feature, type: :job]
+  config.include EmailSpec::Matchers, [type: :mailer, type: :feature, type: :job]
 
 end
 
@@ -23,4 +23,4 @@ end
 # --------------
 # https://github.com/bmabey/email-spec#rspec
 # https://github.com/bmabey/email-spec#rspec-matchers
-# http://www.rubydoc.info/github/bmabey/email-spec/EmailSpec/Helpers
+# http://www.rubydoc.info/gems/email_spec/EmailSpec/Helpers
