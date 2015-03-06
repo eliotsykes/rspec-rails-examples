@@ -17,11 +17,13 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.1'
   
   gem 'capybara'
-  
+
   # selenium-webdriver & chromedriver-helper used by
   # JavaScript-dependent feature specs (`js: true`):
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+
+  gem 'puffing-billy'
   
   gem 'factory_girl_rails', '~> 4.5'
   gem 'pry'
@@ -33,6 +35,5 @@ group :test do
   gem 'email_spec'
   gem 'shoulda-matchers', require: false
   gem 'database_cleaner'
-  gem 'puffing-billy'
 end
 
