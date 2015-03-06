@@ -15,6 +15,9 @@ feature "Share page", type: :feature, js: true do
       "script.social-widget[src='https://eliotsykes.github.io/rspec-rails-examples/share.js']",
       visible: :hidden # script tags are not visible
     )
+
+    # Only the puffing billy served script adds this message:
+    expect(page).to have_content("Script served by Puffing Billy")
   end
 
 end

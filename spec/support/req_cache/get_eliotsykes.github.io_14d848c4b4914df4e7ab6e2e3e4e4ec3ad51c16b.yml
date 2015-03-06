@@ -1,0 +1,39 @@
+---
+:scope: 
+:url: https://eliotsykes.github.io/rspec-rails-examples/share.js
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Date: Fri, 06 Mar 2015 15:12:35 GMT
+  Server: GitHub.com
+  Content-Type: application/javascript; charset=utf-8
+  Last-Modified: Fri, 06 Mar 2015 09:56:05 GMT
+  Expires: Fri, 06 Mar 2015 13:48:13 GMT
+  Cache-Control: max-age=600
+  # Content-Length: '359' # Content-Length commented out so JS can be customized.
+  Accept-Ranges: bytes
+  Via: 1.1 varnish
+  Age: '0'
+  X-Served-By: cache-lhr6331-LHR
+  X-Cache: HIT
+  X-Cache-Hits: '1'
+  X-Timer: S1425654754.965269,VS0,VE86
+  Vary: Accept-Encoding
+  Connection: close
+:content: |-
+  // Used by rspec-rails-examples for providing how to on
+  // proxying of 3rd party JS dependencies. This file is
+  // the 3rd party dependency.
+
+  (function(w, undefined) {
+
+    var scriptElement = document.querySelector("script.social-widget");
+    var buttonHtml = "<button>Share this</button>";
+    scriptElement.insertAdjacentHTML('afterend', buttonHtml);
+
+    // Following lines not in https://eliotsykes.github.io/rspec-rails-examples/share.js
+    var puffingBillySignature = "<p style='margin: 0; position: fixed; top: 0; left: 0; background-color: green; color: white;'>Script served by Puffing Billy</p>";
+    scriptElement.insertAdjacentHTML('beforebegin', puffingBillySignature);
+
+  })(window);

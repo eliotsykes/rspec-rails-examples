@@ -12,6 +12,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 - [Database Cleaner Examples](#database-cleaner-examples)
 - [Factory Girl Examples](#factory-girl-examples)
 - [Capybara Examples](#capybara-examples)
+- [Puffing Billy Examples](#puffing-billy-examples)
 - [Shoulda-Matchers Examples](#shoulda-matchers-examples)
 - [Email-Spec Examples](#email-spec-examples)
 - [Devise Examples](#devise-examples)
@@ -94,12 +95,26 @@ Capybara configuration how-to and examples:
 - [Capybara cheatsheet](https://gist.github.com/zhengjia/428105)
 - [Capybara matchers](http://www.rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Matchers)
 
+
+# Puffing Billy Examples
+
+[Puffing Billy](https://github.com/oesmith/puffing-billy) Puffing Billy is like VCR for browsers used by feature specs. Puffing Billy is a HTTP proxy between your browser and external sites, including 3rd party JavaScript. If your app depends on JavaScript hosted on another site, then Puffing Billy will keep a copy of that JavaScript and serve it from a local web server during testing. This means tests dependent on that JavaScript will carry on working even if the original host cannot be connected to.
+
+If you need to debug Puffing Billy, refer to its output in `log/test.log`.
+
+Puffing Billy configuration how-to and examples:
+- [spec/support/puffing_billy.rb](spec/support/puffing_billy.rb)
+- [spec/features/share_page_spec.rb](spec/features/share_page_spec.rb)
+- [Cache options](https://github.com/oesmith/puffing-billy#caching)
+- [Cached responses](spec/support/req_cache)
+
+
 # Shoulda-Matchers Examples
 
 [Shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) make light work of model specs.
 
 shoulda-matchers configuration how-to and examples:
-- [spec/support/shoulda-matchers.rb](spec/support/shoulda-matchers.rb)
+- [spec/support/shoulda_matchers.rb](spec/support/shoulda_matchers.rb)
 - [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
 
 

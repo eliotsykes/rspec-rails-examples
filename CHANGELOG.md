@@ -1,3 +1,7 @@
+# 6/Mar/2015
+- Add /share page as demo of testing 3rd party JavaScript dependencies
+- puffing-billy proxies and removes test dependency on 3rd party JS
+
 # 3/Mar/2015
 - Introduced Job spec example involving web scraping and emailing
 - Upgraded to Rails 4.2.0 (from 4.2.0-rc2)
