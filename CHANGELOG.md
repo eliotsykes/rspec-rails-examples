@@ -1,3 +1,6 @@
+# 7/Mar/2015
+- Introduce VCR to stub HTTP request in scraper job.
+
 # 6/Mar/2015
 - Add /share page as demo of testing 3rd party JavaScript dependencies
 - puffing-billy proxies and removes test dependency on 3rd party JS

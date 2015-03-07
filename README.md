@@ -11,6 +11,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 - [ActiveJob Examples](#activejob-examples)
 - [Database Cleaner Examples](#database-cleaner-examples)
 - [Factory Girl Examples](#factory-girl-examples)
+- [VCR Examples](#vcr-examples)
 - [Capybara Examples](#capybara-examples)
 - [Puffing Billy Examples](#puffing-billy-examples)
 - [Shoulda-Matchers Examples](#shoulda-matchers-examples)
@@ -82,6 +83,17 @@ Factory Girl configuration how-to and examples:
 - [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 
 
+# VCR Examples
+
+[VCR](https://github.com/vcr/vcr) records your test suite's HTTP interactions and replays them during future test runs. Your tests can run independent of a connection to external URLs. These HTTP interactions are stored in cassette files.
+
+VCR configuration how-to and examples:
+- [spec/support/vcr.rb](spec/support/vcr.rb)
+- [spec/jobs/headline_scraper_job_spec.rb](spec/jobs/headline_scraper_job_spec.rb)
+- [Cassette files in spec/support/http_cache/vcr](spec/support/http_cache/vcr)
+- [VCR Relish docs](https://relishapp.com/vcr/vcr/docs)
+- [VCR API docs](http://www.rubydoc.info/gems/vcr/frames)
+
 # Capybara Examples
 
 [Capybara](https://github.com/jnicklas/capybara) helps you write feature specs that interact with your app's UI as a user does with a browser.
@@ -106,7 +118,7 @@ Puffing Billy configuration how-to and examples:
 - [spec/support/puffing_billy.rb](spec/support/puffing_billy.rb)
 - [spec/features/share_page_spec.rb](spec/features/share_page_spec.rb)
 - [Cache options](https://github.com/oesmith/puffing-billy#caching)
-- [Cached responses](spec/support/http_cache/billy)
+- [Cached responses in spec/support/http_cache/billy](spec/support/http_cache/billy)
 
 
 # Shoulda-Matchers Examples
