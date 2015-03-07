@@ -22,7 +22,7 @@ Billy.configure do |c|
   c.non_successful_error_level = :warn
 
   # cache_path is where responses from external URLs will be saved as YAML.
-  c.cache_path = "spec/support/req_cache/"  
+  c.cache_path = "spec/support/http_cache/billy/"  
 
   # Avoid having tests dependent on external URLs.
   #
@@ -49,7 +49,7 @@ end
 Capybara.javascript_driver = :selenium_chrome_billy
 
 # 6. Start using Puffing Billy. See spec/features/share_page_spec.rb for an example,
-#    and find your cached responses in spec/support/req_cache
+#    and find your cached responses in spec/support/http_cache/billy
 
 # Suggested docs
 # --------------
