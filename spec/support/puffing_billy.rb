@@ -39,8 +39,8 @@ end
 # Capybara.javascript_driver = :poltergeist_billy
 Capybara.register_driver :selenium_chrome_billy do |app|
   Capybara::Selenium::Driver.new(
-    app, :browser => :chrome,
-    :switches => [
+    app, browser: :chrome,
+    switches: [
         "--proxy-server=#{Billy.proxy.host}:#{Billy.proxy.port}"
         # "--ignore-certificate-errors" # May be needed in future
       ]
