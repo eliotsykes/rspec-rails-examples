@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://eliotsykes.github.io/rspec-rails-examples/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 07 Mar 2015 18:04:46 GMT
+      Server:
+      - GitHub.com
+      Content-Type:
+      - text/html; charset=utf-8
+      Last-Modified:
+      - Fri, 06 Mar 2015 09:56:05 GMT
+      Expires:
+      - Sat, 07 Mar 2015 18:07:44 GMT
+      Cache-Control:
+      - max-age=600
+      Access-Control-Allow-Origin:
+      - "*"
+      # Content-Length: Removed Content-Length as body has been modified.
+      # - '1423'
+      Accept-Ranges:
+      - bytes
+      Via:
+      - 1.1 varnish
+      Age:
+      - '223'
+      X-Served-By:
+      - cache-ams4144-AMS
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1425751486.670964,VS0,VE0
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset='utf-8'>\n    <meta
+        http-equiv=\"X-UA-Compatible\" content=\"chrome=1\">\n    <link href='https://fonts.googleapis.com/css?family=Chivo:900'
+        rel='stylesheet' type='text/css'>\n    <link rel=\"stylesheet\" type=\"text/css\"
+        href=\"stylesheets/stylesheet.css\" media=\"screen\">\n    <link rel=\"stylesheet\"
+        type=\"text/css\" href=\"stylesheets/pygment_trac.css\" media=\"screen\">\n
+        \   <link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheets/print.css\"
+        media=\"print\">\n    <!--[if lt IE 9]>\n    <script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>\n
+        \   <![endif]-->\n    <title>News Headlines by eliotsykes</title>\n  </head>\n\n
+        \ <body>\n    <div id=\"container\">\n      <div class=\"inner\">\n\n        <header>\n
+        \         <h1>News Headlines</h1>\n          <h2>The news, used for testing
+        rspec-rails-examples</h2>\n        </header>\n\n        <hr>\n\n        <section
+        id=\"main_content\">\n          <h1>\n<a id=\"man-bites-dog\" class=\"anchor\"
+        href=\"#man-bites-dog\" aria-hidden=\"true\"><span class=\"octicon octicon-link\"></span></a>Man
+        Bites Dog (served by VCR)</h1>\n\n<p>Morbi lobortis erat nec tempus lacinia. Sed eget leo
+        mauris. Donec tristique euismod metus. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos. Integer pellentesque
+        sollicitudin orci pretium aliquam. Morbi a tellus dictum, dignissim mi id,
+        dignissim turpis. Maecenas in neque malesuada eros congue tempor ut non libero.
+        Donec vel magna id arcu vulputate sagittis. Nunc sit amet quam ut dui blandit
+        tempor. Ut quis lobortis purus. Praesent vehicula ut felis ut aliquet.</p>\n\n<h1>\n<a
+        id=\"dog-presses-charges\" class=\"anchor\" href=\"#dog-presses-charges\"
+        aria-hidden=\"true\"><span class=\"octicon octicon-link\"></span></a>Dog Presses
+        Charges</h1>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Fusce a tincidunt nibh. Aliquam et sem at mauris feugiat semper. Interdum
+        et malesuada fames ac ante ipsum primis in faucibus. In lacinia, ipsum a consequat
+        bibendum, quam sem placerat nibh, id semper mi libero et tortor. Donec eget
+        posuere justo. Vivamus posuere egestas felis eget eleifend. Vivamus ante eros,
+        sodales ut velit facilisis, placerat malesuada est. Phasellus finibus vulputate
+        mollis. Cras vel orci in magna finibus finibus. Praesent magna nisi, pellentesque
+        quis urna sed, molestie interdum augue. Morbi scelerisque nunc elit, at finibus
+        sem volutpat vel. Ut mi arcu, aliquam in ullamcorper sodales, feugiat mattis
+        odio.</p>\n\n<h1>\n<a id=\"cat-dismissed-as-unreliable-witness\" class=\"anchor\"
+        href=\"#cat-dismissed-as-unreliable-witness\" aria-hidden=\"true\"><span class=\"octicon
+        octicon-link\"></span></a>Cat Dismissed as Unreliable Witness</h1>\n\n<p>Nulla
+        porta enim id mi venenatis porttitor. Phasellus at lacinia ipsum. Interdum
+        et malesuada fames ac ante ipsum primis in faucibus. Pellentesque tempus placerat
+        tellus, non scelerisque ante. Pellentesque malesuada ligula mauris, sit amet
+        fermentum elit lobortis vel. Maecenas rutrum blandit nulla non aliquam. Phasellus
+        nibh nisi, blandit eget mollis vestibulum, pulvinar id nibh.</p>\n        </section>\n
+        \       \n      </div>\n    </div>\n
+        <p>Served by VCR</p>
+        </body>\n</html>"
+    http_version: 
+  recorded_at: Sat, 07 Mar 2015 18:04:45 GMT
+recorded_with: VCR 2.9.3
