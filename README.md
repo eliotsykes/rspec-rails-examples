@@ -110,7 +110,7 @@ Capybara configuration how-to and examples:
 
 # Puffing Billy Examples
 
-[Puffing Billy](https://github.com/oesmith/puffing-billy) Puffing Billy is like VCR for browsers used by feature specs. Puffing Billy is a HTTP proxy between your browser and external sites, including 3rd party JavaScript. If your app depends on JavaScript hosted on another site, then Puffing Billy will keep a copy of that JavaScript and serve it from a local web server during testing. This means tests dependent on that JavaScript will carry on working even if the original host cannot be connected to.
+[Puffing Billy](https://github.com/oesmith/puffing-billy) is like VCR for browsers used by feature specs. Puffing Billy is a HTTP proxy between your browser and external sites, including 3rd party JavaScript. If your app depends on JavaScript hosted on another site, then Puffing Billy will keep a copy of that JavaScript and serve it from a local web server during testing. This means tests dependent on that JavaScript will carry on working even if the original host cannot be connected to.
 
 If you need to debug Puffing Billy, refer to its output in `log/test.log`.
 
