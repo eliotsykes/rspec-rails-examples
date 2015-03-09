@@ -29,6 +29,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
+  gem 'pry-rails'
 end
 
 group :test do

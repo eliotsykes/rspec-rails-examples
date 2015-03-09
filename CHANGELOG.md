@@ -1,3 +1,6 @@
+# 9/Mar/2015
+- pry-rails installed to aid debugging in rails console
+
 # 7/Mar/2015
 - Introduce VCR to stub HTTP request in scraper job.
 
