@@ -1,0 +1,26 @@
+---
+:scope: 
+:url: https://fonts.googleapis.com/css?family=Chivo:900
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: text/css
+  Timing-Allow-Origin: "*"
+  Expires: Tue, 10 Mar 2015 20:46:13 GMT
+  Date: Tue, 10 Mar 2015 20:46:13 GMT
+  Cache-Control: private, max-age=86400
+  Content-Length: '242'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Server: GSE
+  Alternate-Protocol: 443:quic,p=0.08
+  Connection: close
+:content: |
+  @font-face {
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Chivo Black'), local('Chivo-Black'), url(https://fonts.gstatic.com/s/chivo/v7/YWbtYk2MoHeFgZxEOX7DnnYhjbSpvc47ee6xR_80Hnw.ttf) format('truetype');
+  }

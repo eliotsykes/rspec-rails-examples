@@ -1,0 +1,118 @@
+---
+:scope: 
+:url: https://eliotsykes.github.io/rspec-rails-examples/stylesheets/stylesheet.css
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Date: Tue, 10 Mar 2015 20:46:13 GMT
+  Server: GitHub.com
+  Content-Type: text/css
+  Last-Modified: Fri, 06 Mar 2015 09:56:05 GMT
+  Expires: Tue, 10 Mar 2015 20:55:13 GMT
+  Cache-Control: max-age=600
+  Access-Control-Allow-Origin: "*"
+  Content-Length: '7629'
+  Accept-Ranges: bytes
+  Via: 1.1 varnish
+  Age: '60'
+  X-Served-By: cache-fra1245-FRA
+  X-Cache: HIT
+  X-Cache-Hits: '1'
+  X-Timer: S1426020373.488662,VS0,VE0
+  Vary: Accept-Encoding
+  Connection: close
+:content: "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License:
+  none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2,
+  h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel,
+  dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb,
+  u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption,
+  tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure,
+  figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime,
+  mark, audio, video {\n\tpadding: 0;\n\tmargin: 0;\n\tfont: inherit;\n\tfont-size:
+  100%;\n\tvertical-align: baseline;\n\tborder: 0;\n}\n/* HTML5 display-role reset
+  for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header,
+  hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol,
+  ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before,
+  blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable
+  {\n\tborder-spacing: 0;\n\tborder-collapse: collapse;\n}\n\n/* LAYOUT STYLES */\nbody
+  {\n  font-family: 'Helvetica Neue', Helvetica, Arial, serif;\n  font-size: 1em;\n
+  \ line-height: 1.5;\n  color: #6d6d6d;\n  text-shadow: 0 1px 0 rgba(255, 255, 255,
+  0.8);\n  background: #e7e7e7 url(../images/body-bg.png) 0 0 repeat;\n}\n\na {\n
+  \ color: #d5000d;\n}\na:hover {\n  color: #c5000c;\n}\n\nheader {\n  padding-top:
+  35px;\n  padding-bottom: 25px;\n}\n\nheader h1 {\n  font-family: 'Chivo', 'Helvetica
+  Neue', Helvetica, Arial, serif;\n  font-size: 48px; font-weight: 900;\n  line-height:
+  1.2;\n  color: #303030;\n  letter-spacing: -1px;\n}\n\nheader h2 {\n  font-size:
+  24px;\n  font-weight: normal;\n  line-height: 1.3;\n  color: #aaa;\n  letter-spacing:
+  -1px;\n}\n\n#container {\n  min-height: 595px;\n  background: transparent url(../images/highlight-bg.jpg)
+  50% 0 no-repeat;\n}\n\n.inner {\n  width: 620px;\n  margin: 0 auto;\n}\n\n#container
+  .inner img {\n  max-width: 100%;\n}\n\n#downloads {\n  margin-bottom: 40px;\n}\n\na.button
+  {\n  display: block;\n  float: left;\n  width: 179px;\n  padding: 12px 8px 12px
+  8px;\n  margin-right: 14px;\n  font-size: 15px;\n  font-weight: bold;\n  line-height:
+  25px;\n  color: #303030;\n  background: #fdfdfd; /* Old browsers */\n  background:
+  -moz-linear-gradient(top,  #fdfdfd 0%, #f2f2f2 100%); /* FF3.6+ */\n  background:
+  -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#f2f2f2));
+  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top,  #fdfdfd 0%,#f2f2f2
+  100%); /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top,  #fdfdfd
+  0%,#f2f2f2 100%); /* Opera 11.10+ */\n  background: -ms-linear-gradient(top,  #fdfdfd
+  0%,#f2f2f2 100%); /* IE10+ */\n  background: linear-gradient(top,  #fdfdfd 0%,#f2f2f2
+  100%); /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd',
+  endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */\n  border-top: solid 1px #cbcbcb;\n
+  \ border-right: solid 1px #b7b7b7;\n  border-bottom: solid 1px #b3b3b3;\n  border-left:
+  solid 1px #b7b7b7;\n  border-radius: 30px;\n  -webkit-box-shadow: 10px 10px 5px
+  #888;\n  -moz-box-shadow: 10px 10px 5px #888;\n  box-shadow: 0px 1px 5px #e8e8e8;\n
+  \ -moz-border-radius: 30px;\n  -webkit-border-radius: 30px;\n}\na.button:hover {\n
+  \ background: #fafafa; /* Old browsers */\n  background: -moz-linear-gradient(top,
+  \ #fdfdfd 0%, #f6f6f6 100%); /* FF3.6+ */\n  background: -webkit-gradient(linear,
+  left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+
+  */\n  background: -webkit-linear-gradient(top,  #fdfdfd 0%,#f6f6f6 100%); /* Chrome10+,Safari5.1+
+  */\n  background: -o-linear-gradient(top,  #fdfdfd 0%,#f6f6f6 100%); /* Opera 11.10+
+  */\n  background: -ms-linear-gradient(top,  #fdfdfd 0%,#f6f6f6 100%); /* IE10+ */\n
+  \ background: linear-gradient(top,  #fdfdfd 0%,#f6f6f6, 100%); /* W3C */\n  filter:
+  progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#f6f6f6',GradientType=0
+  ); /* IE6-9 */\n  border-top: solid 1px #b7b7b7;\n  border-right: solid 1px #b3b3b3;\n
+  \ border-bottom: solid 1px #b3b3b3;\n  border-left: solid 1px #b3b3b3;\n}\n\na.button
+  span {\n  display: block;\n  height: 23px;\n  padding-left: 50px;\n}\n\n#download-zip
+  span {\n  background: transparent url(../images/zip-icon.png) 12px 50% no-repeat;\n}\n#download-tar-gz
+  span {\n  background: transparent url(../images/tar-gz-icon.png) 12px 50% no-repeat;\n}\n#view-on-github
+  span {\n  background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;\n}\n#view-on-github
+  {\n  margin-right: 0;\n}\n\ncode, pre {\n  margin-bottom: 30px;\n  font-family:
+  Monaco, \"Bitstream Vera Sans Mono\", \"Lucida Console\", Terminal;\n  font-size:
+  14px;\n  color: #222;\n}\n\ncode {\n  padding: 0 3px;\n  background-color: #f2f2f2;\n
+  \ border: solid 1px #ddd;\n}\n\npre {\n  padding: 20px;\n  overflow: auto;\n  color:
+  #f2f2f2;\n  text-shadow: none;\n  background: #303030;\n}\npre code {\n  padding:
+  0;\n  color: #f2f2f2;\n  background-color: #303030;\n  border: none;\n}\n\nul, ol,
+  dl {\n  margin-bottom: 20px;\n}\n\n\n/* COMMON STYLES */\n\nhr {\n  height: 1px;\n
+  \ padding-bottom: 1em;\n  margin-top: 1em;\n  line-height: 1px;\n  background: transparent
+  url('../images/hr.png') 50% 0 no-repeat;\n  border: none;\n}\n\nstrong {\n  font-weight:
+  bold;\n}\n\nem {\n  font-style: italic;\n}\n\ntable {\n  width: 100%;\n  border:
+  1px solid #ebebeb;\n}\n\nth {\n  font-weight: 500;\n}\n\ntd {\n  font-weight: 300;\n
+  \ text-align: center;\n  border: 1px solid #ebebeb;\n}\n\nform {\n  padding: 20px;\n
+  \ background: #f2f2f2;\n\n}\n\n\n/* GENERAL ELEMENT TYPE STYLES */\n\nh1 {\n  font-size:
+  32px;\n}\n\nh2 {\n  margin-bottom: 8px;\n  font-size: 22px;\n  font-weight: bold;\n
+  \ color: #303030;\n}\n\nh3 {\n  margin-bottom: 8px;\n  font-size: 18px;\n  font-weight:
+  bold;\n  color: #d5000d;\n}\n\nh4 {\n  font-size: 16px;\n  font-weight: bold;\n
+  \ color: #303030;\n}\n\nh5 {\n  font-size: 1em;\n  color: #303030;\n}\n\nh6 {\n
+  \ font-size: .8em;\n  color: #303030;\n}\n\np {\n  margin-bottom: 20px;\n  font-weight:
+  300;\n}\n\na {\n  text-decoration: none;\n}\n\np a {\n  font-weight: 400;\n}\n\nblockquote
+  {\n  padding: 0 0 0 30px;\n  margin-bottom: 20px;\n  font-size: 1.6em;\n  border-left:
+  10px solid #e9e9e9;\n}\n\nul li {\n  list-style-position: inside;\n  list-style:
+  disc;\n  padding-left: 20px;\n}\n\nol li {\n  list-style-position: inside;\n  list-style:
+  decimal;\n  padding-left: 3px;\n}\n\ndl dt {\n  color: #303030;\n}\n\nfooter {\n
+  \ padding-top: 20px;\n  padding-bottom: 30px;\n  margin-top: 40px;\n  font-size:
+  13px;\n  color: #aaa;\n  background: transparent url('../images/hr.png') 0 0 no-repeat;\n}\n\nfooter
+  a {\n  color: #666;\n}\nfooter a:hover {\n  color: #444;\n}\n\n/* MISC */\n.clearfix:after
+  {\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n  content:
+  '.';\n}\n\n.clearfix {display: inline-block;}\n* html .clearfix {height: 1%;}\n.clearfix
+  {display: block;}\n\n/* #Media Queries\n==================================================
+  */\n\n/* Smaller than standard 960 (devices and browsers) */\n@media only screen
+  and (max-width: 959px) { }\n\n/* Tablet Portrait size to standard 960 (devices and
+  browsers) */\n@media only screen and (min-width: 768px) and (max-width: 959px) {
+  }\n\n/* All Mobile Sizes (devices and browser) */\n@media only screen and (max-width:
+  767px) {\n  header {\n    padding-top: 10px;\n    padding-bottom: 10px;\n  }\n  #downloads
+  {\n    margin-bottom: 25px;\n  }\n  #download-zip, #download-tar-gz {\n    display:
+  none;\n  }\n  .inner {\n    width: 94%;\n    margin: 0 auto;\n  }\n}\n\n/* Mobile
+  Landscape Size to Tablet Portrait (devices and browsers) */\n@media only screen
+  and (min-width: 480px) and (max-width: 767px) { }\n\n/* Mobile Portrait Size to
+  Mobile Landscape Size (devices and browsers) */\n@media only screen and (max-width:
+  479px) { }\n"

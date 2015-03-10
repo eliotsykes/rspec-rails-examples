@@ -1,0 +1,28 @@
+---
+:scope: 
+:url: https://eliotsykes.github.io/rspec-rails-examples/images/hr.png
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Date: Tue, 10 Mar 2015 20:46:13 GMT
+  Server: GitHub.com
+  Content-Type: image/png
+  Last-Modified: Fri, 06 Mar 2015 09:56:05 GMT
+  Expires: Tue, 10 Mar 2015 20:55:14 GMT
+  Cache-Control: max-age=600
+  Access-Control-Allow-Origin: "*"
+  Content-Length: '130'
+  Accept-Ranges: bytes
+  Via: 1.1 varnish
+  Age: '60'
+  X-Served-By: cache-fra1246-FRA
+  X-Cache: HIT
+  X-Cache-Hits: '1'
+  X-Timer: S1426020373.930865,VS0,VE0
+  Vary: Accept-Encoding
+  Connection: close
+:content: !binary |-
+  iVBORw0KGgoAAAANSUhEUgAAAp0AAAABCAQAAAA2592kAAAASUlEQVR4Aa2S
+  MQ4AIAwCy/8fjYO75jzdOFCblEzmdOIpJ5tpLVySFUkxkdKegK3fOfD75Fck
+  /5CifPlr/Cb607tes32WN4S1bQG4FyUDSe/XhgAAAABJRU5ErkJggg==

@@ -1,0 +1,79 @@
+---
+:scope: 
+:url: https://eliotsykes.github.io/rspec-rails-examples/images/body-bg.png
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Date: Tue, 10 Mar 2015 20:46:13 GMT
+  Server: GitHub.com
+  Content-Type: image/png
+  Last-Modified: Fri, 06 Mar 2015 09:56:05 GMT
+  Expires: Tue, 10 Mar 2015 20:55:13 GMT
+  Cache-Control: max-age=600
+  Access-Control-Allow-Origin: "*"
+  Content-Length: '2401'
+  Accept-Ranges: bytes
+  Via: 1.1 varnish
+  Age: '60'
+  X-Served-By: cache-fra1234-FRA
+  X-Cache: HIT
+  X-Cache-Hits: '1'
+  X-Timer: S1426020373.747666,VS0,VE0
+  Vary: Accept-Encoding
+  Connection: close
+:content: !binary |-
+  iVBORw0KGgoAAAANSUhEUgAAAIYAAACGCAAAAAA9Eq1NAAAJKElEQVR4AazV
+  ywklVwxF0co/y3v+ysLQQ0+eGxzBAqEtfTM8Z/F8N88gypamJqHHYWYD2LEe
+  o2D3RoUPhJWUXl83LMm9bhbRR+q38UVZh2hKxhl/jMl5eWpLCfFZm5/UPRaL
+  rR38RsoQINMn5QauSu6d56m/jS/2uKXQkxna22Yy4eUMTNbKp2XZVisyuPY2
+  piPkPqxoG1eSpc3MYfltfDvdnl5N5xhVJIeNnWyZastqKx8GnfjmhUyVKwZU
+  Bw8tw2XsIp+1Rf1tfDnqdXyACUHcEzCW6LCZS4+9CkXdsdNpaC32hXpxt1HQ
+  K3u8t3db9wLgt/FBwKPbm/O8ae2RS1f+axmobhkpOl5erJUiN79tDi3v1KY+
+  UFHz2/gcLXYf30gFz/O0Jdl8B9KjsE0zhPCYed56CkOMr0PtaNO2NzCu+Fjw
+  t/HByHZQC9+eV3Lx0yREIxh6Sc5W2HEhc9XDIOTd5g2OcH5c6fJNC5ZMv43v
+  r4r7j0P++6q/V25wNvsCdtksNag4l32yxtRKaVE78jgGlFDztXivnpMxKohC
+  mTY3v43PaXqGNmuj83bTG9vSaoz98W4kMGAjOh23jdjUQZNfrBcft/i6VNoh
+  v40P2PRsvesgaQtDASP81Dk2soY3swHWO2Ra956DZVGRHYZktmrScJyyv43v
+  r87/coLiDi30/72YT524+bwjeQdPDqdNw7wWnATTLk+qNnQ3r8yTdgV4Jz6J
+  rKskw55ZDb+ND6d4XifOouoMXp7aHQG9TbajLnewNLb0Ch8cQG4IdBb3+OiN
+  orc+aL+NL+/V3YbIOOPGVtogwnXVnMg1vj5kJl5qZlzZw4BuWfMWi/PYbTtl
+  3v02vkHbstQCcQdOwIgIu3Khdgm32MQKTm/iEGGhMW0bZN7Mid5w6uXW7bfx
+  YXpbHzb25RF9s/WiHGxz0UvlR3Artr2xi3PeP8yaaY4kzQ1D4/63DIqinm7h
+  XwN8izFZWZ4G3Aeo1xmLgqJYURUzKD1WD6amt27n9hjTz4zzudaQ9b3WeGAc
+  UQWqGXJ7oSew/NdjYFwWQsa1WqrT7eo0rbqd2y2pm0KpdqCfGecKs1qgGXs6
+  mszIoZbq0hQdnIzpV5uoLpp6ZpymNNspSMoEiajRrLQNXFNl4XZ3sT0WmCmq
+  G7pCul3GsaLtqokSudXcZ8aRB6YoI0fApAzcYtVxNnbXSIwYB612wsBcaGgt
+  BZoe6Bak3Ne6Y1L7zDivfqyAKB5rUwPE5Qp0Gly0czF6+Q8fVwsajWBpCufe
+  5spWIf56LukmeHqmEU0XZc0OE2MmqOO+8my38VQ9M86rRfzyu58Z57ObukKa
+  b2/qM+O8kgnP7eWXUuS8kvKN+jZTE7X+YLtw7MwwJYlQKs/dvc14dMsuCIwY
+  Ltc1F+6kL5m2h6jlTm1tEWsCc5vu3CaXfmYcNTMBS5geTw9h+PUXjM3qEp6V
+  keG2ZdlxM9DzzDgI3KpRTE+6WumicheaVmtvA8WdaWWagTG1SVGDoeQxmr09
+  s6QEuOIw88w4r3TK87H/UgudxyZeNXTpcidfNvHPjFMFAHLdqpIba3vG7pvZ
+  myT0dKL51USOc1WNp0JvqjDRUFP2Qsab3W1o6ZlxpCw1NVd4SjNNiEvO5Xak
+  yS1WVfxVHVcNnRkrrkGw8R2NNqYrI+ZiFc+Mk+wVyxDWjjVNyZgZJXavG7TJ
+  vGr/I41LuJ4Zx5V4h5FVQdqZBUsW6Vu9mWUJHRKoSfWavrNJKLu8szjCU2Vn
+  em63a5vLPDPOq/rHpl3jxDtDV6dQQ6rF9zU2593LXFIR4WlcGtnzJ17/80rW
+  /fOsXI+7YorKms3cmnZtmEwPxvYz40zZjFHZkCkBbgxEaeAimqrxk0XHoLal
+  iWp8k5jKM+O8KjT1U47kSTe5Di1sTcitaQ+aiKYLuVEPedHulpaCq6aeGefd
+  y70i0k5RiiPU6umdTEHTI5vNZsrt0QzcZ8bB/rz7MDM/ckwPHfeNPSvJt7oJ
+  jHw7QmHc2ZkVVTehrm6ZaXVDwENWZkeMbhaTMIEY4JlxZvVxNXj/8+POzjPj
+  vGrB0dzGl+be9N0/NVI4r7T1l6ObZ8b5l/e5LKImcleXroNu3YT60vt8ZpxX
+  thlI2IVCD07vYPw/W3PnTveFcLfNIjbEtatZK0GbO46xdHvqVq8c6xY9Eshl
+  iIPSXbOGJTU3WMsz4wSvhD86fSa1r6wIU+KZcV45Jl/WrGfGeXXxvvz0Z8Z5
+  NQxodp25sZsWqRllqOqbm1gX7kwkyXw+cDivlvVZ3X753Jy1RH8oMv/6dr/Q
+  B8+MI71omCo/1DCdV9O6AjrQG0+8RExmYEfo+4ngeWVEvJMzL8yO82qLf0gC
+  FsfWbX0odueVG1JiQneeGedVwfvyZj4zTvneXdQMYBZDlTvtGm9dFklBhNAp
+  tmrTZNbcqFKaDmA1dU3h5A5mgX5mnFdW4pdy55lxmtZMXMJaKH4zXvx12l/Z
+  h+Vnxvltr6gJVM32Lbr0Za/4zDivLN0v9+GZcf6hOR86ke805zPj/D2SoO3Z
+  KdruiH+kaL6NJDwzzqv+58XCvWvhzudFo/1DRYPlvLIW3w3eX9iX59WZ46dy
+  JOd32bt/le4vs3fPjPPKMZm2CD1UBTCtunuvmKLTTSVWHCvzuStz3iloqXsq
+  FPqjKv18viPc/MyObNX5Wz7DI7lvsx23XKbTzKrmVvRlPuOZcV5d9OdF+7KY
+  nGoaATtDy216ZHtLMDaXWFIl94pa1bCI3sbbdDNmceHyiE5K9MC4s8wz47wK
+  NX7p0j8zzqt5XZG6m+1hmBZNQ4GoyS19OxM8Fju99dF6O8ba1FSDM25lquZy
+  u+VpFBcUTAENDc+M867784tc55sO87waR71Io74beZ1XVffXjcn+4cr+/xJN
+  fKXjqmZ3zR+Pr55XAYMvxxTPjPMq2diZ/RGL9rxKJH+ZFXlmnHZ3FXJPbbu4
+  BTKVUomuzpRpRTcfTIxTUqdFV6chBc+M83FeTlO8CD2+y+SdV3v7u1CFq7WQ
+  r87PeVV6v4vU65lxXqXHCqvvIEb8yWTe+U/7dmwCAADDMOz/rzt2DmQKusJg
+  UHaLPgvdV8wusUvsErvELrFL7BK7xC6xS+wSu8QusUvs0pJdYpfYpQO9y9sj
+  h2NcFgAAAABJRU5ErkJggg==

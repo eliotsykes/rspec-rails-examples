@@ -15,6 +15,7 @@ VCR.configure do |config|
   # Only want VCR to intercept requests to external URLs.
   config.ignore_localhost = true
 end
+# WebMock.allow_net_connect!
 
 # 3. Start using VCR. See example use in spec/jobs/headline_scraper_job_spec.rb.
 #    Cassettes will be stored as .yml files in cassette_library_dir specified above.

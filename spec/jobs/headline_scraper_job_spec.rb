@@ -13,9 +13,7 @@ RSpec.describe HeadlineScraperJob, :type => :job do
       queue: 'default'
     ) do
 
-      VCR.use_cassette("news_page") do
-        HeadlineScraperJob.perform_later url: url_to_scrape, recipient: recipient_email
-      end
+      HeadlineScraperJob.perform_later url: url_to_scrape, recipient: recipient_email
 
     end
 
@@ -24,7 +22,7 @@ RSpec.describe HeadlineScraperJob, :type => :job do
 
     expected_headlines = [
       # Original headline edited to prove VCR is serving scraped page.
-      "Man Bites Dog (served by VCR)",
+      "Man Bites Dog (served by Puffing Billy)",
       "Dog Presses Charges",
       "Cat Dismissed as Unreliable Witness"
     ]
