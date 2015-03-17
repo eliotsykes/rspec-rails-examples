@@ -33,7 +33,8 @@ Rails app with examples of how to test with RSpec and other testing gems.
 
 # Testing Rake Tasks with RSpec
 
-RSpec testing Rake task example:
+RSpec testing Rake task configuration and example:
+- [spec/support/tasks.rb](spec/support/tasks.rb)
 - [spec/tasks/subscription_tasks_spec.rb](spec/tasks/subscription_tasks_spec.rb)
 
 # Pry-rescue debugging
