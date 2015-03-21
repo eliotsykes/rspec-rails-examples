@@ -5,5 +5,8 @@
   <nav><%= button_to "Log out", destroy_user_session_path, method: :delete %></nav>
 <% else %>
   <p>Not registered? <%= link_to "Sign up", new_user_registration_path %></p>
-  <nav><%= link_to "Log in", new_user_session_path %></nav>
+  <nav>
+    <%= link_to "Log in", new_user_session_path %>
+    <%= link_to "Subscribe to newsletter", new_subscription_path %>
+  </nav>
 <% end %>

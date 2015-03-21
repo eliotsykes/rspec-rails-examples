@@ -5,9 +5,23 @@ feature "Subscribe to newsletter", :type => :feature do
   
   scenario "subscribes confirmed user to newsletter" do
 
-    # Go to the subscription page
-    visit new_subscription_path
+    visit "/"
+
+    # Test that the Subscribe to newsletter link works
+    click_link "Subscribe to newsletter"
+    
+    # Test the page title *BEFORE* testing the path when turbolinks
+    # performs the page load. 
+    # 
+    # Capybara's methods account that some browser operations happen
+    # asynchronously. Capybara will retry most operations for a few
+    # seconds before failing a test (Capybara.default_wait_time is 2
+    # seconds by default). `expect ... eq ...` will not
+    # retry, whereas `expect ... have_title ...` does retry. Once
+    # the new title test is passed, we can be confident that the
+    # browser's current path has updated to the new path.
     expect(page).to have_title "Subscribe to our newsletter"
+    expect(current_path).to eq new_subscription_path
 
     # Enter your email and submit the form
     fill_in "Email", with: "buddy@example.tld"
