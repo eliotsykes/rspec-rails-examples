@@ -1,4 +1,4 @@
 <% self.page_title = "Subscription confirmed!" %>
 <p>
-  Your subscription has been confirmed, thank you!
+  Your subscription will start on <%= @subscription.start_on.to_formatted_s(:long_ordinal) %>, thank you!
 </p>

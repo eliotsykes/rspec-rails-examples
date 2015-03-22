@@ -23,8 +23,12 @@ feature "Subscribe to newsletter", :type => :feature do
     expect(page).to have_title "Subscribe to our newsletter"
     expect(current_path).to eq new_subscription_path
 
-    # Enter your email and submit the form
+    today = Time.zone.today.strftime("%Y-%m-%d") # Formats like: 2015-03-22
+    expect(page).to have_field "Start date", with: today
+
+    # Enter your email, subscription start date, then submit the form
     fill_in "Email", with: "buddy@example.tld"
+    fill_in "Start date", with: "01/01/2015"
     click_button "Subscribe"
 
     # Assert you're on the subscription pending page and asked
@@ -44,7 +48,7 @@ feature "Subscribe to newsletter", :type => :feature do
 
       expect(current_path).to eq confirm_subscription_path(Subscription.last)
       expect(page).to have_title "Subscription confirmed!"
-      expect(page).to have_content "Your subscription has been confirmed, thank you!"
+      expect(page).to have_content "Your subscription will start on January 1st, 2015, thank you!"
 
     end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
   end

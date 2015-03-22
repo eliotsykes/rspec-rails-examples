@@ -14,18 +14,20 @@ RSpec.describe SubscriptionsController, :type => :controller do
   context "POST create" do
     
     it "redirects to pending subscriptions page" do
-      params = { subscription: { email: "e@example.tld" } }
+      params = { subscription: { email: "e@example.tld", start_on: "2014-12-31" } }
       post :create, params
 
       expect(response).to redirect_to(pending_subscriptions_path)
     end
 
-    it "calls Subscription.create_and_request_confirmation!(email)" do
+    it "calls Subscription.create_and_request_confirmation(params)" do
       email = "e@example.tld"
-      expect(Subscription).to receive(:create_and_request_confirmation!).with email
+      start_on = "2015-02-28"
+      
+      expect(Subscription).to receive(:create_and_request_confirmation)
+        .with({ email: email, start_on: start_on })
 
-      params = { subscription: { email: email } }
-      post :create, params
+      post :create, { subscription: { email: email, start_on: start_on } }
     end
 
   end
@@ -43,6 +45,7 @@ RSpec.describe SubscriptionsController, :type => :controller do
       get :confirm, params
 
       expect(subscription.reload.confirmed?).to eq(true)
+      expect(assigns(:subscription)).to eq(subscription)
     end
 
     it "responds with 404 Not Found for unknown confirmation token" do

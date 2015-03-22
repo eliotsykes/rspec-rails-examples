@@ -5,8 +5,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    email = params.require(:subscription).require(:email).to_s
-    Subscription.create_and_request_confirmation! email
+    Subscription.create_and_request_confirmation(subscription_params)
     redirect_to pending_subscriptions_path
   end
 
@@ -15,7 +14,13 @@ class SubscriptionsController < ApplicationController
 
   def confirm
     confirmation_token = params.require(:confirmation_token).to_s
-    Subscription.confirm!(confirmation_token)
+    @subscription = Subscription.confirm(confirmation_token)
+  end
+
+  private
+
+  def subscription_params
+    params.require(:subscription).permit(:email, :start_on)
   end
 
 end

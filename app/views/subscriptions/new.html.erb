@@ -1,6 +1,10 @@
 <% self.page_title = "Subscribe to our newsletter" %>
 <%= form_for @subscription do |f| %>
-  <%= f.label :email %>
+  <%= f.label :email, "Email" %>
   <%= f.email_field :email %>
+
+  <%= f.label :start_on, "Start date" %>
+  <%= f.date_field :start_on %>
+
   <%= f.submit "Subscribe" %>
 <% end %>

@@ -12,6 +12,7 @@ RSpec.describe Subscription, :type => :model do
       it { should have_db_column(:email).of_type(:string).with_options(limit: 100, null: false) }
       it { should have_db_column(:confirmation_token).of_type(:string).with_options(limit: 100, null: false) }
       it { should have_db_column(:confirmed).of_type(:boolean).with_options(default: 'f', null: false) }
+      it { should have_db_column(:start_on).of_type(:date) }
     end
   end
   
@@ -27,6 +28,23 @@ RSpec.describe Subscription, :type => :model do
 
     it "has confirmation_token" do
       expect(Subscription.new(confirmation_token: "what-a-token")).to have_attributes(confirmation_token: "what-a-token")
+    end
+
+    context "start_on" do
+
+      it "is an attribute" do
+        today = Date.today
+        expect(Subscription.new(start_on: Date.today)).to have_attributes(start_on: today)
+      end
+
+      it "defaults to today" do
+        now = Time.zone.now
+        today = now.to_date
+        travel_to now do
+          expect(Subscription.new.start_on).to eq(today)
+        end
+      end
+
     end
 
   end
@@ -52,6 +70,10 @@ RSpec.describe Subscription, :type => :model do
     it "requires unique confirmation_token" do
       expect(@subscription).to validate_uniqueness_of(:confirmation_token)
     end
+
+    it "requires start_on" do
+      expect(@subscription).to validate_presence_of(:start_on)
+    end
   end
 
   context "scopes" do
@@ -60,7 +82,7 @@ RSpec.describe Subscription, :type => :model do
 
       before do
         # Freeze time as confirmation_overdue scope is time-sensitive
-        travel_to Time.now
+        travel_to Time.zone.now
       end
 
       after { travel_back }
@@ -93,21 +115,22 @@ RSpec.describe Subscription, :type => :model do
 
   end
 
-  describe ".create_and_request_confirmation!(email)" do
+  describe ".create_and_request_confirmation(params)" do
     
-    it "creates an unconfirmed subscription" do
-      email = "subscriber@somedomain.tld"
-      Subscription.create_and_request_confirmation!(email)
+    it "creates an unconfirmed subscription with the given params" do
+      params = { email: "subscriber@somedomain.tld", start_on: "2015-01-31" }
+      Subscription.create_and_request_confirmation(params)
 
       subscription = Subscription.first
 
-      expect(subscription.email).to eq(email)
       expect(subscription.confirmed?).to eq(false)
+      expect(subscription.email).to eq(params[:email])
+      expect(subscription.start_on).to eq(Date.new(2015, 1, 31))
     end
 
     it "saves subscription a secure random confirmation_token" do
       expect(::SecureRandom).to receive(:hex).with(32).and_call_original
-      subscription = Subscription.create_and_request_confirmation!("hello@example.tld")
+      subscription = Subscription.create_and_request_confirmation(email: "hello@example.tld")
       subscription.reload
       
       expect(subscription.confirmation_token).to match /\A[a-z0-9]{64}\z/
@@ -118,9 +141,7 @@ RSpec.describe Subscription, :type => :model do
         .to receive(:send_confirmation_request!)
         .with(Subscription)
       
-      email = "subscriber@somedomain.tld"
-      
-      Subscription.create_and_request_confirmation!(email)
+      Subscription.create_and_request_confirmation(email: "subscriber@somedomain.tld")
     end
 
     it "doesn't create subscription if emailing fails" do
@@ -131,7 +152,7 @@ RSpec.describe Subscription, :type => :model do
 
       email = "subscriber@somedomain.tld"
       expect do
-        Subscription.create_and_request_confirmation!(email)
+        Subscription.create_and_request_confirmation(email: email)
       end.to raise_error "Bad news, delivery failed!"
 
       expect(Subscription.exists?).to eq(false)
@@ -140,14 +161,16 @@ RSpec.describe Subscription, :type => :model do
     it "raises an error if the subscription can't be created" do
       blank_email = ""
       expect do
-        Subscription.create_and_request_confirmation!(blank_email)
+        Subscription.create_and_request_confirmation(email: blank_email)
       end.to raise_error ActiveRecord::RecordInvalid
     end
 
     it "doesn't send an email if the subscription can't be created" do
       blank_email = ""
       expect do
-        expect { Subscription.create_and_request_confirmation!(blank_email) }.to raise_error
+        expect do 
+          Subscription.create_and_request_confirmation(email: blank_email)
+        end.to raise_error ActiveRecord::RecordInvalid
       end.not_to change { ActionMailer::Base.deliveries.size }
     end
 
@@ -158,13 +181,13 @@ RSpec.describe Subscription, :type => :model do
 
       email = "subscriber@somedomain.tld"
       expect do
-        Subscription.create_and_request_confirmation!(email)
+        Subscription.create_and_request_confirmation(email: email)
       end.to raise_error "Bad news, delivery failed!"
     end
 
   end
 
-  describe ".confirm!(confirmation_token)" do
+  describe ".confirm(confirmation_token)" do
     
     it "confirms the subscription matching the confirmation_token" do
       token = Subscription.generate_confirmation_token
@@ -174,8 +197,11 @@ RSpec.describe Subscription, :type => :model do
       )
       expect(subscription.confirmed?).to eq(false)
 
-      Subscription.confirm!(token)
-      expect(subscription.reload.confirmed?).to eq(true)
+      returned_subscription = Subscription.confirm(token)
+      subscription.reload
+
+      expect(subscription).to eq(returned_subscription)
+      expect(subscription.confirmed?).to eq(true)
     end
 
     it "gracefully handles confirming an already confirmed subscription" do
@@ -185,14 +211,14 @@ RSpec.describe Subscription, :type => :model do
       )
       expect(subscription.confirmed?).to eq(false)
 
-      2.times { Subscription.confirm!("xyz") }
+      2.times { Subscription.confirm("xyz") }
 
       expect(subscription.reload.confirmed?).to eq(true)
     end
 
     it "raises ActiveRecord::RecordNotFound if confirmation_token is unknown" do
       expect do
-        Subscription.confirm!("unknown-token")
+        Subscription.confirm("unknown-token")
       end.to raise_error ActiveRecord::RecordNotFound
     end
 

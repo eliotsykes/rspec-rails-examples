@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221124118) do
+ActiveRecord::Schema.define(version: 20150321163642) do
 
-  create_table "subscriptions", force: true do |t|
+  create_table "subscriptions", force: :cascade do |t|
     t.string   "email",              limit: 100,                 null: false
     t.string   "confirmation_token", limit: 100,                 null: false
     t.boolean  "confirmed",                      default: false, null: false
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
+    t.date     "start_on"
   end
 
   add_index "subscriptions", ["confirmation_token"], name: "index_subscriptions_on_confirmation_token", unique: true
   add_index "subscriptions", ["email"], name: "index_subscriptions_on_email", unique: true
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
