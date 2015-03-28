@@ -8,10 +8,7 @@ feature "Subscribe to newsletter", :type => :feature do
 
       visit_new_subscription
 
-      # Enter your email, subscription start date, then submit the form
-      fill_in "Email", with: "buddy@example.tld"
-      fill_in "Start date", with: "01/01/2015"
-      click_button "Subscribe"
+      submit_new_subscription_form(email: "buddy@example.tld", start_on: "01/01/2015")
 
       # be_pending_subscription_page is a custom matcher (see spec/matchers)
       expect(page).to be_pending_subscription_page
@@ -25,14 +22,12 @@ feature "Subscribe to newsletter", :type => :feature do
   end
 
   xcontext "in browser without native date input support" do
-    
+
     scenario "subscribes confirmed user to newsletter" do
 
       visit_new_subscription
 
-      fill_in "Email", with: "buddy@example.tld"
-      fill_in "Start date", with: "01/01/2015"
-      click_button "Subscribe"
+      submit_new_subscription_form(email: "buddy@example.tld", start_on: "01/01/2015")
 
       expect(page).to be_pending_subscription_page
 
@@ -45,6 +40,13 @@ feature "Subscribe to newsletter", :type => :feature do
   end
 
   private
+
+  def submit_new_subscription_form(email:, start_on:)
+    # Enter your email, subscription start date, then submit the form
+    fill_in "Email", with: email
+    fill_in "Start date", with: start_on
+    click_button "Subscribe"
+  end
 
   def visit_emailed_confirm_subscription_link(recipient)
     # Use email_spec helpers to:
