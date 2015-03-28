@@ -10,7 +10,9 @@
     }
     var supportsNativeDateInput = (dateInputs[0].type == "date");
     if (!supportsNativeDateInput) {
-      $("input[type=date]").pickadate();
+      $("input[type=date]").pickadate({
+        format: "yyyy-mm-dd"
+      });
     }
   }
 
