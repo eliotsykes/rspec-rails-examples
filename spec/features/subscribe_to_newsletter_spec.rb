@@ -17,12 +17,7 @@ feature "Subscribe to newsletter", :type => :feature do
       expect(page).to be_pending_subscription_page
 
       expect do
-        # Use email_spec helpers to:
-        # 1. Open the correct email, then
-        # 2. Visit the confirm link in that email
-        open_email "buddy@example.tld", with_subject: "Please confirm"
-        visit_in_email "Confirm your subscription"
-
+        visit_emailed_confirm_subscription_link("buddy@example.tld")
         expect(page).to be_confirm_subscription_page(Subscription.last).with_subscription_starting_on("January 1st, 2015")
       end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
     end
@@ -42,8 +37,7 @@ feature "Subscribe to newsletter", :type => :feature do
       expect(page).to be_pending_subscription_page
 
       expect do
-        open_email "buddy@example.tld", with_subject: "Please confirm"
-        visit_in_email "Confirm your subscription"
+        visit_emailed_confirm_subscription_link("buddy@example.tld")
         expect(page).to be_confirm_subscription_page(Subscription.last).with_subscription_starting_on("January 1st, 2015")
       end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
     end
@@ -51,6 +45,14 @@ feature "Subscribe to newsletter", :type => :feature do
   end
 
   private
+
+  def visit_emailed_confirm_subscription_link(recipient)
+    # Use email_spec helpers to:
+    # 1. Open the correct email, then
+    # 2. Visit the confirm link in that email
+    open_email recipient, with_subject: "Please confirm"
+    visit_in_email "Confirm your subscription"
+  end
 
   def visit_new_subscription
     visit "/"
