@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-feature "Subscribe to newsletter", :type => :feature do
+feature "Subscribe to newsletter", type: :feature do
 
-  context "in browser with native date input support" do
+  context "in browser with native date input support", driver: driver_with(native_date_input: true) do
 
     scenario "subscribes confirmed user to newsletter" do
 
@@ -21,7 +21,7 @@ feature "Subscribe to newsletter", :type => :feature do
 
   end
 
-  xcontext "in browser without native date input support" do
+  context "in browser without native date input support", driver: driver_with(native_date_input: false)  do
 
     scenario "subscribes confirmed user to newsletter" do
 
@@ -35,6 +35,8 @@ feature "Subscribe to newsletter", :type => :feature do
         visit_emailed_confirm_subscription_link("buddy@example.tld")
         expect(page).to be_confirm_subscription_page(Subscription.last).with_subscription_starting_on("January 1st, 2015")
       end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
+
+      flunk
     end
 
   end
