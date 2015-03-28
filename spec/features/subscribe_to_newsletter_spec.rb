@@ -13,6 +13,7 @@ feature "Subscribe to newsletter", :type => :feature do
       fill_in "Start date", with: "01/01/2015"
       click_button "Subscribe"
 
+      # be_pending_subscription_page is a custom matcher (see spec/matchers)
       expect(page).to be_pending_subscription_page
 
       expect do

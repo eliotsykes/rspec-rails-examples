@@ -17,6 +17,7 @@ Rails app with examples of how to test with RSpec and other testing gems.
 - [Shoulda-Matchers Examples](#shoulda-matchers-examples)
 - [Email-Spec Examples](#email-spec-examples)
 - [Devise Examples](#devise-examples)
+- [Custom Matchers](#custom-matchers)
 - [RSpec-Expectations Docs](#rspec-expectations-docs)
 - [RSpec-Mocks Specs & Docs](#rspec-mocks-specs--docs)
 - [RSpec-Rails](#rspec-rails)
@@ -152,6 +153,18 @@ Specs testing registration, sign-in, and other user authentication features prov
 
 - [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)
 - [spec/features/user_registers_spec.rb](spec/features/user_registers_spec.rb)
+
+
+# Custom Matchers
+
+You can write your own custom RSpec matchers. Custom matchers can help you write more understandable
+specs.
+
+Custom matchers configuration how-to and examples:
+- [spec/support/matchers.rb](spec/support/matchers.rb)
+- [spec/matchers](spec/matchers)
+- [spec/matchers/be_pending_subscription_page.rb](spec/matchers/be_pending_subscription_page.rb)
+- [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
 
 
 # RSpec-Expectations Docs

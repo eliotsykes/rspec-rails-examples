@@ -1,3 +1,6 @@
+# 28/Mar/2015
+- Introduced custom RSpec matcher
+
 # 9/Mar/2015
 - pry-rails installed to aid debugging in rails console
 
