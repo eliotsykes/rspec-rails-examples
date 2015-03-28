@@ -1,18 +1,72 @@
 require 'rails_helper'
 
-
 feature "Subscribe to newsletter", :type => :feature do
-  
-  scenario "subscribes confirmed user to newsletter" do
 
+  context "in browser with native date input support" do
+
+    scenario "subscribes confirmed user to newsletter" do
+
+      visit_new_subscription
+
+      # Enter your email, subscription start date, then submit the form
+      fill_in "Email", with: "buddy@example.tld"
+      fill_in "Start date", with: "01/01/2015"
+      click_button "Subscribe"
+
+      expect(page).to be_pending_subscription_page
+
+      expect do
+        # Use email_spec helpers to:
+        # 1. Open the correct email, then
+        # 2. Visit the confirm link in that email
+        open_email "buddy@example.tld", with_subject: "Please confirm"
+        visit_in_email "Confirm your subscription"
+
+        expect(current_path).to eq confirm_subscription_path(Subscription.last)
+        expect(page).to have_title "Subscription confirmed!"
+        expect(page).to have_content "Your subscription will start on January 1st, 2015, thank you!"
+
+      end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
+    end
+
+  end
+
+  xcontext "in browser without native date input support" do
+    
+    scenario "subscribes confirmed user to newsletter" do
+
+      visit_new_subscription
+
+      fill_in "Email", with: "buddy@example.tld"
+      fill_in "Start date", with: "01/01/2015"
+      click_button "Subscribe"
+
+      expect(page).to be_pending_subscription_page
+
+      expect do
+        open_email "buddy@example.tld", with_subject: "Please confirm"
+        visit_in_email "Confirm your subscription"
+
+        expect(current_path).to eq confirm_subscription_path(Subscription.last)
+        expect(page).to have_title "Subscription confirmed!"
+        expect(page).to have_content "Your subscription will start on January 1st, 2015, thank you!"
+
+      end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
+    end
+
+  end
+
+  private
+
+  def visit_new_subscription
     visit "/"
 
     # Test that the Subscribe to newsletter link works
     click_link "Subscribe to newsletter"
-    
+
     # Test the page title *BEFORE* testing the path when turbolinks
-    # performs the page load. 
-    # 
+    # performs the page load.
+    #
     # Capybara's methods account that some browser operations happen
     # asynchronously. Capybara will retry most operations for a few
     # seconds before failing a test (Capybara.default_wait_time is 2
@@ -25,32 +79,39 @@ feature "Subscribe to newsletter", :type => :feature do
 
     today = Time.zone.today.strftime("%Y-%m-%d") # Formats like: 2015-03-22
     expect(page).to have_field "Start date", with: today
-
-    # Enter your email, subscription start date, then submit the form
-    fill_in "Email", with: "buddy@example.tld"
-    fill_in "Start date", with: "01/01/2015"
-    click_button "Subscribe"
-
-    # Assert you're on the subscription pending page and asked
-    # to check your inbox for the confirmation email.
-    expect(current_path).to eq pending_subscriptions_path
-    expect(page).to have_title "Check your inbox"
-    expect(page).to have_content(
-      "Please check your inbox and click the confirmation link to complete your subscription."
-    )
-
-    expect do
-      # Use email_spec helpers to:
-      # 1. Open the correct email, then
-      # 2. Visit the confirm link in that email
-      open_email "buddy@example.tld", with_subject: "Please confirm"
-      visit_in_email "Confirm your subscription"
-
-      expect(current_path).to eq confirm_subscription_path(Subscription.last)
-      expect(page).to have_title "Subscription confirmed!"
-      expect(page).to have_content "Your subscription will start on January 1st, 2015, thank you!"
-
-    end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
   end
 
+end
+
+class BePendingSubscriptionPage
+  include ::Rails.application.routes.url_helpers
+
+  attr_accessor :failure_message
+
+  def matches?(actual_page)
+    expected_title = "Check your inbox"
+    if actual_page.has_no_title?(expected_title)
+      self.failure_message = "\nexpected title: #{expected_title}\n     got title: #{actual_page.title}\n"
+      return false
+    end
+
+    expected_path = pending_subscriptions_path
+    if actual_page.current_path != expected_path
+      self.failure_message = "\nexpected current path: #{expected_path}\n     got current path: #{actual_page.current_path}\n"
+      return false
+    end
+
+    expected_content = "Please check your inbox and click the confirmation link to complete your subscription."
+    if actual_page.has_no_content?(expected_content)
+      self.failure_message = "\nexpected content: #{expected_content}\n     got content: #{actual_page.text}\n"
+      return false
+    end
+
+    true
+  end
+
+end
+
+def be_pending_subscription_page(*args)
+  BePendingSubscriptionPage.new(*args)
 end
