@@ -23,10 +23,7 @@ feature "Subscribe to newsletter", :type => :feature do
         open_email "buddy@example.tld", with_subject: "Please confirm"
         visit_in_email "Confirm your subscription"
 
-        expect(current_path).to eq confirm_subscription_path(Subscription.last)
-        expect(page).to have_title "Subscription confirmed!"
-        expect(page).to have_content "Your subscription will start on January 1st, 2015, thank you!"
-
+        expect(page).to be_confirm_subscription_page(Subscription.last).with_subscription_starting_on("January 1st, 2015")
       end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
     end
 
@@ -47,11 +44,7 @@ feature "Subscribe to newsletter", :type => :feature do
       expect do
         open_email "buddy@example.tld", with_subject: "Please confirm"
         visit_in_email "Confirm your subscription"
-
-        expect(current_path).to eq confirm_subscription_path(Subscription.last)
-        expect(page).to have_title "Subscription confirmed!"
-        expect(page).to have_content "Your subscription will start on January 1st, 2015, thank you!"
-
+        expect(page).to be_confirm_subscription_page(Subscription.last).with_subscription_starting_on("January 1st, 2015")
       end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
     end
 
