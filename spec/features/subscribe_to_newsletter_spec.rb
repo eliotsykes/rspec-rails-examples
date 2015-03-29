@@ -4,18 +4,23 @@ feature "Subscribe to newsletter", type: :feature do
 
   context "in browser with native date input", driver: driver_with(native_date_input: true) do
 
-    scenario "subscribes confirmed user to newsletter" do
+    scenario "subscribes user to newsletter" do
 
       visit_new_subscription
 
-      submit_new_subscription_form(email: "buddy@example.tld", start_on: "01/01/2015")
+      fill_in "Email", with: "buddy@example.tld"
+      fill_in "Start date", with: "01/01/2015"
+      click_button "Subscribe"
 
       # be_pending_subscription_page is a custom matcher (see spec/matchers)
       expect(page).to be_pending_subscription_page
 
       expect do
+
         visit_emailed_confirm_subscription_link("buddy@example.tld")
-        expect(page).to be_confirm_subscription_page(Subscription.last).with_subscription_starting_on("January 1st, 2015")
+        expect(page).to be_confirm_subscription_page(Subscription.last)
+          .with_subscription_starting_on("January 1st, 2015")
+
       end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
     end
 
@@ -23,28 +28,22 @@ feature "Subscribe to newsletter", type: :feature do
 
   context "in browser without native date input", driver: driver_with(native_date_input: false)  do
 
-    scenario "subscribes confirmed user to newsletter" do
+    scenario "subscribes user to newsletter" do
 
       visit_new_subscription
 
       fill_in "Email", with: "buddy@example.tld"
-      expect(page).not_to have_css("#subscription_start_on + .picker--opened")
-      find_field("Start date").click # open the date picker
-      expect(page).to have_css("#subscription_start_on + .picker--opened")
-      within "#subscription_start_on + .picker" do
-        find("select[title='Select a year']").select("2015")
-        find("select[title='Select a month']").select("January")
-        find("[aria-label='2015-01-01']", text: "1").click
-      end
-      expect(page).not_to have_css("#subscription_start_on + .picker--opened")
-      expect(page).to have_field("subscription_start_on", with: "2015-01-01")
+      fill_in_start_date_with_picker
       click_button "Subscribe"
 
       expect(page).to be_pending_subscription_page
 
       expect do
+
         visit_emailed_confirm_subscription_link("buddy@example.tld")
-        expect(page).to be_confirm_subscription_page(Subscription.last).with_subscription_starting_on("January 1st, 2015")
+        expect(page).to be_confirm_subscription_page(Subscription.last)
+          .with_subscription_starting_on("January 31st, 2015")
+
       end.to change { Subscription.where(confirmed: true).count }.from(0).to(1)
 
     end
@@ -53,11 +52,17 @@ feature "Subscribe to newsletter", type: :feature do
 
   private
 
-  def submit_new_subscription_form(email:, start_on:)
-    # Enter your email, subscription start date, then submit the form
-    fill_in "Email", with: email
-    fill_in "Start date", with: start_on
-    click_button "Subscribe"
+  def fill_in_start_date_with_picker
+    expect(page).not_to have_css("#subscription_start_on + .picker--opened")
+    find_field("Start date").click # open the date picker
+    expect(page).to have_css("#subscription_start_on + .picker--opened")
+    within "#subscription_start_on + .picker" do
+      find("select[title='Select a year']").select("2015")
+      find("select[title='Select a month']").select("January")
+      find("[aria-label='2015-01-31']", text: "31").click
+    end
+    expect(page).not_to have_css("#subscription_start_on + .picker--opened")
+    expect(page).to have_field("subscription_start_on", with: "2015-01-31")
   end
 
   def visit_emailed_confirm_subscription_link(recipient)
