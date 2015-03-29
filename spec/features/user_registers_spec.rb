@@ -48,9 +48,8 @@ feature "User registers", :type => :feature do
 
       click_button "Sign up"
 
-      expect_error_messages "Email can't be blank",
+      expect(page).to have_error_messages "Email can't be blank",
         "Password can't be blank"
-
     end
 
     scenario "incorrect password confirmation" do
@@ -60,7 +59,7 @@ feature "User registers", :type => :feature do
       fill_in "Password confirmation", with: "not-test-password"
       click_button "Sign up"
 
-      expect_error_messages "Password confirmation doesn't match Password"
+      expect(page).to have_error_message "Password confirmation doesn't match Password"
     end
 
     scenario "already registered email" do
@@ -72,7 +71,7 @@ feature "User registers", :type => :feature do
       fill_in "Password confirmation", with: "test-password"
       click_button "Sign up"
 
-      expect_error_messages "Email has already been taken"
+      expect(page).to have_error_message "Email has already been taken"
     end
 
     scenario "invalid email" do
@@ -82,7 +81,7 @@ feature "User registers", :type => :feature do
       fill_in "Password confirmation", with: "test-password"
       click_button "Sign up"
 
-      expect_error_messages "Email is invalid"
+      expect(page).to have_error_message "Email is invalid"
     end
 
     scenario "too short password" do
@@ -94,25 +93,12 @@ feature "User registers", :type => :feature do
       fill_in "Password confirmation", with: too_short_password
       click_button "Sign up"
 
-      expect_error_messages "Password is too short (minimum is 8 characters)"
+      expect(page).to have_error_message "Password is too short (minimum is 8 characters)"
     end
 
   end
 
   private
-
-  def expect_error_messages(*messages)
-    within "#error_explanation" do
-      error_count = messages.size
-      expect(page).to have_content "#{error_count} #{'error'.pluralize(error_count)} prohibited this user from being saved"
-      within "ul" do
-        expect(page).to have_css "li", count: error_count
-        messages.each do |expected_msg|
-          expect(page).to have_selector "li", text: expected_msg
-        end
-      end
-    end
-  end
 
   def expect_fields_to_be_blank
     expect(page).to have_field("Email", with: "", type: "email")
