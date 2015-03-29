@@ -5,9 +5,9 @@ RSpec Rails Examples
 
 This is a small, yet comprehensive reference for developers who want to know how to test Rails apps using RSpec.
 
-Here you'll find comprehensive examples of how to test with RSpec and other testing gems, which you can apply to your own projects.
+Here you'll find in-depth examples with detailed documentation explaining how to test with RSpec and related testing gems, which you can then apply to your own projects.
 
-This application was originally written for the benefit of the developers I train, who've found it a useful memory aid and catalyst for when they're learning RSpec. Now I'd like to get feedback from the wider community.
+This application was originally written for the benefit of the developers I coach, who've found it a useful memory aid and catalyst for when they're learning RSpec. Now I'd like to get feedback from the wider community.
 
 The repo contains examples of various spec types such as feature, mailer, and model. See the [spec/](spec/) directory for all the example specs and types.
 
