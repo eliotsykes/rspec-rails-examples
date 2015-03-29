@@ -15,7 +15,7 @@ In the README below, you'll find links to some of the most useful cheatsheets an
 
 See the well-commented files in the [spec/support](spec/support) directory for walkthroughs on how to configure popular testing gems, such as DatabaseCleaner, Capybara, and FactoryGirl.
 
-Hopefully this will be of help to those of you learning RSpec and Rails. If there's anything missing you'd like to see covered in the project, please submit your request via the [issue tracker](https://github.com/eliotsykes/rspec-rails-examples/issues), I'd be happy to help --- [_Eliot Sykes_](https://eliotsykes.com)
+Hopefully this will be of help to those of you learning RSpec and Rails. If there's anything missing you'd like to see covered in the project, please submit your request via the [issue tracker](https://github.com/eliotsykes/rspec-rails-examples/issues), I'd be happy to help &mdash; [_Eliot Sykes_](https://eliotsykes.com)
 
 
 
