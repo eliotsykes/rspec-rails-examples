@@ -181,6 +181,7 @@ Custom matchers configuration how-to and examples:
 - [spec/matchers](spec/matchers)
 - [spec/matchers/be_pending_subscription_page.rb](spec/matchers/be_pending_subscription_page.rb)
 - Chainable matcher: [spec/matchers/be_confirm_subscription_page.rb](spec/matchers/be_confirm_subscription_page.rb)
+- [spec/matchers/have_error_messages.rb](spec/matchers/have_error_messages.rb)
 - [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
 
 
