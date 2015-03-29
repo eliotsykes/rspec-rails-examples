@@ -1,7 +1,23 @@
 RSpec Rails Examples
 ====================
 
-Rails app with examples of how to test with RSpec and other testing gems.
+> An RSpec cheatsheet in the form of a Rails app
+
+This is a small, yet comprehensive reference for developers who want to know how to test Rails apps using RSpec.
+
+Here you'll find comprehensive examples of how to test with RSpec and other testing gems, which you can apply to your own projects.
+
+This application was originally written for the benefit of the developers I train, who've found it a useful memory aid and catalyst for when they're learning RSpec. Now I'd like to get feedback from the wider community.
+
+The repo contains examples of various spec types such as feature, mailer, and model. See the [spec/](spec/) directory for all the example specs and types.
+
+In the README below, you'll find links to some of the most useful cheatsheets and API documentation available for RSpec users.
+
+See the well-commented files in the [spec/support](spec/support) directory for walkthroughs on how to configure popular testing gems, such as DatabaseCleaner, Capybara, and FactoryGirl.
+
+Hopefully this will be of help to those of you learning RSpec and Rails. If there's anything missing you'd like to see covered in the project, please submit your request via the [issue tracker](https://github.com/eliotsykes/rspec-rails-examples/issues), I'd be happy to help.
+
+
 
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
