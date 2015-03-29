@@ -11,7 +11,9 @@
     var supportsNativeDateInput = (dateInputs[0].type == "date");
     if (!supportsNativeDateInput) {
       $("input[type=date]").pickadate({
-        format: "yyyy-mm-dd"
+        format: "yyyy-mm-dd",
+        selectMonths: true,
+        selectYears: true
       });
     }
   }
