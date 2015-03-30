@@ -1,9 +1,9 @@
 RSpec Rails Examples
 ====================
 
-> An RSpec cheatsheet in the form of a Rails app
+> An RSpec cheatsheet in the form of a Rails app. Learn how to expertly test Rails apps from a model codebase
 
-This is a small, yet comprehensive reference for developers who want to know how to test Rails apps using RSpec.
+A small yet comprehensive reference for developers who want to know how to test Rails apps using RSpec.
 
 Here you'll find in-depth examples with detailed documentation explaining how to test with RSpec and related testing gems, which you can then apply to your own projects.
 
