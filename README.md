@@ -188,6 +188,7 @@ Custom matchers configuration how-to and examples:
 # RSpec-Expectations Docs
 - [RSpec-Expectations API](http://www.rubydoc.info/gems/rspec-expectations/frames)
 - [RSpec-Expectations matchers](https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers)
+- [Expectations matchers cheatsheet](https://gist.github.com/hpjaj/ef5ba70a938a963332d0)
 
 
 # RSpec-Mocks Specs & Docs
