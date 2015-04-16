@@ -1,5 +1,7 @@
 # Installing email_spec:
 
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # 1. Add email_spec to Gemfile:
 #
 # group :test do

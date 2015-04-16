@@ -1,5 +1,7 @@
 # Installing VCR:
 
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # 1. Add vcr and webmock gems to Gemfile:
 #
 # group :test do

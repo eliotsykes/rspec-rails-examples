@@ -1,5 +1,7 @@
-# Setting up Custom Matchers
+# Setting up Custom Matchers:
 
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # 1. Create a file like this one you're reading in spec/support/matchers.rb:
 
 Dir[Rails.root.join("spec/matchers/**/*.rb")].each { |f| require f }

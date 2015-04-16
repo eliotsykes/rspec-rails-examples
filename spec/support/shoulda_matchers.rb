@@ -1,12 +1,14 @@
 # Installing shoulda-matchers:
 
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # 1. Add shoulda-matchers to Gemfile:
 #
 # group :test do
 #   gem 'shoulda-matchers', require: false
 # end
 #
-# 2. Create a file like this one you're reading in spec/support/shoulda-matchers.rb:
+# 2. Create a file like this one you're reading in spec/support/shoulda_matchers.rb:
 require 'shoulda/matchers'
 
 

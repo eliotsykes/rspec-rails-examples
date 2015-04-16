@@ -1,5 +1,7 @@
 # Installing Puffing Billy:
 
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # 1. Puffing Billy depends on Capybara. Install Capybara as explained
 #    in spec/support/capybara.rb
 # 

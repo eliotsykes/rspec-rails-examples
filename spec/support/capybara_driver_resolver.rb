@@ -1,3 +1,5 @@
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # You probably don't need this config, its for setting up Capybara drivers
 # with descriptive names related to the underlying browser's HTML5 support.
 module CapybaraDriverResolver

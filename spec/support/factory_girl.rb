@@ -1,5 +1,7 @@
 # Installing factory_girl:
 
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # 1. Add factory_girl_rails to Gemfile:
 #
 # group :development, :test do
