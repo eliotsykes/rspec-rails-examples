@@ -1,5 +1,7 @@
 # Installing database_cleaner:
 
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # 1. Add database_cleaner to Gemfile:
 #
 # group :test do
@@ -71,8 +73,3 @@ RSpec.configure do |config|
   end
 
 end
-
-# Suggested docs
-# --------------
-# http://devblog.avdi.org/2012/08/31/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/
-

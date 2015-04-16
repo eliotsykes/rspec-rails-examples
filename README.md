@@ -21,6 +21,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
 
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
+- [Support Configuration](#support-configuration)
 - [Testing Rake Tasks with RSpec](#testing-rake-tasks-with-rspec)
 - [Pry-rescue debugging](#pry-rescue-debugging)
 - [Time Travel Examples](#time-travel-examples)
@@ -47,6 +48,16 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
+
+# Support Configuration
+
+The tests rely on this configuration being uncommented in `spec/rails_helper.rb`, you probably want it uncommented in your app too:
+```ruby
+# Loads `.rb` files in `spec/support` and its subdirectories:
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+```
+(The rspec-rails installer generates this line, but it will be commented out.)
+
 
 # Testing Rake Tasks with RSpec
 

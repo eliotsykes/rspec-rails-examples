@@ -1,5 +1,7 @@
 # Installing Capybara:
 
+# 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
+#
 # 1. Add capybara, selenium-webdriver, and chromedriver-helper to Gemfile:
 #
 # group :development, :test do
