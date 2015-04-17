@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature "Home page", :type => :feature do
-  
+feature "Home page" do
+
   scenario "visit" do
     visit "/"
     expect(page).to have_title "Welcome to RSpec Rails Examples"
