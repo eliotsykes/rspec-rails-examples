@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User registers", :type => :feature do
+feature "User registers" do
 
   scenario "with valid details" do
 

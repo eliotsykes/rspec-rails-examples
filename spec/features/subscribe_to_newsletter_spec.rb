@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Subscribe to newsletter", type: :feature do
+feature "Subscribe to newsletter" do
 
   context "in browser with native date input", driver: driver_with(native_date_input: true) do
 
