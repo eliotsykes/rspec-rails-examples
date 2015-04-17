@@ -1,3 +1,6 @@
+# 17/Apr/2015
+- Remove redundant `type:` option from feature specs https://github.com/eliotsykes/rspec-rails-examples/pull/41 (Vitaly Tatarintsev)
+
 # 28/Mar/2015
 - Introduced custom RSpec matcher
 - Introduced chainable custom RSpec matcher

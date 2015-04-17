@@ -244,5 +244,6 @@ See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/v/3-1/docs) for instal
 # Contributors
 
 - Eliot Sykes https://eliotsykes.com/
-- Your name here, contributions are welcome and easy! Just fork the GitHub repo, make your changes, then submit your pull request!
+- Vitaly Tatarintsev https://github.com/ck3g
+- Your name here, contributions are welcome and easy, just fork the GitHub repo, make your changes, then submit your pull request! Please ask if you'd like some help.
 
