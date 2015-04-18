@@ -1,3 +1,6 @@
+# 18/Apr/2015
+- Upgrade Rails from 4.2.0 to 4.2.1 https://github.com/eliotsykes/rspec-rails-examples/pull/44 (Ryan Wold)
+
 # 17/Apr/2015
 - Remove redundant `type:` option from feature specs https://github.com/eliotsykes/rspec-rails-examples/pull/41 (Vitaly Tatarintsev)
 
