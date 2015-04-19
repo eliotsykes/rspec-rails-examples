@@ -52,9 +52,11 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :feature) do
-    if Capybara.current_driver == :rack_test
-      # :rack_test driver's Rack app under test shares database connection
-      # with the specs, so we can use transaction strategy for speed.
+    # :rack_test driver's Rack app under test shares database connection
+    # with the specs, so we can use transaction strategy for speed.
+    driver_shares_db_connection_with_specs = Capybara.current_driver == :rack_test
+
+    if driver_shares_db_connection_with_specs
       DatabaseCleaner.strategy = :transaction
     else
       # Non-:rack_test driver is probably a driver for a JavaScript browser
