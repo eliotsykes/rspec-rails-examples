@@ -133,7 +133,7 @@ RSpec.describe Subscription, :type => :model do
       subscription = Subscription.create_and_request_confirmation(email: "hello@example.tld")
       subscription.reload
       
-      expect(subscription.confirmation_token).to match /\A[a-z0-9]{64}\z/
+      expect(subscription.confirmation_token).to match(/\A[a-z0-9]{64}\z/)
     end
 
     it "emails a confirmation request" do
