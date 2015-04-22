@@ -251,11 +251,14 @@ To take advantage of this boost when you run `bin/rspec`, the `spring-commands-r
 #    install gem:
 bundle install
 
-# 3. Spring-ify the `bin/rspec` binstub:
+# 2. Spring-ify the `bin/rspec` binstub:
 bundle exec spring binstub rspec
 
-# 4. Stop spring to ensure the changes are picked up:
+# 3. Stop spring to ensure the changes are picked up:
 bin/spring stop
+
+# 4. Check bin/rspec is still working:
+bin/rspec
 ```
 
 See the spring-commands-rspec README for up-to-date installation instructions:
