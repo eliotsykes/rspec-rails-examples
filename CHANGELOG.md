@@ -1,5 +1,6 @@
 # 22/Apr/2015
 - Enable Spring for RSpec https://github.com/eliotsykes/rspec-rails-examples/pull/50 (Andy Waite)
+- Order Gemfile alphabetically https://github.com/eliotsykes/rspec-rails-examples/pull/49 (Andy Waite)
 
 # 18/Apr/2015
 - Upgrade Rails from 4.2.0 to 4.2.1 https://github.com/eliotsykes/rspec-rails-examples/pull/44 (Ryan Wold)
