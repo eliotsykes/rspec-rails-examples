@@ -14,6 +14,7 @@ group :development, :test do
   gem 'byebug' # Call 'byebug' in code to stop execution and get a debugger console
   gem 'web-console', '~> 2.0' # Access IRB on error pages or by <%= console %> in views
   gem 'spring' # Spring background-runs app in dev for speed
+  gem 'spring-commands-rspec'
   gem 'rspec-rails', '~> 3.2'
 
   gem 'capybara'
