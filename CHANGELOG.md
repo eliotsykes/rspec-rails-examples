@@ -1,3 +1,6 @@
+# 22/Apr/2015
+- Enable Spring for RSpec https://github.com/eliotsykes/rspec-rails-examples/pull/50 (Andy Waite)
+
 # 18/Apr/2015
 - Upgrade Rails from 4.2.0 to 4.2.1 https://github.com/eliotsykes/rspec-rails-examples/pull/44 (Ryan Wold)
 - Upgrade rspec-rails from 3.1.0 to 3.2.1 https://github.com/eliotsykes/rspec-rails-examples/pull/46 (Eliot Sykes)
