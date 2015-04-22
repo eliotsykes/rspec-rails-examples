@@ -45,6 +45,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
   - [Controller Specs & Docs](#controller-specs--docs)
   - [Helper Specs & Docs](#helper-specs--docs)
   - [Routing Specs & Docs](#routing-specs--docs)
+- [Enable Spring for RSpec](#enable-spring-for-rspec)
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
@@ -238,6 +239,27 @@ See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/v/3-1/docs) for instal
 - [spec/routing/subscriptions_routing_spec.rb](spec/routing/subscriptions_routing_spec.rb)
 - [Routing specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/routing-specs)
 
+
+# Enable Spring for RSpec
+
+[Spring](https://github.com/rails/spring) is a Rails application preloader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a new command.
+
+To take advantage of this boost when you run `bin/rspec`, the `spring-commands-rspec` gem needs to be installed and a new `rspec` binstub needs to be created:
+
+```bash
+# 1. Add `spring-commands-rspec` to Gemfile in development and test groups and 
+#    install gem:
+bundle install
+
+# 3. Spring-ify the `bin/rspec` binstub:
+bundle exec spring binstub rspec
+
+# 4. Stop spring to ensure the changes are picked up:
+bin/spring stop
+```
+
+See the spring-commands-rspec README for up-to-date installation instructions:
+https://github.com/jonleighton/spring-commands-rspec
 
 ---
 
