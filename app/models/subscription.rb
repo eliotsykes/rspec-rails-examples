@@ -9,8 +9,8 @@ class Subscription < ActiveRecord::Base
   after_initialize :init_start_on
 
   def self.create_and_request_confirmation(params)
-    Subscription.transaction do
-      subscription = Subscription.create!(
+    transaction do
+      subscription = create!(
         email: params[:email],
         start_on: params[:start_on],
         confirmation_token: generate_confirmation_token
@@ -25,7 +25,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def self.confirm(confirmation_token)
-    subscription = Subscription.find_by!(confirmation_token: confirmation_token)
+    subscription = find_by!(confirmation_token: confirmation_token)
     subscription.update!(confirmed: true)
     subscription
   end
