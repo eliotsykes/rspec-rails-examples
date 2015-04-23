@@ -6,7 +6,7 @@ feature "User logs in and logs out" do
   # browser driver configured in spec/support/capybara.rb
   scenario "with correct details", js: true do
 
-    user = create(:user, email: "someone@example.tld", password: "somepassword")
+    create(:user, email: "someone@example.tld", password: "somepassword")
 
     visit "/"
 
@@ -31,7 +31,7 @@ feature "User logs in and logs out" do
 
   scenario "unconfirmed user cannot login" do
 
-    user = create(:user, skip_confirmation: false, email: "e@example.tld", password: "test-password")
+    create(:user, skip_confirmation: false, email: "e@example.tld", password: "test-password")
 
     visit new_user_session_path
 
@@ -45,7 +45,7 @@ feature "User logs in and logs out" do
   scenario "locks account after 3 failed attempts" do
 
     email = "someone@example.tld"
-    user = create(:user, email: email, password: "somepassword")
+    create(:user, email: email, password: "somepassword")
 
     visit new_user_session_path
 
