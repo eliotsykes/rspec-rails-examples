@@ -128,7 +128,7 @@ RSpec.describe Subscription, :type => :model do
       expect(subscription.start_on).to eq(Date.new(2015, 1, 31))
     end
 
-    it "saves subscription a secure random confirmation_token" do
+    it "saves subscription with a secure random confirmation_token" do
       expect(::SecureRandom).to receive(:hex).with(32).and_call_original
       subscription = Subscription.create_and_request_confirmation(email: "hello@example.tld")
       subscription.reload
