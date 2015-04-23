@@ -168,10 +168,10 @@ RSpec.describe Subscription, :type => :model do
     it "doesn't send an email if the subscription can't be created" do
       blank_email = ""
       expect do
-        expect do 
-          Subscription.create_and_request_confirmation(email: blank_email)
-        end.to raise_error ActiveRecord::RecordInvalid
-      end.not_to change { ActionMailer::Base.deliveries.size }
+        Subscription.create_and_request_confirmation(email: blank_email)
+      end.to raise_error
+
+      expect(ActionMailer::Base.deliveries).to be_empty
     end
 
     it "raises an error if the emailing fails" do
