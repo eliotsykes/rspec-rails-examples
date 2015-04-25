@@ -1,3 +1,6 @@
+# In Progress
+- Introduce Continuous Integration to the project with Travis CI 
+
 # 27/Apr/2015
 - Remove nested expectation to make spec more understandable https://github.com/eliotsykes/rspec-rails-examples/pull/54 (Andy Waite)
 

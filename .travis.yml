@@ -1,0 +1,30 @@
+# Setting up Travis CI:
+
+# 1. Go to https://travis-ci.org
+# 2. Click the Sign Up/Sign in with GitHub button and give Travis CI permission
+#    to access your GitHub repositories.
+# 3. Create a file like this one you're reading at `your-rails-app/.travis.yml`:
+
+
+language: ruby
+rvm:
+  - 2.2.x
+  # Add more Ruby versions to list if supported,
+  # Travis supports these versions: http://rubies.travis-ci.org/
+
+# 4. OPTIONAL Only customize the `script` option if needed.
+
+# The `script` option is an optional list of the main build task(s). `rake` is
+# the default script option for Travis and most Rails projects will want this
+# when starting out as this usually runs `rake test`.
+
+# Commented out `script` option as default is what we want:
+# script:
+#   - rake # `rake` is the Travis default, which runs `rake test`
+
+# Suggested docs
+# --------------
+# Getting Started: http://docs.travis-ci.com/user/getting-started/
+# Ruby & Travis CI docs: http://docs.travis-ci.com/user/languages/ruby/
+# Supported Ruby Versions: http://rubies.travis-ci.org/
+# Custom build task: http://docs.travis-ci.com/user/customizing-the-build/

@@ -48,6 +48,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
   - [Helper Specs & Docs](#helper-specs--docs)
   - [Routing Specs & Docs](#routing-specs--docs)
 - [Enable Spring for RSpec](#enable-spring-for-rspec)
+- [Continuous Integration with Travis CI](#continuous-integration-with-travis-ci)
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
@@ -265,6 +266,14 @@ bin/rspec
 
 See the spring-commands-rspec README for up-to-date installation instructions:
 https://github.com/jonleighton/spring-commands-rspec
+
+# Continuous Integration with Travis CI
+
+Travis CI configuration how-to and example:
+- [.travis.yml](.travis.yml)
+- [Our Travis CI Build!](https://travis-ci.org/eliotsykes/rspec-rails-examples)
+- TODO: What is Continous Integration? Why have it?
+- TODO: Travis CI README Badge HOWTO
 
 ---
 
