@@ -8,7 +8,7 @@
 
 language: ruby
 rvm:
-  - 2.2.x
+  - 2.2
   # Add more Ruby versions to list if supported,
   # Travis supports these versions: http://rubies.travis-ci.org/
 
