@@ -169,7 +169,7 @@ RSpec.describe Subscription, :type => :model do
       blank_email = ""
       expect do
         Subscription.create_and_request_confirmation(email: blank_email)
-      end.to raise_error
+      end.to raise_error ActiveRecord::RecordInvalid
 
       expect(ActionMailer::Base.deliveries).to be_empty
     end
