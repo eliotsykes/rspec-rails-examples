@@ -1,3 +1,6 @@
+# 27/Apr/2015
+- Remove nested expectation to make spec more understandable https://github.com/eliotsykes/rspec-rails-examples/pull/54 (Andy Waite)
+
 # 22/Apr/2015
 - Enable Spring for RSpec https://github.com/eliotsykes/rspec-rails-examples/pull/50 (Andy Waite)
 - Order Gemfile alphabetically https://github.com/eliotsykes/rspec-rails-examples/pull/49 (Andy Waite)
