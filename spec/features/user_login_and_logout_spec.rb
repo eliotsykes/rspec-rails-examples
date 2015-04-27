@@ -6,7 +6,7 @@ feature "User logs in and logs out" do
   # browser driver configured in spec/support/capybara.rb
   scenario "with correct details", js: true do
 
-    user = create(:user, email: "someone@example.tld", password: "somepassword")
+    user = create(:user, email: "someone@example.tld")
 
     visit "/"
 
@@ -14,7 +14,7 @@ feature "User logs in and logs out" do
     expect(page).to have_css("h2", text: "Log in")
     expect(current_path).to eq(new_user_session_path)
 
-    login "someone@example.tld", "somepassword"
+    login "someone@example.tld", user.password
 
     expect(page).to have_css("h1", text: "Welcome to RSpec Rails Examples")
     expect(current_path).to eq "/"
@@ -31,11 +31,11 @@ feature "User logs in and logs out" do
 
   scenario "unconfirmed user cannot login" do
 
-    user = create(:user, skip_confirmation: false, email: "e@example.tld", password: "test-password")
+    user = create(:user, skip_confirmation: false)
 
     visit new_user_session_path
 
-    login "e@example.tld", "test-password"
+    login user.email, user.password
 
     expect(current_path).to eq(new_user_session_path)
     expect(page).not_to have_content "Signed in successfully"
@@ -44,18 +44,17 @@ feature "User logs in and logs out" do
 
   scenario "locks account after 3 failed attempts" do
 
-    email = "someone@example.tld"
-    user = create(:user, email: email, password: "somepassword")
+    user = create(:user, password: "somepassword")
 
     visit new_user_session_path
 
-    login email, "1st-try-wrong-password"
+    login user.email, "1st-try-wrong-password"
     expect(page).to have_content "Invalid email or password"
-    
-    login email, "2nd-try-wrong-password" 
+
+    login user.email, "2nd-try-wrong-password"
     expect(page).to have_content "You have one more attempt before your account is locked"
 
-    login email, "3rd-try-wrong-password"
+    login user.email, "3rd-try-wrong-password"
     expect(page).to have_content "Your account is locked."
 
   end
