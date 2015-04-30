@@ -12,6 +12,15 @@ rvm:
   # Add more Ruby versions to list if supported,
   # Travis supports these versions: http://rubies.travis-ci.org/
 
+addons:
+  firefox: "37.0.2" # Set Firefox Version
+
+# Use xvfb to setup fake monitor display so Firefox GUI can be used by specs:
+# http://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-GUI-(e.g.-a-Web-browser)
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
 # 4. OPTIONAL Only customize the `script` option if needed.
 
 # The `script` option is an optional list of the main build task(s). `rake` is
@@ -28,3 +37,4 @@ rvm:
 # Ruby & Travis CI docs: http://docs.travis-ci.com/user/languages/ruby/
 # Supported Ruby Versions: http://rubies.travis-ci.org/
 # Custom build task: http://docs.travis-ci.com/user/customizing-the-build/
+# GUI, Browsers, xvfb: http://docs.travis-ci.com/user/gui-and-headless-browsers/
