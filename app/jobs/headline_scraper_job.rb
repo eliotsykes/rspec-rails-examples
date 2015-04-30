@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class HeadlineScraperJob < ActiveJob::Base
   queue_as :default
 
