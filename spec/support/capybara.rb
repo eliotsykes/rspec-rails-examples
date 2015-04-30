@@ -2,14 +2,12 @@
 
 # 0. Check spec/support dir is auto-required in spec/rails_helper.rb.
 #
-# 1. Add capybara, selenium-webdriver, and chromedriver-helper to Gemfile:
+# 1. Add these to your Gemfile:
 #
 # group :development, :test do
 #  gem 'capybara'
-#  # selenium-webdriver & chromedriver-helper used by
-#  # JavaScript-dependent feature specs (`js: true`):
-#  gem 'selenium-webdriver'
-#  gem 'chromedriver-helper'
+#  gem 'selenium-webdriver' # For Firefox
+#  # gem 'chromedriver-helper' # Install to use Chrome in feature specs
 # end
 #
 # 2. Create a file like this one you're reading in spec/support/capybara.rb:

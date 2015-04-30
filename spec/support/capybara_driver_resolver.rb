@@ -4,14 +4,13 @@
 # with descriptive names related to the underlying browser's HTML5 support.
 module CapybaraDriverResolver
 
-  # At time of writing: These drivers wrap chrome or phantomjs and they both support
+  # At time of writing: These drivers wrap phantomjs or chrome and they both support
   # native date inputs.
-  WITH_NATIVE_DATE_INPUT = [:selenium_chrome_billy, :poltergeist_billy, :poltergeist]
+  WITH_NATIVE_DATE_INPUT = [:poltergeist_billy, :poltergeist, :selenium_chrome_billy]
 
   # At time of writing: These drivers wrap Firefox browsers that don't support native
   # date inputs.
   WITHOUT_NATIVE_DATE_INPUT = [:selenium_billy, :selenium]
-
 
   def driver_with(options)
 

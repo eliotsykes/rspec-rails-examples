@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug' # Call 'byebug' in code to stop execution and get a debugger console
   gem 'capybara'
-  gem 'chromedriver-helper' # used by JavaScript-dependent feature specs (`js: true`)
+  # gem 'chromedriver-helper' # helps with using Chrome in feature specs
   gem 'factory_girl_rails', '~> 4.5'
   gem 'pry'
   gem 'pry-rails'
@@ -31,6 +31,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'email_spec'
+  gem 'poltergeist' # helps with using PhantomJS headless browser in feature specs
   gem 'shoulda-matchers', require: false
   gem 'vcr'
   gem 'webmock'

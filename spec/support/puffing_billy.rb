@@ -37,18 +37,9 @@ end
 
 # 5. Uncomment the *_billy driver for your desired browser:
 Capybara.javascript_driver = :selenium_billy # Uses Firefox
+# Capybara.javascript_driver = :selenium_chrome_billy
 # Capybara.javascript_driver = :webkit_billy
 # Capybara.javascript_driver = :poltergeist_billy
-Capybara.register_driver :selenium_chrome_billy do |app|
-  Capybara::Selenium::Driver.new(
-    app, browser: :chrome,
-    switches: [
-        "--proxy-server=#{Billy.proxy.host}:#{Billy.proxy.port}"
-        # "--ignore-certificate-errors" # May be needed in future
-      ]
-  )
-end
-# Capybara.javascript_driver = :selenium_chrome_billy
 
 # 6. Start using Puffing Billy. See spec/features/share_page_spec.rb for an example,
 #    and find your cached responses in spec/support/http_cache/billy
