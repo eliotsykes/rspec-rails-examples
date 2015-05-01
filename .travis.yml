@@ -5,7 +5,6 @@
 #    to access your GitHub repositories.
 # 3. Create a file like this one you're reading at `your-rails-app/.travis.yml`:
 
-
 language: ruby
 rvm:
   - 2.2.2
@@ -13,9 +12,9 @@ rvm:
   # Travis supports these versions: http://rubies.travis-ci.org/
 
 addons:
-  firefox: "37.0.2" # Set Firefox Version
+  firefox: "37.0.2" # Set Firefox Version if needed.
 
-# Use xvfb to setup fake monitor display so Firefox GUI can be used by specs:
+# If needed, use xvfb to setup fake monitor display so Firefox GUI can be used by specs:
 # http://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-GUI-(e.g.-a-Web-browser)
 before_install:
   - "export DISPLAY=:99.0"
@@ -31,6 +30,9 @@ before_install:
 # script:
 #   - rake # `rake` is the Travis default, which runs `rake test`
 
+# 5. OPTIONAL Add a Build Status Badge to your README, follow instructions here:
+#    http://docs.travis-ci.com/user/status-images/
+
 # Suggested docs
 # --------------
 # Getting Started: http://docs.travis-ci.com/user/getting-started/
@@ -38,3 +40,4 @@ before_install:
 # Supported Ruby Versions: http://rubies.travis-ci.org/
 # Custom build task: http://docs.travis-ci.com/user/customizing-the-build/
 # GUI, Browsers, xvfb: http://docs.travis-ci.com/user/gui-and-headless-browsers/
+# Build Status Badge for README: http://docs.travis-ci.com/user/status-images/

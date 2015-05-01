@@ -48,7 +48,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
   - [Helper Specs & Docs](#helper-specs--docs)
   - [Routing Specs & Docs](#routing-specs--docs)
 - [Enable Spring for RSpec](#enable-spring-for-rspec)
-- [Continuous Integration with Travis CI](#continuous-integration-with-travis-ci)
+- [Automated Continuous Integration with Travis CI](#automated-continuous-integration-with-travis-ci)
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
@@ -267,13 +267,18 @@ bin/rspec
 See the spring-commands-rspec README for up-to-date installation instructions:
 https://github.com/jonleighton/spring-commands-rspec
 
-# Continuous Integration with Travis CI
+# Automated Continuous Integration with Travis CI
+
+Continuous Integration (CI) is the practice of integrating new code into the master branch frequently, to help detect merge conflicts, bugs, and improve the quality of the software a development team writes. 
+
+CI is usually accompanied by running an application's test suite against the latest code changes, and flagging any test failures that are found. Developers are expected to investigate and fix these failures to maintain a passing test suite and therefore quality. 
+
+[Travis CI](https://travis-ci.org) is a build server that helps automate the CI process. Travis CI runs an application's tests against the latest changes pushed to the application's code respository. In this project, Travis CI runs the project's tests (`rake test`) on pull requests and on changes to the master branch.
 
 Travis CI configuration how-to and example:
-- [.travis.yml](.travis.yml)
-- [Our Travis CI Build!](https://travis-ci.org/eliotsykes/rspec-rails-examples)
-- TODO: What is Continous Integration? Why have it?
-- TODO: Travis CI README Badge HOWTO
+- [.travis.yml](.travis.yml) - Travis CI's configuration file (with instructions)
+- [Our Travis CI build!](https://travis-ci.org/eliotsykes/rspec-rails-examples)
+- Our Travis CI badge (hopefully its green): [![Build Status](https://travis-ci.org/eliotsykes/rspec-rails-examples.svg?branch=master)](https://travis-ci.org/eliotsykes/rspec-rails-examples)
 
 ---
 
@@ -284,4 +289,3 @@ Travis CI configuration how-to and example:
 - Ryan Wold https://afomi.com/
 - Andy Waite http://blog.andywaite.com/
 - Your name here, contributions are welcome and easy, just fork the GitHub repo, make your changes, then submit your pull request! Please ask if you'd like some help.
-
