@@ -1,6 +1,8 @@
 RSpec Rails Examples
 ====================
 
+[![Join the chat at https://gitter.im/eliotsykes/rspec-rails-examples](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eliotsykes/rspec-rails-examples?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > An RSpec cheatsheet in the form of a Rails app. Learn how to expertly test Rails apps from a model codebase
 
 A small yet comprehensive reference for developers who want to know how to test Rails apps using RSpec.
