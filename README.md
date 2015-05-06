@@ -21,6 +21,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
 - [Support Configuration](#support-configuration)
+- [Run Specs in a Random Order](#run-specs-in-a-random-order)
 - [Testing Rake Tasks with RSpec](#testing-rake-tasks-with-rspec)
 - [Pry-rescue debugging](#pry-rescue-debugging)
 - [Time Travel Examples](#time-travel-examples)
@@ -58,6 +59,18 @@ The tests rely on this configuration being uncommented in `spec/rails_helper.rb`
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ```
 (The rspec-rails installer generates this line, but it will be commented out.)
+
+
+# Run Specs in a Random Order
+
+In a dependable, repeatable automated test suite, data stores (such as database, job queues, and sent email on `ActionMailer::Base.deliveries`) should return to a consistent state between each spec, regardless of the order specs are run in. 
+
+For a maintainable, predictable test suite, one spec should not set up data (e.g. creating users) needed by a later spec to pass. Each spec should look after its own test data and clear up after itself. (NB. If there is reference data that all tests need, such as populating a `countries` table, then this can go in `db/seeds.rb` and be run once before the entire suite).
+
+The specs run in a random order each time the test suite is run. This helps prevent the introduction of run order and test data dependencies between tests, which are best avoided. 
+
+Random test order configuration how-to:
+- [spec/spec_helper.rb](spec/spec_helper.rb)
 
 
 # Testing Rake Tasks with RSpec
