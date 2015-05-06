@@ -69,8 +69,7 @@ For a maintainable, predictable test suite, one spec should not set up data (e.g
 
 The specs run in a random order each time the test suite is run. This helps prevent the introduction of run order and test data dependencies between tests, which are best avoided. 
 
-Random test order configuration how-to:
-- [spec/spec_helper.rb](spec/spec_helper.rb)
+Random order test runs are configured using the `config.order = :random` and `Kernel.srand config.seed` options in [spec/spec_helper.rb](spec/spec_helper.rb).
 
 
 # Testing Rake Tasks with RSpec
