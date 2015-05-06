@@ -1,3 +1,6 @@
+# 6/May/2015
+- Run tests in a random order to surface dependencies https://github.com/eliotsykes/rspec-rails-examples/pull/64 (Alex Birdsall)
+
 # 1/May/2015
 - Introduce Continuous Integration to the project with Travis CI https://github.com/eliotsykes/rspec-rails-examples/pull/58 (Eliot Sykes)
 - Add Travis CI build status badge to README https://github.com/eliotsykes/rspec-rails-examples/pull/58 (Eliot Sykes)
