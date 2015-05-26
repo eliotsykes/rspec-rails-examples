@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321163642) do
+ActiveRecord::Schema.define(version: 20150526135350) do
+
+  create_table "invites", force: :cascade do |t|
+    t.string   "email",      null: false
+    t.string   "token",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "invites", ["email"], name: "index_invites_on_email", unique: true
+  add_index "invites", ["token"], name: "index_invites_on_token", unique: true
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "email",              limit: 100,                 null: false

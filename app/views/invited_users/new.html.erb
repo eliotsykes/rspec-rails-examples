@@ -1,0 +1,17 @@
+<h1>Register</h1>
+
+<%= form_for(:user, url: invited_users_path) do |user_form| %>
+  <%= fields_for @invite do |invite_fields| %>
+    <%= invite_fields.hidden_field :token %>
+  <% end %>
+
+  <%= user_form.label :password, "Choose a password" %>
+  <%= user_form.password_field :password, autocomplete: "off" %>
+  <br>
+
+  <%= user_form.label :password_confirmation, "Re-enter your chosen password" %>
+  <%= user_form.password_field :password_confirmation, autocomplete: "off" %>
+  <br>
+
+  <%= user_form.submit "Register" %>
+<% end %>

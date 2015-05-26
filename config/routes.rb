@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "pages#index"
   get "share" => "pages#share"
 
+  resources :invited_users, only: [:new, :create]
+
   devise_for :users, only: [:registrations, :sessions, :confirmations, :unlocks, :passwords]
 
   resources :subscriptions, only: [:new, :create] do
