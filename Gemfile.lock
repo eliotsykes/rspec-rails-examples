@@ -211,8 +211,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    shoulda-matchers (2.7.0)
-      activesupport (>= 3.0.0)
+    shoulda-matchers (3.0.0.rc1)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     spring (1.2.0)
     spring-commands-rspec (1.0.4)
@@ -278,7 +278,7 @@ DEPENDENCIES
   rspec-rails (~> 3.2)
   sass-rails (~> 4.0)
   selenium-webdriver
-  shoulda-matchers
+  shoulda-matchers (= 3.0.0.rc1)
   spring
   spring-commands-rspec
   sqlite3
@@ -287,3 +287,6 @@ DEPENDENCIES
   vcr
   web-console (~> 2.0)
   webmock
+
+BUNDLED WITH
+   1.10.3

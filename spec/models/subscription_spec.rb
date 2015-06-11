@@ -11,11 +11,11 @@ RSpec.describe Subscription, :type => :model do
     context "columns" do
       it { should have_db_column(:email).of_type(:string).with_options(limit: 100, null: false) }
       it { should have_db_column(:confirmation_token).of_type(:string).with_options(limit: 100, null: false) }
-      it { should have_db_column(:confirmed).of_type(:boolean).with_options(default: 'f', null: false) }
+      it { should have_db_column(:confirmed).of_type(:boolean).with_options(default: false, null: false) }
       it { should have_db_column(:start_on).of_type(:date) }
     end
   end
-  
+
   context "attributes" do
 
     it "has email" do
@@ -50,7 +50,7 @@ RSpec.describe Subscription, :type => :model do
   end
 
   context "validation" do
-    
+
     before do
       @subscription = Subscription.new(confirmation_token: "token", email: "a@b.c")
     end
@@ -77,7 +77,7 @@ RSpec.describe Subscription, :type => :model do
   end
 
   context "scopes" do
-    
+
     describe ".confirmation_overdue" do
 
       before do
@@ -86,7 +86,7 @@ RSpec.describe Subscription, :type => :model do
       end
 
       after { travel_back }
-      
+
       it "returns unconfirmed subscriptions of age more than 3 days" do
         overdue = create(:subscription, confirmed: false, created_at: (3.days + 1.second).ago)
         expect(Subscription.confirmation_overdue).to match_array [overdue]
@@ -107,7 +107,7 @@ RSpec.describe Subscription, :type => :model do
   end
 
   describe "#to_param" do
-    
+
     it "uses confirmation_token as the default identifier for routes" do
       subscription = Subscription.new(confirmation_token: "hello-im-a-token-123")
       expect(subscription.to_param).to eq("hello-im-a-token-123")
@@ -116,7 +116,7 @@ RSpec.describe Subscription, :type => :model do
   end
 
   describe ".create_and_request_confirmation(params)" do
-    
+
     it "creates an unconfirmed subscription with the given params" do
       params = { email: "subscriber@somedomain.tld", start_on: "2015-01-31" }
       Subscription.create_and_request_confirmation(params)
@@ -132,7 +132,7 @@ RSpec.describe Subscription, :type => :model do
       expect(::SecureRandom).to receive(:hex).with(32).and_call_original
       subscription = Subscription.create_and_request_confirmation(email: "hello@example.tld")
       subscription.reload
-      
+
       expect(subscription.confirmation_token).to match(/\A[a-z0-9]{64}\z/)
     end
 
@@ -140,7 +140,7 @@ RSpec.describe Subscription, :type => :model do
       expect(SubscriptionMailer)
         .to receive(:send_confirmation_request!)
         .with(Subscription)
-      
+
       Subscription.create_and_request_confirmation(email: "subscriber@somedomain.tld")
     end
 
@@ -188,11 +188,11 @@ RSpec.describe Subscription, :type => :model do
   end
 
   describe ".confirm(confirmation_token)" do
-    
+
     it "confirms the subscription matching the confirmation_token" do
       token = Subscription.generate_confirmation_token
       subscription = Subscription.create!(
-        email: "a@a.a", 
+        email: "a@a.a",
         confirmation_token: token
       )
       expect(subscription.confirmed?).to eq(false)
@@ -206,7 +206,7 @@ RSpec.describe Subscription, :type => :model do
 
     it "gracefully handles confirming an already confirmed subscription" do
       subscription = Subscription.create!(
-        email: "a@a.a", 
+        email: "a@a.a",
         confirmation_token: "xyz"
       )
       expect(subscription.confirmed?).to eq(false)
