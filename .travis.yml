@@ -12,7 +12,7 @@ rvm:
   # Travis supports these versions: http://rubies.travis-ci.org/
 
 addons:
-  firefox: "37.0.2" # Set Firefox Version if needed.
+  firefox: "38.0.5" # Set Firefox Version if needed.
 
 # If needed, use xvfb to setup fake monitor display so Firefox GUI can be used by specs:
 # http://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-GUI-(e.g.-a-Web-browser)
