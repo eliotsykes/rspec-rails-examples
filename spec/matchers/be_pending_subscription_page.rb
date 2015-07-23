@@ -23,8 +23,8 @@ module Matchers
     # matches? is a required method for RSpec matchers
     def matches?(actual_page)
       expected_title = "Check your inbox"
-      if actual_page.has_no_title?(expected_title)
-        self.failure_message = "\nexpected title: #{expected_title}\n     got title: #{actual_page.title}\n"
+      unless actual_page.has_title?(expected_title)
+        self.failure_message = "\nexpected title: '#{expected_title}'\n     got title: '#{actual_page.title}'\n"
         return false
       end
 
