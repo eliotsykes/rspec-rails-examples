@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User registers" do
+RSpec.describe "User registers" do
 
   scenario "with valid details" do
 
@@ -85,7 +85,7 @@ feature "User registers" do
     end
 
     scenario "too short password" do
-      
+
       min_password_length = 8
       too_short_password = "p" * (min_password_length - 1)
       fill_in "Email", with: "someone@example.tld"
