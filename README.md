@@ -43,6 +43,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
   - [Feature Specs & Docs](#feature-specs--docs)
   - [Mailer Specs & Docs](#mailer-specs--docs)
   - [Controller Specs & Docs](#controller-specs--docs)
+  - [View Specs & Docs](#view-specs--docs)
   - [Helper Specs & Docs](#helper-specs--docs)
   - [Routing Specs & Docs](#routing-specs--docs)
 - [Enable Spring for RSpec](#enable-spring-for-rspec)
@@ -63,11 +64,11 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Run Specs in a Random Order
 
-In a dependable, repeatable automated test suite, data stores (such as database, job queues, and sent email on `ActionMailer::Base.deliveries`) should return to a consistent state between each spec, regardless of the order specs are run in. 
+In a dependable, repeatable automated test suite, data stores (such as database, job queues, and sent email on `ActionMailer::Base.deliveries`) should return to a consistent state between each spec, regardless of the order specs are run in.
 
 For a maintainable, predictable test suite, one spec should not set up data (e.g. creating users) needed by a later spec to pass. Each spec should look after its own test data and clear up after itself. (NB. If there is reference data that all tests need, such as populating a `countries` table, then this can go in `db/seeds.rb` and be run once before the entire suite).
 
-The specs run in a random order each time the test suite is run. This helps prevent the introduction of run order and test data dependencies between tests, which are best avoided. 
+The specs run in a random order each time the test suite is run. This helps prevent the introduction of run order and test data dependencies between tests, which are best avoided.
 
 Random order test runs are configured using the `config.order = :random` and `Kernel.srand config.seed` options in [spec/spec_helper.rb](spec/spec_helper.rb).
 
@@ -243,6 +244,10 @@ See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/v/3-1/docs) for instal
 - [Controller specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/controller-specs)
 - [Controller specs cheatsheet](https://gist.github.com/eliotsykes/5b71277b0813fbc0df56)
 
+## View Specs & Docs
+- [The Big List of View Specs](https://eliotsykes.com/view-specs)
+- [View specs API](https://relishapp.com/rspec/rspec-rails/v/3-3/docs/view-specs)
+
 ## Helper Specs & Docs
 - [spec/helpers/application_helper_spec.rb](spec/helpers/application_helper_spec.rb)
 - [Helper specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/helper-specs/helper-spec)
@@ -259,7 +264,7 @@ See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/v/3-1/docs) for instal
 To take advantage of this boost when you run `bin/rspec`, the `spring-commands-rspec` gem needs to be installed and a new `rspec` binstub needs to be created:
 
 ```bash
-# 1. Add `spring-commands-rspec` to Gemfile in development and test groups and 
+# 1. Add `spring-commands-rspec` to Gemfile in development and test groups and
 #    install gem:
 bundle install
 
@@ -278,9 +283,9 @@ https://github.com/jonleighton/spring-commands-rspec
 
 # Automated Continuous Integration with Travis CI
 
-Continuous Integration (CI) is the practice of integrating new code into the master branch frequently, to help detect merge conflicts, bugs, and improve the quality of the software a development team writes. 
+Continuous Integration (CI) is the practice of integrating new code into the master branch frequently, to help detect merge conflicts, bugs, and improve the quality of the software a development team writes.
 
-CI is usually accompanied by running an application's test suite against the latest code changes, and flagging any test failures that are found. Developers are expected to investigate and fix these failures to maintain a passing test suite and therefore quality. 
+CI is usually accompanied by running an application's test suite against the latest code changes, and flagging any test failures that are found. Developers are expected to investigate and fix these failures to maintain a passing test suite and therefore quality.
 
 [Travis CI](https://travis-ci.org) is a build server that helps automate the CI process. Travis CI runs an application's tests against the latest changes pushed to the application's code respository. In this project, Travis CI runs the project's tests (`rake test`) on pull requests and on changes to the master branch.
 
