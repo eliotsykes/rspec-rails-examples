@@ -148,6 +148,8 @@ GEM
       eventmachine_httpserver
       http_parser.rb (~> 0.6.0)
       multi_json
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -271,6 +273,7 @@ DEPENDENCIES
   pry-rescue
   pry-stack_explorer
   puffing-billy
+  quiet_assets
   rails (= 4.2.3)
   rspec-rails (~> 3.2)
   sass-rails (~> 4.0)
