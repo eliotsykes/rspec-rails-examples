@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User logs in and logs out" do
+RSpec.describe "User logs in and logs out" do
 
   # `js: true` spec metadata means this will run using the `:selenium`
   # browser driver configured in spec/support/capybara.rb
@@ -51,8 +51,8 @@ feature "User logs in and logs out" do
 
     login email, "1st-try-wrong-password"
     expect(page).to have_content "Invalid email or password"
-    
-    login email, "2nd-try-wrong-password" 
+
+    login email, "2nd-try-wrong-password"
     expect(page).to have_content "You have one more attempt before your account is locked"
 
     login email, "3rd-try-wrong-password"
