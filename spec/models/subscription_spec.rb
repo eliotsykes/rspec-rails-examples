@@ -19,29 +19,29 @@ RSpec.describe Subscription, :type => :model do
   context "attributes" do
 
     it "has email" do
-      expect(Subscription.new(email: "x@y.z")).to have_attributes(email: "x@y.z")
+      expect(build(:subscription, email: "x@y.z")).to have_attributes(email: "x@y.z")
     end
 
     it "has confirmed" do
-      expect(Subscription.new(confirmed: true)).to have_attributes(confirmed: true)
+      expect(build(:subscription, confirmed: true)).to have_attributes(confirmed: true)
     end
 
     it "has confirmation_token" do
-      expect(Subscription.new(confirmation_token: "what-a-token")).to have_attributes(confirmation_token: "what-a-token")
+      expect(build(:subscription, confirmation_token: "what-a-token")).to have_attributes(confirmation_token: "what-a-token")
     end
 
     context "start_on" do
 
       it "is an attribute" do
         today = Date.today
-        expect(Subscription.new(start_on: Date.today)).to have_attributes(start_on: today)
+        expect(build(:subscription, start_on: Date.today)).to have_attributes(start_on: today)
       end
 
       it "defaults to today" do
         now = Time.zone.now
         today = now.to_date
         travel_to now do
-          expect(Subscription.new.start_on).to eq(today)
+          expect(build(:subscription).start_on).to eq(today)
         end
       end
 
@@ -51,28 +51,26 @@ RSpec.describe Subscription, :type => :model do
 
   context "validation" do
 
-    before do
-      @subscription = Subscription.new(confirmation_token: "token", email: "a@b.c")
-    end
+    let(:subscription) { build(:subscription, confirmation_token: "token", email: "a@b.c") }
 
     it "requires unique email" do
-      expect(@subscription).to validate_uniqueness_of(:email)
+      expect(subscription).to validate_uniqueness_of(:email)
     end
 
     it "requires email" do
-      expect(@subscription).to validate_presence_of(:email)
+      expect(subscription).to validate_presence_of(:email)
     end
 
     it "requires confirmation_token" do
-      expect(@subscription).to validate_presence_of(:confirmation_token)
+      expect(subscription).to validate_presence_of(:confirmation_token)
     end
 
     it "requires unique confirmation_token" do
-      expect(@subscription).to validate_uniqueness_of(:confirmation_token)
+      expect(subscription).to validate_uniqueness_of(:confirmation_token)
     end
 
     it "requires start_on" do
-      expect(@subscription).to validate_presence_of(:start_on)
+      expect(subscription).to validate_presence_of(:start_on)
     end
   end
 
@@ -109,7 +107,7 @@ RSpec.describe Subscription, :type => :model do
   describe "#to_param" do
 
     it "uses confirmation_token as the default identifier for routes" do
-      subscription = Subscription.new(confirmation_token: "hello-im-a-token-123")
+      subscription = build(:subscription, confirmation_token: "hello-im-a-token-123")
       expect(subscription.to_param).to eq("hello-im-a-token-123")
     end
 
@@ -191,7 +189,7 @@ RSpec.describe Subscription, :type => :model do
 
     it "confirms the subscription matching the confirmation_token" do
       token = Subscription.generate_confirmation_token
-      subscription = Subscription.create!(
+      subscription = create(:subscription,
         email: "a@a.a",
         confirmation_token: token
       )
@@ -205,7 +203,7 @@ RSpec.describe Subscription, :type => :model do
     end
 
     it "gracefully handles confirming an already confirmed subscription" do
-      subscription = Subscription.create!(
+      subscription = create(:subscription,
         email: "a@a.a",
         confirmation_token: "xyz"
       )
