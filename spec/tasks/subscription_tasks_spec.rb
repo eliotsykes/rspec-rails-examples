@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Subscription tasks", :type => :task do
+RSpec.describe "Subscription tasks", type: :task do
 
   context "subscription:confirmation_overdue:delete" do
 

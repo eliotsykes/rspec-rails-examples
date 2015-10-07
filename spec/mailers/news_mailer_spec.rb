@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe NewsMailer, :type => :mailer do
+RSpec.describe NewsMailer, type: :mailer do
   
   describe ".send_headlines(headlines:, to:)" do
     

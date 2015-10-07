@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Subscription, :type => :model do
+RSpec.describe Subscription, type: :model do
 
   context "db" do
     context "indexes" do

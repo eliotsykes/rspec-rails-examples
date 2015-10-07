@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe HeadlineScraperJob, :type => :job do
+RSpec.describe HeadlineScraperJob, type: :job do
   
   it "emails headlines scraped from given URL" do
     

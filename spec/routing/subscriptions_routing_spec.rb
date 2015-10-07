@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "routes for Subscriptions", :type => :routing do
+RSpec.describe "routes for Subscriptions", type: :routing do
 
   context "confirm_subscription route" do
 
@@ -8,7 +8,7 @@ RSpec.describe "routes for Subscriptions", :type => :routing do
 
       subscription = Subscription.new(confirmation_token: "im-a-token-98765")
 
-      expect(:get => confirm_subscription_path(subscription))
+      expect(get: confirm_subscription_path(subscription))
       .to route_to(
         controller: "subscriptions",
         action: "confirm",

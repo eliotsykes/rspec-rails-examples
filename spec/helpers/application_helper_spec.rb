@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationHelper, :type => :helper do
+RSpec.describe ApplicationHelper, type: :helper do
   
   context "page_title attribute" do
     
