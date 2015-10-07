@@ -19,7 +19,7 @@ require 'capybara/rspec'
 # Only if you're not using Puffing Billy, to use Chrome instead of Firefox,
 # uncomment the following 3 lines:
 # Capybara.register_driver :selenium do |app|
-#   Capybara::Selenium::Driver.new(app, :browser => :chrome)
+#   Capybara::Selenium::Driver.new(app, browser: :chrome)
 # end
 
 # 3. Start using Capybara. See feature specs in this project for examples.
