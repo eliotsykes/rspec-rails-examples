@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe SubscriptionMailer, :type => :mailer do
+RSpec.describe SubscriptionMailer, type: :mailer do
 
   describe ".send_confirmation_request!(subscription)" do
 

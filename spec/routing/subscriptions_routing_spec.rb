@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "routes for Subscriptions", :type => :routing do
+RSpec.describe "routes for Subscriptions", type: :routing do
 
   context "confirm_subscription route" do
 
