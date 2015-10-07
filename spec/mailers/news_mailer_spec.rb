@@ -1,9 +1,9 @@
 require "rails_helper"
 
-RSpec.describe NewsMailer, :type => :mailer do
-  
+RSpec.describe NewsMailer, type: :mailer do
+
   describe ".send_headlines(headlines:, to:)" do
-    
+
     it "has expected subject when there are headlines" do
       mail = NewsMailer.send_headlines(
         headlines: ["Scaremongering Headline: Be Fearful!"],
@@ -13,7 +13,7 @@ RSpec.describe NewsMailer, :type => :mailer do
     end
 
     [nil, []].each do |no_headlines|
-      
+
       it "has expected subject when there are no headlines '#{no_headlines.inspect}'" do
         NewsMailer.send_headlines(headlines: no_headlines, to: "newsguy@goodnews.tld")
         expect(open_last_email).to have_subject "No Headlines Today :-("
@@ -32,7 +32,7 @@ RSpec.describe NewsMailer, :type => :mailer do
     end
 
     it "calls the error-sensitive deliver_now!" do
-      
+
       delivery = double
       expect(delivery).to receive(:deliver_now!).with(no_args)
 

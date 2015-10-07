@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SubscriptionsController, :type => :controller do
+RSpec.describe SubscriptionsController, type: :controller do
 
   context "GET new" do
 
