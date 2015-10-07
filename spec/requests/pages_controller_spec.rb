@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Pages Controller", type: :request do
 
-  context "Index" do
+  context "Index request" do
 
     it "redirects to index page" do
       get "/"
@@ -14,7 +14,7 @@ RSpec.describe "Pages Controller", type: :request do
 
   end
 
-  context "Share" do
+  context "Share request" do
 
     it "redirect to share page" do
       get "/share"
