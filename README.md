@@ -141,8 +141,11 @@ VCR configuration how-to and examples:
 
 [Capybara](https://github.com/jnicklas/capybara) helps you write feature specs that interact with your app's UI as a user does with a browser.
 
+[Capybara Screenshot](https://github.com/mattheworiordan/capybara-screenshot) will automatically save screen shots when a Capybara scenario fails.
+
 Capybara configuration how-to and examples:
 - [spec/support/capybara.rb](spec/support/capybara.rb)
+- [spec/support/capybara_screenshot.rb](spec/support/capybara_screenshot.rb)
 - [spec/features/home_page_spec.rb](spec/features/home_page_spec.rb)
 - [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
 - [spec/features/user_login_and_logout_spec.rb](spec/features/user_login_and_logout_spec.rb)

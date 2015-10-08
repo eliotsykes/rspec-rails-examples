@@ -37,4 +37,5 @@ group :test do
   gem 'shoulda-matchers', '3.0.0.rc1'
   gem 'vcr'
   gem 'webmock'
+  gem 'capybara-screenshot'
 end
