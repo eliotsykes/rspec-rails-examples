@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321163642) do
+ActiveRecord::Schema.define(version: 20151024100339) do
+
+  create_table "access_tokens", force: :cascade do |t|
+    t.string   "locator",          null: false
+    t.text     "encrypted_secret", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "access_tokens", ["locator"], name: "index_access_tokens_on_locator", unique: true
+  add_index "access_tokens", ["user_id"], name: "index_access_tokens_on_user_id"
+
+  create_table "invites", force: :cascade do |t|
+    t.string   "email",      null: false
+    t.string   "token",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "invites", ["email"], name: "index_invites_on_email", unique: true
+  add_index "invites", ["token"], name: "index_invites_on_token", unique: true
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "email",              limit: 100,                 null: false

@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   get "subscriptions/:confirmation_token/confirm" => "subscriptions#confirm", as: :confirm_subscription
 
+  namespace :api do
+    namespace :v1 do
+      resources :access_tokens, path: :token, only: :create, format: false
+    end
+  end
+
 end

@@ -42,20 +42,22 @@ feature "User logs in and logs out" do
     expect(page).to have_content "You have to confirm your email address before continuing"
   end
 
-  scenario "locks account after 3 failed attempts" do
+  scenario "locks account after 10 failed attempts" do
 
     email = "someone@example.tld"
     create(:user, email: email, password: "somepassword")
 
     visit new_user_session_path
 
-    login email, "1st-try-wrong-password"
-    expect(page).to have_content "Invalid email or password"
-    
-    login email, "2nd-try-wrong-password" 
+    (1..8).each do |attempt_num|
+      login email, "wrong-password #{attempt_num}"
+      expect(page).to have_content "Invalid email or password"
+    end
+
+    login email, "wrong-password 9"
     expect(page).to have_content "You have one more attempt before your account is locked"
 
-    login email, "3rd-try-wrong-password"
+    login email, "wrong-password 10"
     expect(page).to have_content "Your account is locked."
 
   end

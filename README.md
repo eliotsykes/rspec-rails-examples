@@ -22,6 +22,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
 
 - [Support Configuration](#support-configuration)
 - [Run Specs in a Random Order](#run-specs-in-a-random-order)
+- [Testing Production Errors](#testing-production-errors)
 - [Testing Rake Tasks with RSpec](#testing-rake-tasks-with-rspec)
 - [Pry-rescue debugging](#pry-rescue-debugging)
 - [Time Travel Examples](#time-travel-examples)
@@ -41,6 +42,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
   - [Matchers](#matchers)
   - [Generators](#generators)
   - [Feature Specs & Docs](#feature-specs--docs)
+  - [API Request Specs, Docs, & Helpers](#api-request-specs-docs--helpers)
   - [Mailer Specs & Docs](#mailer-specs--docs)
   - [Controller Specs & Docs](#controller-specs--docs)
   - [View Specs & Docs](#view-specs--docs)
@@ -73,11 +75,17 @@ The specs run in a random order each time the test suite is run. This helps prev
 Random order test runs are configured using the `config.order = :random` and `Kernel.srand config.seed` options in [spec/spec_helper.rb](spec/spec_helper.rb).
 
 
+# Testing Production Errors
+
+When errors are raised, the Rails test environment may not behave as in production. The test environment may mask the actual error response you want to test. To help with this, you can disable test environment exception handling temporarily, [spec/support/error_responses.rb](spec/support/error_responses.rb) provides `respond_without_detailed_exceptions`. See it in use in [spec/api/v1/token_spec.rb](spec/api/v1/token_spec.rb) to provide production-like error responses in the test environment.
+
+
 # Testing Rake Tasks with RSpec
 
 RSpec testing Rake task configuration and example:
 - [spec/support/tasks.rb](spec/support/tasks.rb)
 - [spec/tasks/subscription_tasks_spec.rb](spec/tasks/subscription_tasks_spec.rb)
+
 
 # Pry-rescue debugging
 pry-rescue can be used to debug failing specs, by opening pry's debugger whenever a test failure is encountered. For setup and usage see [pry-rescue's README](https://github.com/ConradIrwin/pry-rescue).
@@ -208,6 +216,7 @@ Custom matchers configuration how-to and examples:
 - Chainable matcher: [spec/matchers/be_confirm_subscription_page.rb](spec/matchers/be_confirm_subscription_page.rb)
 - [spec/matchers/have_error_messages.rb](spec/matchers/have_error_messages.rb)
 - [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
+- Lightweight matcher with `satisfy`: [spec/api/v1/token_spec.rb](spec/api/v1/token_spec.rb)
 
 
 # RSpec-Expectations Docs
@@ -220,41 +229,47 @@ Custom matchers configuration how-to and examples:
 - [spec/controllers/subscriptions_controller_spec.rb](spec/controllers/subscriptions_controller_spec.rb)
 - [spec/mailers/subscription_mailer_spec.rb](spec/mailers/subscription_mailer_spec.rb)
 - [spec/models/subscription_spec.rb](spec/models/subscription_spec.rb)
-- [RSpec Mocks API](https://relishapp.com/rspec/rspec-mocks/v/3-1/docs)
+- [RSpec Mocks API](https://relishapp.com/rspec/rspec-mocks/docs)
 
 # RSpec-Rails
-See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/v/3-1/docs) for installation instructions.
+See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/docs) for installation instructions.
 
 ## Matchers
-- https://relishapp.com/rspec/rspec-rails/v/3-1/docs/matchers
+- https://relishapp.com/rspec/rspec-rails/docs/matchers
 
 ## Generators
-- https://relishapp.com/rspec/rspec-rails/v/3-1/docs/generators
+- https://relishapp.com/rspec/rspec-rails/docs/generators
 
 ## Feature Specs & Docs
 - [spec/features/subscribe_to_newsletter_spec.rb](spec/features/subscribe_to_newsletter_spec.rb)
-- [Feature specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/feature-specs/feature-spec)
+- [Feature specs API](https://relishapp.com/rspec/rspec-rails/docs/feature-specs/feature-spec)
+
+## API Request Specs, Docs, & Helpers
+- [spec/api/v1/token_spec.rb](spec/api/v1/token_spec.rb)
+- [spec/support/json_helper.rb](spec/support/json_helper.rb)
+- [spec/support/error_responses.rb](spec/support/error_responses.rb)
+- [Request specs API](https://relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec)
 
 ## Mailer Specs & Docs
 - [spec/mailers/subscription_mailer_spec.rb](spec/mailers/subscription_mailer_spec.rb)
-- [Mailer specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/mailer-specs/url-helpers-in-mailer-examples)
+- [Mailer specs API](https://relishapp.com/rspec/rspec-rails/docs/mailer-specs/url-helpers-in-mailer-examples)
 
 ## Controller Specs & Docs
 - [spec/controllers/subscriptions_controller_spec.rb](spec/controllers/subscriptions_controller_spec.rb)
-- [Controller specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/controller-specs)
+- [Controller specs API](https://relishapp.com/rspec/rspec-rails/docs/controller-specs)
 - [Controller specs cheatsheet](https://gist.github.com/eliotsykes/5b71277b0813fbc0df56)
 
 ## View Specs & Docs
 - [The Big List of View Specs](https://eliotsykes.com/view-specs)
-- [View specs API](https://relishapp.com/rspec/rspec-rails/v/3-3/docs/view-specs)
+- [View specs API](https://relishapp.com/rspec/rspec-rails/docs/view-specs)
 
 ## Helper Specs & Docs
 - [spec/helpers/application_helper_spec.rb](spec/helpers/application_helper_spec.rb)
-- [Helper specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/helper-specs/helper-spec)
+- [Helper specs API](https://relishapp.com/rspec/rspec-rails/docs/helper-specs/helper-spec)
 
 ## Routing Specs & Docs
 - [spec/routing/subscriptions_routing_spec.rb](spec/routing/subscriptions_routing_spec.rb)
-- [Routing specs API](https://relishapp.com/rspec/rspec-rails/v/3-1/docs/routing-specs)
+- [Routing specs API](https://relishapp.com/rspec/rspec-rails/docs/routing-specs)
 
 
 # Enable Spring for RSpec
