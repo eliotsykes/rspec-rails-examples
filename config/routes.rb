@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :emails, only: :index, format: :js
+
   root to: "pages#index"
   get "share" => "pages#share"
 

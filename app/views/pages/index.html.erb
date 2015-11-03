@@ -10,3 +10,18 @@
     <%= link_to "Subscribe to newsletter", new_subscription_path %>
   </nav>
 <% end %>
+
+
+<%= form_tag do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email, '',
+        inputmode: :email,
+        list: :emails,
+        'data-remote': true,
+        'data-method': :get,
+        'data-url': '/emails',
+        'oninput': 'jQuery(this).change();'
+  %>
+  <datalist id="emails">
+  </datalist>
+<% end %>
