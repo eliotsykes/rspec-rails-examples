@@ -16,7 +16,9 @@ See the well-commented files in the [spec/support](spec/support) directory for w
 
 Hopefully this will be of help to those of you learning RSpec and Rails. If there's anything missing you'd like to see covered in the project, please submit your request via the [issue tracker](https://github.com/eliotsykes/rspec-rails-examples/issues), I'd be happy to help &mdash; [_Eliot Sykes_](https://eliotsykes.com)
 
+**PS. Interested in growing your skills *and* supporting this project?** Learn with the [TDD Masterclass](https://eliotsykes.com/#tdd), get [Test Coverage First Aid](https://eliotsykes.com/#coverage) for your app, or grow with [one-to-one coaching for Rails developers](https://eliotsykes.com/#coach).
 
+---
 
 <!-- MarkdownTOC depth=0 autolink=true bracket=round -->
 
