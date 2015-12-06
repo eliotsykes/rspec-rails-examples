@@ -171,7 +171,7 @@ Puffing Billy configuration how-to and examples:
 - [spec/support/puffing_billy.rb](spec/support/puffing_billy.rb)
 - [spec/features/share_page_spec.rb](spec/features/share_page_spec.rb)
 - [Cache options](https://github.com/oesmith/puffing-billy#caching)
-- [Cached responses in spec/support/http_cache/billy](spec/support/http_cache/billy)
+- [Cached responses in spec/support/http_cache/frontend](spec/support/http_cache/frontend)
 
 
 # Shoulda-Matchers Examples
