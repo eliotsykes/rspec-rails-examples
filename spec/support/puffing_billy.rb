@@ -32,7 +32,7 @@ Billy.configure do |c|
   # to false when first recording a 3rd party interaction. After
   # the recording has been stored to cache_path, then set
   # non_whitelisted_requests_disabled back to true.
-  c.non_whitelisted_requests_disabled = false
+  c.non_whitelisted_requests_disabled = true
 end
 
 # https://github.com/oesmith/puffing-billy#working-with-vcr-and-webmock
