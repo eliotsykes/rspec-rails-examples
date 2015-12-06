@@ -3,6 +3,19 @@
 <% if user_signed_in? %>
   <p>Hello, <%= current_user.email %></p>
   <nav><%= button_to "Log out", destroy_user_session_path, method: :delete %></nav>
+
+  <form action="/charge" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+      data-label="Upgrade Membership"
+      data-name="RSpec Rails Examples"
+      data-description="Member Upgrade"
+      data-currency="usd"
+      data-amount="999">
+    </script>
+  </form>
+
 <% else %>
   <p>Not registered? <%= link_to "Sign up", new_user_registration_path %></p>
   <nav>
