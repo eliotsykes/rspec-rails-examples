@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
+  ROLES = ["standard", "premium"].freeze
+
+  validates_inclusion_of :role, in: ROLES
+
   has_many :access_tokens, dependent: :destroy
 
   def issue_access_token
