@@ -52,6 +52,7 @@ Hopefully this will be of help to those of you learning RSpec and Rails. If ther
   - [Routing Specs & Docs](#routing-specs--docs)
 - [Enable Spring for RSpec](#enable-spring-for-rspec)
 - [Automated Continuous Integration with Travis CI](#automated-continuous-integration-with-travis-ci)
+- [Stripe](#stripe)
 - [Contributors](#contributors)
 
 <!-- /MarkdownTOC -->
@@ -310,6 +311,19 @@ Travis CI configuration how-to and example:
 - [.travis.yml](.travis.yml) - Travis CI's configuration file (with instructions)
 - [Our Travis CI build!](https://travis-ci.org/eliotsykes/rspec-rails-examples)
 - Our Travis CI badge (hopefully its green): [![Build Status](https://travis-ci.org/eliotsykes/rspec-rails-examples.svg?branch=master)](https://travis-ci.org/eliotsykes/rspec-rails-examples)
+
+
+# Stripe
+
+The app uses Stripe to handle payments for users wishing to upgrade their membership from standard to premium.
+
+You can test Stripe's JavaScript integration without being dependent on Stripe's test environment network availability. For reliable, faster tests, its usually a good idea to make your tests work independently of any 3rd party environments.
+
+To remove the dependency on Stripe's environment, the test suite relies on Puffing Billy mocking the Stripe HTTP responses in the browser.
+
+- [spec/features/user_upgrades_spec.rb](spec/features/user_upgrades_spec.rb)
+- [spec/support/http_cache/frontend/](spec/support/http_cache/frontend/) stores Stripe cached HTTP responses for Puffing Billy
+- [Stripe testing guide](https://stripe.com/docs/testing) with card numbers for testing different error states
 
 ---
 
