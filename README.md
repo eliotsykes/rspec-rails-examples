@@ -85,7 +85,7 @@ When errors are raised, the Rails test environment may not behave as in producti
 # Testing Rake Tasks with RSpec
 
 RSpec testing Rake task configuration and example:
-- [spec/support/tasks.rb](spec/support/tasks.rb)
+- [spec/support/tasks.rb](spec/support/tasks.rb) essential to load Rake tasks before specs run
 - [spec/tasks/subscription_tasks_spec.rb](spec/tasks/subscription_tasks_spec.rb)
 
 

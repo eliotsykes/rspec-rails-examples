@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# IMPORTANT: Add spec/support/tasks.rb to your project to load rake tasks.
+
 RSpec.describe "Subscription tasks", :type => :task do
 
   context "subscription:confirmation_overdue:delete" do
@@ -34,7 +36,7 @@ RSpec.describe "Subscription tasks", :type => :task do
 
     def invoke_task
       task = Rake::Task["subscription:confirmation_overdue:delete"]
-      # Ensure task is re-enabled, as rake tasks by default are disabled 
+      # Ensure task is re-enabled, as rake tasks by default are disabled
       # after running once within a process http://pivotallabs.com/how-i-test-rake-tasks/
       task.reenable
       task.invoke
