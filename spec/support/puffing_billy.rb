@@ -32,7 +32,12 @@ Billy.configure do |c|
   # to false when first recording a 3rd party interaction. After
   # the recording has been stored to cache_path, then set
   # non_whitelisted_requests_disabled back to true.
-  c.non_whitelisted_requests_disabled = true
+  #
+  # To enable recording new responses temporarily, run the individual spec
+  # and prepend with BILLY_RECORDING set to true:
+  # BILLY_RECORDING=true bin/rspec spec/features/user_upgrades_spec.rb
+  prevent_recording = ('true' != ENV['BILLY_RECORDING'])
+  c.non_whitelisted_requests_disabled = prevent_recording
 end
 
 # https://github.com/oesmith/puffing-billy#working-with-vcr-and-webmock
@@ -43,12 +48,16 @@ if defined?(VCR)
 
   def handled_by_billy?(request)
     # browser_referer?(request)
-    browser_user_agent?(request)
+    browser_user_agent?(request) && browser_test_in_progress?
   end
 
   def browser_user_agent?(request)
     user_agent = !request.headers["User-Agent"].blank? && request.headers["User-Agent"].first
-    is_real_browser_user_agent = user_agent != "Ruby"
+    user_agent != "Ruby"
+  end
+
+  def browser_test_in_progress?
+    Capybara.current_driver != :rack_test
   end
 
   # def allowed_referers
@@ -61,7 +70,7 @@ if defined?(VCR)
 
   # def browser_referer?(request)
   #   referer = !request.headers["Referer"].blank? && request.headers["Referer"].first
-  #   handled = referer && allowed_referers.any? { |pattern| pattern =~ referer }
+  #   referer && allowed_referers.any? { |pattern| pattern =~ referer }
   # end
 end
 

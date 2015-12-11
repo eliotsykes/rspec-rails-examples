@@ -169,7 +169,7 @@ Capybara configuration how-to and examples:
 If you need to debug Puffing Billy, refer to its output in `log/test.log`.
 
 Puffing Billy configuration how-to and examples:
-- [spec/support/puffing_billy.rb](spec/support/puffing_billy.rb)
+- [spec/support/puffing_billy.rb](spec/support/puffing_billy.rb) - see comments on recording responses with `BILLY_RECORDING` environment variable
 - [spec/features/share_page_spec.rb](spec/features/share_page_spec.rb)
 - [Cache options](https://github.com/oesmith/puffing-billy#caching)
 - [Cached responses in spec/support/http_cache/frontend](spec/support/http_cache/frontend)
