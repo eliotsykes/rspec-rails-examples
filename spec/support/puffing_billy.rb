@@ -29,6 +29,15 @@ Billy.configure do |c|
   c.non_successful_cache_disabled = false
   c.non_successful_error_level = :warn
 
+  # merge_cached_responses_whitelist are URI regex patterns for responses
+  # that will be merged into a single cached response. Useful for analytics,
+  # social buttons with minor URL variations. A response will be recorded
+  # once and reused.
+  c.merge_cached_responses_whitelist = [
+    /www.mozilla.org/, # Firefox Welcome Page
+    /api.mixpanel.com/ # Analytics
+  ]
+
   # cache_path is where responses from external URLs will be saved as YAML.
   c.cache_path = "spec/support/http_cache/frontend/"
 
