@@ -20,6 +20,7 @@ Billy.configure do |c|
   c.cache = true
   c.cache_request_headers = false
   c.ignore_params = [
+    # Stripe URLs
     'https://checkout.stripe.com/v3/0gSHV35gmU4Tq7Rgurt2A.html',
     'https://q.stripe.com/',
     'https://api.stripe.com/v1/tokens'
@@ -84,6 +85,16 @@ Capybara.javascript_driver = :selenium_billy # Uses Firefox
 # Capybara.javascript_driver = :selenium_chrome_billy
 # Capybara.javascript_driver = :webkit_billy
 # Capybara.javascript_driver = :poltergeist_billy
+
+module BillyCache
+  def use_billy_cache(scope, &block)
+    proxy.cache.with_scope(scope, &block)
+  end
+end
+
+RSpec.configure do |config|
+  config.include BillyCache, type: :feature
+end
 
 # 6. Start using Puffing Billy. See spec/features/share_page_spec.rb for an example,
 #    and find your cached responses in spec/support/http_cache/frontend
