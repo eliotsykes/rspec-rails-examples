@@ -63,7 +63,7 @@ if defined?(VCR)
 
   def handled_by_billy?(request)
     # browser_referer?(request)
-    browser_user_agent?(request) && browser_test_in_progress?
+    browser_user_agent?(request) && puffing_billy_driver_active?
   end
 
   def browser_user_agent?(request)
@@ -71,8 +71,8 @@ if defined?(VCR)
     user_agent != "Ruby"
   end
 
-  def browser_test_in_progress?
-    Capybara.current_driver != :rack_test
+  def puffing_billy_driver_active?
+    Capybara.current_driver =~ /_billy\z/
   end
 
   # def allowed_referers
