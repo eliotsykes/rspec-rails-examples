@@ -19,6 +19,11 @@ require 'billy/rspec'
 Billy.configure do |c|
   c.cache = true
   c.cache_request_headers = false
+  c.ignore_params = [
+    'https://checkout.stripe.com/v3/0gSHV35gmU4Tq7Rgurt2A.html',
+    'https://q.stripe.com/',
+    'https://api.stripe.com/v1/tokens'
+  ]
   c.persist_cache = true
   c.non_successful_cache_disabled = false
   c.non_successful_error_level = :warn
