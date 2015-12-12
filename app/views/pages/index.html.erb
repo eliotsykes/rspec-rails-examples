@@ -4,7 +4,7 @@
   <p>Hello, <%= current_user.email %></p>
   <nav><%= button_to "Log out", destroy_user_session_path, method: :delete %></nav>
 
-  <form action="/charge" method="POST">
+  <%= form_tag "/charge" do %>
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
@@ -14,7 +14,7 @@
       data-currency="usd"
       data-amount="999">
     </script>
-  </form>
+  <% end %>
 
 <% else %>
   <p>Not registered? <%= link_to "Sign up", new_user_registration_path %></p>
