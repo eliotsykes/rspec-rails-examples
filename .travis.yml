@@ -26,9 +26,9 @@ before_install:
 # the default script option for Travis and most Rails projects will want this
 # when starting out as this usually runs `rake test`.
 
-# Commented out `script` option as default is what we want:
-# script:
-#   - rake # `rake` is the Travis default, which runs `rake test`
+script:
+  - bin/rake db:migrate RAILS_ENV=test
+  - bin/rake
 
 # 5. OPTIONAL Add a Build Status Badge to your README, follow instructions here:
 #    http://docs.travis-ci.com/user/status-images/
