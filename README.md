@@ -279,10 +279,10 @@ See [RSpec Rails](https://relishapp.com/rspec/rspec-rails/docs) for installation
 
 To test a custom validator you've written, refer to these validator specs from other Rails projects. These specs each follow a similar pattern where the validator is tested with a dummy model that is defined and used within the spec only. Using a dummy model is usually preferable to writing a validator spec that is dependent on a real model.
 
-- [`blacklist_validator_spec.rb`](https://github.com/calagator/calagator/blob/b5fb7098fb94627b9791a0e40686be4d80c9c0c9/spec/lib/calagator/blacklist_validator_spec.rb) from Calagator
-- [`quality_title_validator_spec.rb`](https://github.com/discourse/discourse/blob/00342faff9593a78d4c27c774ff75e1dd8819f34/spec/components/validators/quality_title_validator_spec.rb) from Discourse
-- [`phone_number_validator_spec.rb`](https://github.com/netguru/people/blob/410c8f9355b7295af9711aeade8210a1a97e0a0c/spec/validators/phone_number_validator_spec.rb) from Netguru-People
-- [`no_empty_spaces_validator_spec.rb`](https://github.com/danbartlett/opensit/blob/9d434bc6157b470c479f44c87c945c4652d37db1/spec/validators/no_empty_spaces_validator_spec.rb) from OpenSit
+- [blacklist_validator_spec.rb](https://github.com/calagator/calagator/blob/b5fb7098fb94627b9791a0e40686be4d80c9c0c9/spec/lib/calagator/blacklist_validator_spec.rb) from Calagator
+- [quality_title_validator_spec.rb](https://github.com/discourse/discourse/blob/00342faff9593a78d4c27c774ff75e1dd8819f34/spec/components/validators/quality_title_validator_spec.rb) from Discourse
+- [phone_number_validator_spec.rb](https://github.com/netguru/people/blob/410c8f9355b7295af9711aeade8210a1a97e0a0c/spec/validators/phone_number_validator_spec.rb) from Netguru-People
+- [no_empty_spaces_validator_spec.rb](https://github.com/danbartlett/opensit/blob/9d434bc6157b470c479f44c87c945c4652d37db1/spec/validators/no_empty_spaces_validator_spec.rb) from OpenSit
 
 Related task: [Demonstrate Validator Specs within rspec-rails-examples](https://github.com/eliotsykes/rspec-rails-examples/issues/106)
 
