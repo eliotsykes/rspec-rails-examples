@@ -17,26 +17,33 @@ require 'billy/rspec'
 # 4. Configure cache to behave as required. See all available options at:
 #    https://github.com/oesmith/puffing-billy#caching
 Billy.configure do |c|
-  c.cache = true
-  c.cache_request_headers = false
-  c.ignore_params = [
-    # Stripe URLs
-    'https://checkout.stripe.com/v3/0gSHV35gmU4Tq7Rgurt2A.html',
+  stripe_urls_with_ignorable_query_string_params = [
     'https://q.stripe.com/',
     'https://api.stripe.com/v1/tokens'
   ]
-  c.persist_cache = true
-  c.non_successful_cache_disabled = false
-  c.non_successful_error_level = :warn
 
+  c.ignore_params += stripe_urls_with_ignorable_query_string_params
+  
+  stripe_html_url_pattern = %r{https://checkout\.stripe\.com(:443)?/v3/\w+\.html\?distinct_id=.+}
+  firefox_url_pattern = %r{\.mozilla\.com}
+  mixpanel_analytics_url_pattern = %r{api\.mixpanel\.com}
+  
   # merge_cached_responses_whitelist are URI regex patterns for responses
   # that will be merged into a single cached response. Useful for analytics,
   # social buttons with minor URL variations. A response will be recorded
   # once and reused.
   c.merge_cached_responses_whitelist = [
-    /www.mozilla.org/, # Firefox Welcome Page
-    /api.mixpanel.com/ # Analytics
+    stripe_html_url_pattern,
+    firefox_url_pattern,
+    mixpanel_analytics_url_pattern
   ]
+  
+  c.cache = true
+  c.cache_request_headers = false
+  
+  c.persist_cache = true
+  c.non_successful_cache_disabled = false
+  c.non_successful_error_level = :warn
 
   # cache_path is where responses from external URLs will be saved as YAML.
   c.cache_path = "spec/support/http_cache/frontend/"
@@ -95,6 +102,12 @@ Capybara.javascript_driver = :selenium_billy # Uses Firefox
 # Capybara.javascript_driver = :webkit_billy
 # Capybara.javascript_driver = :poltergeist_billy
 
+# 6. Use an always-available server_port for Capybara so Puffing Billy
+#    cached responses that store localhost URL with port (e.g. some
+#    CORS Access-Control-Allow-Origin response headers) are consistent
+#    between test runs.
+Capybara.server_port = 54068
+
 module BillyCache
   def use_billy_cache(scope, &block)
     proxy.cache.with_scope(scope, &block)
@@ -105,7 +118,7 @@ RSpec.configure do |config|
   config.include BillyCache, type: :feature
 end
 
-# 6. Start using Puffing Billy. See spec/features/share_page_spec.rb for an example,
+# 7. Start using Puffing Billy. See spec/features/share_page_spec.rb for an example,
 #    and find your cached responses in spec/support/http_cache/frontend
 
 # Suggested docs
