@@ -109,7 +109,7 @@ Capybara.javascript_driver = :selenium_billy # Uses Firefox
 Capybara.server_port = 54068
 
 module BillyCache
-  def use_billy_cache(scope, &block)
+  def with_browser_responses(scope, &block)
     proxy.cache.with_scope(scope, &block)
   end
 end
