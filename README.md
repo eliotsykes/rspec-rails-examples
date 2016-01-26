@@ -173,7 +173,7 @@ Puffing Billy configuration how-to and examples:
 - [spec/features/user_upgrades_spec.rb](spec/features/user_upgrades_spec.rb)
 - [spec/features/share_page_spec.rb](spec/features/share_page_spec.rb)
 - [Cache options](https://github.com/oesmith/puffing-billy#caching)
-- [Cached responses in spec/support/http_cache/frontend](spec/support/http_cache/frontend)
+- [Cached responses in spec/support/http_cache/browser](spec/support/http_cache/browser)
 
 
 # Shoulda-Matchers Examples
