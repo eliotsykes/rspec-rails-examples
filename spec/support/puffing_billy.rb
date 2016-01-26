@@ -146,7 +146,7 @@ RSpec.configure do |config|
 end
 
 # 7. Start using Puffing Billy. See spec/features/share_page_spec.rb for an example,
-#    and find your cached responses in spec/support/http_cache/frontend
+#    and find your cached responses in spec/support/http_cache/browser
 
 # Suggested docs
 # --------------
