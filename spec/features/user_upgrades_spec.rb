@@ -3,9 +3,9 @@ require "rails_helper"
 feature "User upgrades", js: true do
 
   scenario "successfully" do
-    user = create(:user, role: "standard")
-
     with_browser_responses('stripe checkout') do
+      user = create(:user, role: "standard")
+
       visit new_user_session_path
       login user
       click_button "Upgrade Membership"
@@ -20,11 +20,11 @@ feature "User upgrades", js: true do
         end
         expect(page).to have_no_button "Upgrade Membership"
       end
+      
+      expect(page).to have_content "Charged!"
+      expect(page).to have_content "Thank you for upgrading your membership!"
+      expect(user.reload.premium?).to eq true
     end
-
-    expect(page).to have_content "Charged!"
-    expect(page).to have_content "Thank you for upgrading your membership!"
-    expect(user.reload.premium?).to eq true
   end
 
   xscenario "unsuccessfully"
