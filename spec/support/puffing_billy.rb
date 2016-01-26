@@ -46,7 +46,7 @@ Billy.configure do |c|
   c.non_successful_error_level = :warn
 
   # cache_path is where responses from external URLs will be saved as YAML.
-  c.cache_path = "spec/support/http_cache/frontend/"
+  c.cache_path = "spec/support/http_cache/browser/"
 
   # Avoid having tests dependent on external URLs.
   #
