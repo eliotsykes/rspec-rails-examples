@@ -56,4 +56,18 @@ describe User do
       expect(premium_user.standard?).to eq false
     end
   end
+  
+  describe '#upgrade' do
+    it 'upgrades standard user to premium' do
+      user = create(:user, role: 'standard')
+      user.upgrade
+      expect(user.reload.role).to eq 'premium'
+    end
+    
+    it 'does not change premium user role' do
+      user = create(:user, role: 'premium')
+      user.upgrade
+      expect(user.reload.role).to eq 'premium'
+    end
+  end
 end

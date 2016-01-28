@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
   def standard?
     STANDARD == role
   end
+  
+  def upgrade
+    update!(role: PREMIUM)
+  end
 end
