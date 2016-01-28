@@ -32,4 +32,28 @@ describe User do
       expect(User.new.role).to eq "standard"
     end
   end
+  
+  describe '#upgradeable?' do
+    it 'returns true for standard user' do
+      standard_user = User.new(role: 'standard')
+      expect(standard_user.upgradeable?).to eq true
+    end
+    
+    it 'returns false for premium user' do
+      premium_user = User.new(role: 'premium')
+      expect(premium_user.upgradeable?).to eq false
+    end
+  end
+  
+  describe '#standard?' do
+    it 'returns true for standard user' do
+      standard_user = User.new(role: 'standard')
+      expect(standard_user.standard?).to eq true
+    end
+    
+    it 'returns false for premium user' do
+      premium_user = User.new(role: 'premium')
+      expect(premium_user.standard?).to eq false
+    end
+  end
 end
