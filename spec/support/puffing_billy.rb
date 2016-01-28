@@ -11,40 +11,9 @@
 #   gem 'puffing-billy'
 # end
 #
-# 3. Create a file like this one you're reading in spec/support/puffing_billy.rb:
+# 3. Create a file like this one you're reading in spec/support/puffing_billy.rb.
+#
 require 'billy/rspec'
-
-
-module Billy
-  # puffing-billy/lib/billy/config.rb
-  class Config
-    attr_accessor :after_cache_handles_request
-  end
-
-  # puffing-billy/lib/billy/handlers/cache_handler.rb
-  class CacheHandler
-    def handle_request(method, url, headers, body)
-      method = method.downcase
-      if handles_request?(method, url, headers, body)
-        if (response = cache.fetch(method, url, body))
-          Billy.log(:info, "puffing-billy: CACHE #{method} for '#{url}'")
-
-          if Billy.config.dynamic_jsonp
-            replace_response_callback(response, url)
-          end
-          
-          if Billy.config.after_cache_handles_request
-            request = { method: method, url: url, headers: headers, body: body }
-            Billy.config.after_cache_handles_request.call(request, response)
-          end
-          
-          return response
-        end
-      end
-      nil
-    end
-  end  
-end
 
 # 4. Configure cache to behave as required. See all available options at:
 #    https://github.com/oesmith/puffing-billy#caching
@@ -82,6 +51,9 @@ Billy.configure do |c|
       )
     end
   end
+  # 5. Copy the spec/support/puffing_billy_extensions.rb file to your
+  #    project so the after_cache_handles_request hook is available.
+  require_relative 'puffing_billy_extensions'
   c.after_cache_handles_request = fix_cors_header
   
   c.persist_cache = true
@@ -116,7 +88,7 @@ if defined?(VCR)
   end
 
   def browser_user_agent?(request)
-    user_agent = !request.headers["User-Agent"].blank? && request.headers["User-Agent"].first
+    user_agent = request.headers["User-Agent"].try(:first)
     user_agent != "Ruby"
   end
 
@@ -124,18 +96,17 @@ if defined?(VCR)
     Capybara.current_driver =~ /_billy\z/
   end
 
-  # TODO: Put in capybara-extensions.rb helpers for:
-  # - Capybara.current_session.server.host
-  # - Capybara.current_session.server.port
 end
 
-# 5. Uncomment the *_billy driver for your desired browser:
+# 6. Uncomment the *_billy driver for your desired browser:
 Capybara.javascript_driver = :selenium_billy # Uses Firefox
 # Capybara.javascript_driver = :selenium_chrome_billy
 # Capybara.javascript_driver = :webkit_billy
 # Capybara.javascript_driver = :poltergeist_billy
 
 module BillyCache
+  # Use with_browser_responses('describe interactions here') do ... end
+  # in feature spec scenarios.
   def with_browser_responses(scope, &block)
     proxy.cache.with_scope(scope, &block)
   end
@@ -145,7 +116,8 @@ RSpec.configure do |config|
   config.include BillyCache, type: :feature
 end
 
-# 7. Start using Puffing Billy. See spec/features/share_page_spec.rb for an example,
+# 7. Start using Puffing Billy. See spec/features/share_page_spec.rb and
+#    spec/features/user_upgrades_spec.rb for sample usage,
 #    and find your cached responses in spec/support/http_cache/browser
 
 # Suggested docs
