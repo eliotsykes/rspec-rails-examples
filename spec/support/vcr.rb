@@ -11,7 +11,7 @@
 
 # 2. Create a file like this one you're reading in spec/support/vcr.rb
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/support/http_cache/vcr"
+  config.cassette_library_dir = "spec/support/http_cache/server"
   config.hook_into :webmock
 
   # Only want VCR to intercept requests to external URLs.
