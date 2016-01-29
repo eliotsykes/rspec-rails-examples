@@ -89,11 +89,11 @@ if defined?(VCR)
 
   def browser_user_agent?(request)
     user_agent = request.headers["User-Agent"].try(:first)
-    user_agent != "Ruby"
+    /Firefox/ === user_agent
   end
 
   def puffing_billy_driver_active?
-    Capybara.current_driver =~ /_billy\z/
+    /_billy\z/ === Capybara.current_driver
   end
 
 end
