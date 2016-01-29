@@ -71,9 +71,9 @@ Billy.configure do |c|
   # non_whitelisted_requests_disabled back to true.
   #
   # To enable recording new responses temporarily, run the individual spec
-  # and prepend with BILLY_RECORDING set to true:
-  # BILLY_RECORDING=true bin/rspec spec/features/user_upgrades_spec.rb
-  prevent_recording = ('true' != ENV['BILLY_RECORDING'])
+  # and prepend with RECORD set to true:
+  # RECORD=true bin/rspec spec/features/user_upgrades_spec.rb
+  prevent_recording = ('true' != ENV['RECORD'])
   c.non_whitelisted_requests_disabled = prevent_recording
 end
 
