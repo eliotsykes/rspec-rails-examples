@@ -11,11 +11,21 @@
 
 # 2. Create a file like this one you're reading in spec/support/vcr.rb
 VCR.configure do |config|
+  config.default_cassette_options = {
+    decode_compressed_response: true,
+    allow_unused_http_interactions: false,
+    match_requests_on: [:body, :uri, :method]
+  }
   config.cassette_library_dir = "spec/support/http_cache/server"
   config.hook_into :webmock
 
   # Only want VCR to intercept requests to external URLs.
   config.ignore_localhost = true
+  
+  config.allow_http_connections_when_no_cassette = false
+  
+  # Temporarily enable config.debug_logger when debugging VCR:
+  # config.debug_logger = File.open(Rails.root.join('log', 'vcr.log'), 'w')
 end
 
 # 3. Start using VCR. See example use in spec/jobs/headline_scraper_job_spec.rb.
