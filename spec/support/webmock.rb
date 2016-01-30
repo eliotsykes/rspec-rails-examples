@@ -1,8 +1,6 @@
 require 'webmock/rspec'
 
-# To enable recording new responses temporarily, run the individual spec
-# and prepend with RECORD set to true:
-# RECORD=true bin/rspec spec/features/user_upgrades_spec.rb
-prevent_recording = ('true' != ENV['RECORD'])
+# 2. Copy spec/support/http_record.rb into your project:
+require_relative 'http_record'
 
-WebMock.disable_net_connect!(allow_localhost: true) if prevent_recording
+WebMock.disable_net_connect!(allow_localhost: true) if HttpRecord.off?

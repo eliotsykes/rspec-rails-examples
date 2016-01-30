@@ -12,10 +12,13 @@
 # end
 #
 # 3. Create a file like this one you're reading in spec/support/puffing_billy.rb.
-#
 require 'billy/rspec'
 
-# 4. Configure cache to behave as required. See all available options at:
+# 4. Copy the files in spec/support/ named below into your project:
+require_relative 'http_record'
+require_relative 'puffing_billy_extensions'
+
+# 5. Configure cache to behave as required. See all available options at:
 #    https://github.com/oesmith/puffing-billy#caching
 Billy.configure do |c|
   stripe_urls_with_ignorable_query_string_params = [
@@ -51,9 +54,6 @@ Billy.configure do |c|
       )
     end
   end
-  # 5. Copy the spec/support/puffing_billy_extensions.rb file to your
-  #    project so the after_cache_handles_request hook is available.
-  require_relative 'puffing_billy_extensions'
   c.after_cache_handles_request = fix_cors_header
   
   c.persist_cache = true
@@ -65,19 +65,13 @@ Billy.configure do |c|
 
   # Avoid having tests dependent on external URLs.
   #
-  # Only set non_whitelisted_requests_disabled **temporarily**
-  # to false when first recording a 3rd party interaction. After
-  # the recording has been stored to cache_path, then set
-  # non_whitelisted_requests_disabled back to true.
-  #
   # To enable recording new responses temporarily, run the individual spec
   # and prepend with RECORD set to true:
   # RECORD=true bin/rspec spec/features/user_upgrades_spec.rb
-  prevent_recording = ('true' != ENV['RECORD'])
-  c.non_whitelisted_requests_disabled = prevent_recording
+  c.non_whitelisted_requests_disabled = HttpRecord.off?
 end
 
-# https://github.com/oesmith/puffing-billy#working-with-vcr-and-webmock
+# VCR configured to ignore HTTP interactions handled by Puffing Billy
 if defined?(VCR)
   VCR.configure do |config|
     config.ignore_request { |request| handled_by_billy?(request) }
