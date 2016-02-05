@@ -28,6 +28,9 @@ group :development, :test do
   gem 'selenium-webdriver' # used by JavaScript-dependent feature specs (`js: true`)
   gem 'spring' # Spring background-runs app in dev for speed
   gem 'spring-commands-rspec' # Enable Spring for RSpec
+end
+
+group :development do
   gem 'web-console', '~> 2.0' # Access IRB on error pages or by <%= console %> in views
 end
 
