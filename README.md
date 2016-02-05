@@ -335,4 +335,5 @@ Travis CI configuration how-to and example:
 - Andy Waite http://blog.andywaite.com/
 - Alex Birdsall https://github.com/ambirdsall
 - Lee Smith https://github.com/leesmith
+- Abdullah Alger http://www.abdullahalger.com/
 - Your name here, contributions are welcome and easy, just fork the GitHub repo, make your changes, then submit your pull request! Please ask if you'd like some help.
