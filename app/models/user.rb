@@ -5,9 +5,27 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
+  STANDARD = 'standard'
+  PREMIUM = 'premium'
+  ROLES = [STANDARD, PREMIUM].freeze
+
+  validates_inclusion_of :role, in: ROLES
+
   has_many :access_tokens, dependent: :destroy
 
   def issue_access_token
     access_tokens.create!
+  end
+  
+  def upgradeable?
+    standard?
+  end
+  
+  def standard?
+    STANDARD == role
+  end
+  
+  def upgrade
+    update!(role: PREMIUM)
   end
 end
