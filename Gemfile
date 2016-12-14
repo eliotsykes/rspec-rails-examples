@@ -19,6 +19,7 @@ group :development, :test do
   gem 'capybara'
   # gem 'chromedriver-helper' # helps with using Chrome in feature specs
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'faker'
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-rescue'
