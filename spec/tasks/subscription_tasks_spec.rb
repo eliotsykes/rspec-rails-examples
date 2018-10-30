@@ -37,7 +37,7 @@ RSpec.describe "Subscription tasks", :type => :task do
     def invoke_task
       task = Rake::Task["subscription:confirmation_overdue:delete"]
       # Ensure task is re-enabled, as rake tasks by default are disabled
-      # after running once within a process http://pivotallabs.com/how-i-test-rake-tasks/
+      # after running once within a process https://content.pivotal.io/blog/test-your-rake-tasks
       task.reenable
       task.invoke
     end
